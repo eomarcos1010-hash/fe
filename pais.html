@@ -1,0 +1,2334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Área dos Pais — Pequenos na Fé</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f7f6fb;
+    --card: #ffffff;
+    --purple: #8067d9;
+    --purple-dark: #6047b5;
+    --purple-soft: #eee9ff;
+    --blue: #76bce8;
+    --green: #83d5ae;
+    --yellow: #ffd66d;
+    --pink: #efabc8;
+    --text: #292638;
+    --muted: #858092;
+    --border: #ebe7f3;
+    --shadow: 0 15px 40px rgba(70, 52, 125, .08);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 245px;
+    height: 100vh;
+    background: white;
+    border-right: 1px solid var(--border);
+    padding: 25px 16px;
+    z-index: 20;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 10px 28px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #8067d9, #a996eb);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.logo strong {
+    font-size: 17px;
+}
+
+.logo span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.menu-title {
+    color: #aaa5b7;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 10px 12px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #716d7f;
+    padding: 12px 13px;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.menu a:hover {
+    background: #f5f1ff;
+    color: var(--purple);
+}
+
+.menu a.active {
+    background: var(--purple-soft);
+    color: var(--purple-dark);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+    margin-left: 245px;
+    padding: 34px;
+    max-width: 1450px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.breadcrumb {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: 900;
+    margin-top: 5px;
+}
+
+.parent-badge {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 11px 15px;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,255,255,.8),
+            transparent 27%
+        ),
+        linear-gradient(
+            135deg,
+            #eee9ff,
+            #e9f7ff
+        );
+
+    border-radius: 28px;
+    padding: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 28px;
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,.75);
+    color: var(--purple-dark);
+    padding: 8px 13px;
+    border-radius: 30px;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .5px;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 37px;
+    line-height: 1.08;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: #6e687b;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+.hero-art {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+}
+
+/* =========================
+   SUMMARY
+========================= */
+
+.summary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px;
+    margin-bottom: 28px;
+}
+
+.stat {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.stat-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    margin-bottom: 13px;
+}
+
+.stat:nth-child(1) .stat-icon {
+    background: #eee9ff;
+}
+
+.stat:nth-child(2) .stat-icon {
+    background: #fff4cc;
+}
+
+.stat:nth-child(3) .stat-icon {
+    background: #e4f7ed;
+}
+
+.stat:nth-child(4) .stat-icon {
+    background: #e7f5ff;
+}
+
+.stat strong {
+    font-size: 25px;
+    display: block;
+}
+
+.stat span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* =========================
+   CONTENT GRID
+========================= */
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1.4fr .8fr;
+    gap: 22px;
+    align-items: start;
+}
+
+.card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 23px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    margin-bottom: 22px;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.card-header h2 {
+    font-size: 19px;
+}
+
+.card-header p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-item {
+    margin-bottom: 20px;
+}
+
+.progress-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.progress-name {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.progress-number {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.progress-bar {
+    height: 9px;
+    background: #f0edf5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(
+        90deg,
+        var(--purple),
+        #a997ed
+    );
+    border-radius: inherit;
+    transition: width .5s ease;
+}
+
+/* =========================
+   ACTIVITY
+========================= */
+
+.activity {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 0;
+    border-bottom: 1px solid #f0edf5;
+}
+
+.activity:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 13px;
+    background: #f4f1ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.activity-info {
+    flex: 1;
+}
+
+.activity-info strong {
+    display: block;
+    font-size: 13px;
+}
+
+.activity-info span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.activity-check {
+    color: #3aa96d;
+    font-size: 17px;
+}
+
+/* =========================
+   PRAYER
+========================= */
+
+.prayer-card {
+    background:
+        linear-gradient(
+            135deg,
+            #f0ebff,
+            #edf9ff
+        );
+
+    border-radius: 19px;
+    padding: 19px;
+}
+
+.prayer-label {
+    color: var(--purple-dark);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.prayer-card h3 {
+    margin: 8px 0;
+    font-size: 17px;
+}
+
+.prayer-card p {
+    color: #686276;
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+.prayer-date {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+    margin-top: 12px;
+}
+
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+.achievement-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.achievement {
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 13px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.achievement-icon {
+    font-size: 25px;
+}
+
+.achievement strong {
+    font-size: 11px;
+    display: block;
+}
+
+.achievement span {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* =========================
+   SETTINGS
+========================= */
+
+.setting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0edf5;
+}
+
+.setting:last-child {
+    border-bottom: none;
+}
+
+.setting-info strong {
+    display: block;
+    font-size: 13px;
+}
+
+.setting-info span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.setting-btn {
+    border: 1px solid var(--border);
+    background: #faf9fc;
+    color: var(--purple-dark);
+    border-radius: 10px;
+    padding: 8px 11px;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.danger {
+    color: #c44949;
+}
+
+/* =========================
+   CHILD PROFILE
+========================= */
+
+.child-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.child-avatar {
+    width: 65px;
+    height: 65px;
+    border-radius: 20px;
+    background: linear-gradient(
+        135deg,
+        #eee9ff,
+        #e6f6ff
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+}
+
+.child-profile strong {
+    display: block;
+    font-size: 16px;
+}
+
+.child-profile span {
+    color: var(--muted);
+    font-size: 11px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 23, 45, .55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 100;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-box {
+    width: min(500px, 100%);
+    background: white;
+    border-radius: 25px;
+    padding: 27px;
+    box-shadow: 0 30px 80px rgba(0,0,0,.18);
+}
+
+.modal-box h2 {
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.modal-box p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.modal-close {
+    float: right;
+    border: none;
+    background: #f2eff7;
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.modal-action {
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    background: var(--purple);
+    color: white;
+    border-radius: 12px;
+    padding: 13px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    background: #292638;
+    color: white;
+    padding: 13px 17px;
+    border-radius: 13px;
+    font-size: 12px;
+    font-weight: 800;
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+    transition: .25s;
+    z-index: 200;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+
+    .summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 760px) {
+
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .menu {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .menu a {
+        white-space: nowrap;
+    }
+
+    .main {
+        margin-left: 0;
+        padding: 18px;
+    }
+
+    .hero {
+        padding: 27px;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .hero-art {
+        display: none;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .summary {
+        grid-template-columns: 1fr;
+    }
+
+    .achievement-list {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            P
+        </div>
+
+        <div>
+
+            <strong>
+                Pequenos na Fé
+            </strong>
+
+            <span>
+                Aprender • Brincar • Crescer
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="menu-title">
+        MENU
+    </div>
+
+    <nav class="menu">
+
+        <a href="painel.html">
+            🏠 Início
+        </a>
+
+        <a href="historias.html">
+            📖 Aventuras da Bíblia
+        </a>
+
+        <a href="jesus.html">
+            💜 Conhecendo Jesus
+        </a>
+
+        <a href="ingles.html">
+            🌎 English with Jesus
+        </a>
+
+        <a href="jogos.html">
+            🎮 Jogos da Fé
+        </a>
+
+        <a href="atividades.html">
+            🎨 Ateliê dos Pequenos
+        </a>
+
+
+        </a>
+
+        <a href="momento-deus.html">
+            🙏 Momento com Deus
+        </a>
+
+        <a href="conquistas.html">
+            🏆 Minhas Conquistas
+        </a>
+
+        <a href="pais.html" class="active">
+            👨‍👩‍👧 Área dos Pais
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="main">
+
+    <div class="topbar">
+
+        <div>
+
+            <div class="breadcrumb">
+                Pequenos na Fé / Área dos Pais
+            </div>
+
+            <div class="page-title">
+                Área dos Pais 👨‍👩‍👧
+            </div>
+
+        </div>
+
+        <div class="parent-badge">
+            🔒 Área dos responsáveis
+        </div>
+
+    </div>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                ACOMPANHAMENTO
+            </div>
+
+            <h1>
+                Acompanhe a jornada do pequeno 💜
+            </h1>
+
+            <p>
+                Aqui você consegue acompanhar o progresso,
+                atividades realizadas, conquistas e momentos
+                de aprendizagem da criança.
+            </p>
+
+        </div>
+
+        <div class="hero-art">
+            👨‍👩‍👧
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RESUMO
+    ========================= -->
+
+    <section class="summary">
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                ⭐
+            </div>
+
+            <strong id="totalXP">
+                0
+            </strong>
+
+            <span>
+                XP acumulado
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                📚
+            </div>
+
+            <strong id="atividadesConcluidas">
+                0
+            </strong>
+
+            <span>
+                atividades concluídas
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                🏆
+            </div>
+
+            <strong id="totalConquistas">
+                0
+            </strong>
+
+            <span>
+                conquistas
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-icon">
+                🔥
+            </div>
+
+            <strong id="diasAtivos">
+                0
+            </strong>
+
+            <span>
+                dias de atividade
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <div class="content-grid">
+
+
+        <!-- =========================
+             LEFT
+        ========================= -->
+
+        <div>
+
+
+            <!-- PROGRESSO -->
+
+            <section class="card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            📈 Progresso de aprendizagem
+                        </h2>
+
+                        <p>
+                            Veja como está a jornada.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-top">
+
+                        <span class="progress-name">
+                            📖 Aventuras da Bíblia
+                        </span>
+
+                        <span
+                            class="progress-number"
+                            id="historiasTexto"
+                        >
+                            0%
+                        </span>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            id="historiasBar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-top">
+
+                        <span class="progress-name">
+                            💜 Conhecendo Jesus
+                        </span>
+
+                        <span
+                            class="progress-number"
+                            id="jesusTexto"
+                        >
+                            0%
+                        </span>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            id="jesusBar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-top">
+
+                        <span class="progress-name">
+                            🌎 English with Jesus
+                        </span>
+
+                        <span
+                            class="progress-number"
+                            id="inglesTexto"
+                        >
+                            0%
+                        </span>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            id="inglesBar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-top">
+
+                        <span class="progress-name">
+                            🎮 Jogos da Fé
+                        </span>
+
+                        <span
+                            class="progress-number"
+                            id="jogosTexto"
+                        >
+                            0%
+                        </span>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            id="jogosBar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="progress-item">
+
+                    <div class="progress-top">
+
+                        <span class="progress-name">
+                            🙏 Momento com Deus
+                        </span>
+
+                        <span
+                            class="progress-number"
+                            id="momentosTexto"
+                        >
+                            0%
+                        </span>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div
+                            class="progress-fill"
+                            id="momentosBar"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ATIVIDADES -->
+
+            <section class="card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            📝 Atividades recentes
+                        </h2>
+
+                        <p>
+                            Últimas experiências realizadas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div id="atividadesLista">
+
+                    <div class="activity">
+
+                        <div class="activity-icon">
+                            🌱
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                Ainda não há atividades
+                            </strong>
+
+                            <span>
+                                Comece uma aventura para aparecer aqui.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =========================
+             RIGHT
+        ========================= -->
+
+        <div>
+
+
+            <!-- PERFIL -->
+
+            <section class="card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            👧 Perfil
+                        </h2>
+
+                        <p>
+                            Personagem da criança.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="child-profile">
+
+                    <div
+                        class="child-avatar"
+                        id="childAvatar"
+                    >
+                        🧒
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Pequeno aventureiro
+                        </strong>
+
+                        <span>
+                            Personagem personalizado
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- CONQUISTAS -->
+
+            <section class="card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            🏆 Conquistas
+                        </h2>
+
+                        <p>
+                            Medalhas já desbloqueadas.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="achievement-list"
+                    id="conquistasLista"
+                >
+
+                    <div class="achievement">
+
+                        <div class="achievement-icon">
+                            ⭐
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Primeiros passos
+                            </strong>
+
+                            <span>
+                                Continue explorando.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- PEDIDO -->
+
+            <section class="card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            🙏 Pedido de oração
+                        </h2>
+
+                        <p>
+                            Último pedido salvo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="prayer-card"
+                    id="pedidoPais"
+                >
+
+                    <span class="prayer-label">
+                        MOMENTO COM DEUS
+                    </span>
+
+                    <h3>
+                        Nenhum pedido ainda
+                    </h3>
+
+                    <p>
+                        Quando a criança salvar um pedido
+                        de oração, ele aparecerá aqui.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- CONFIGURAÇÕES -->
+
+            <section class="card">
+
+                <div class="card-header">
+
+                    <div>
+
+                        <h2>
+                            ⚙️ Configurações
+                        </h2>
+
+                        <p>
+                            Controle a experiência.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="setting">
+
+                    <div class="setting-info">
+
+                        <strong>
+                            Ver painel da criança
+                        </strong>
+
+                        <span>
+                            Voltar para a plataforma.
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="setting-btn"
+                        onclick="irParaPainel()"
+                    >
+                        Abrir
+                    </button>
+
+                </div>
+
+
+                <div class="setting">
+
+                    <div class="setting-info">
+
+                        <strong>
+                            Refazer personagem
+                        </strong>
+
+                        <span>
+                            Criar um novo personagem.
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="setting-btn"
+                        onclick="refazerPersonagem()"
+                    >
+                        Refazer
+                    </button>
+
+                </div>
+
+
+                <div class="setting">
+
+                    <div class="setting-info">
+
+                        <strong>
+                            Apagar progresso
+                        </strong>
+
+                        <span>
+                            Remove dados salvos neste dispositivo.
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="setting-btn danger"
+                        onclick="apagarProgresso()"
+                    >
+                        Apagar
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+    <div class="modal-box">
+
+        <button
+            class="modal-close"
+            onclick="fecharModal()"
+        >
+            ×
+        </button>
+
+        <h2 id="modalTitulo">
+            Área dos Pais
+        </h2>
+
+        <p id="modalTexto">
+            Informação.
+        </p>
+
+        <button
+            class="modal-action"
+            onclick="fecharModal()"
+        >
+            Entendi
+        </button>
+
+    </div>
+
+</div>
+
+
+<div
+    class="toast"
+    id="toast"
+>
+    Alteração realizada.
+</div>
+
+
+<script>
+
+/* =========================
+   STORAGE
+========================= */
+
+const STORAGE_PERSONAGEM =
+    "pequenosNaFe_personagem";
+
+const STORAGE_CONFIG =
+    "pequenosNaFe_configurado";
+
+const STORAGE_PROGRESSO =
+    "pequenosNaFe_progresso";
+
+const STORAGE_INGLES =
+    "pequenosNaFe_ingles_atividades";
+
+const STORAGE_INGLES_XP =
+    "pequenosNaFe_ingles_xp";
+
+const STORAGE_JESUS =
+    "pequenosNaFe_jesus_completas";
+
+const STORAGE_JESUS_XP =
+    "pequenosNaFe_jesus_xp";
+
+const STORAGE_MOMENTOS =
+    "pequenosNaFe_momento_deus_completos";
+
+const STORAGE_MOMENTOS_XP =
+    "pequenosNaFe_momento_deus_xp";
+
+const STORAGE_PEDIDO =
+    "pequenosNaFe_pedido_oracao";
+
+const STORAGE_JOGOS_XP =
+    "pequenosNaFe_jogos_xp";
+
+const STORAGE_JOGOS_QUIZ =
+    "pequenosNaFe_jogos_quiz";
+
+const STORAGE_JOGOS_QUEM =
+    "pequenosNaFe_jogos_quem";
+
+const STORAGE_JOGOS_VERSICULOS =
+    "pequenosNaFe_jogos_versiculos";
+
+const STORAGE_JOGOS_MEMORIA =
+    "pequenosNaFe_jogos_memoria";
+
+const STORAGE_JOGOS_RAPIDO =
+    "pequenosNaFe_jogos_rapido";
+
+
+/* =========================
+   HELPERS
+========================= */
+
+function lerJSON(
+    chave,
+    padrao
+) {
+
+    try {
+
+        const valor =
+            localStorage.getItem(chave);
+
+        if (!valor) {
+            return padrao;
+        }
+
+        const convertido =
+            JSON.parse(valor);
+
+        return convertido;
+
+    } catch {
+
+        return padrao;
+
+    }
+
+}
+
+
+function numero(chave) {
+
+    return Number(
+        localStorage.getItem(chave) || 0
+    );
+
+}
+
+
+/* =========================
+   PROGRESSO
+========================= */
+
+function carregarProgresso() {
+
+    return lerJSON(
+        STORAGE_PROGRESSO,
+        {
+            pontos: 0,
+            historiasConcluidas: [],
+            jesusConcluidos: [],
+            inglesConcluidos: [],
+            jogosConcluidos: [],
+            atividadesConcluidas: [],
+            momentosConcluidos: [],
+            conquistasDesbloqueadas: [],
+            diasAtivos: []
+        }
+    );
+
+}
+
+
+function atualizarResumo() {
+
+    const progresso =
+        carregarProgresso();
+
+
+    let xp =
+        Number(
+            progresso.pontos || 0
+        );
+
+
+    xp += numero(
+        STORAGE_INGLES_XP
+    );
+
+    xp += numero(
+        STORAGE_JESUS_XP
+    );
+
+    xp += numero(
+        STORAGE_MOMENTOS_XP
+    );
+
+    xp += numero(
+        STORAGE_JOGOS_XP
+    );
+
+
+    document.getElementById(
+        "totalXP"
+    ).textContent = xp;
+
+
+    const ingles =
+        lerJSON(
+            STORAGE_INGLES,
+            []
+        );
+
+    const jesus =
+        lerJSON(
+            STORAGE_JESUS,
+            []
+        );
+
+    const momentos =
+        lerJSON(
+            STORAGE_MOMENTOS,
+            []
+        );
+
+
+    const historias =
+        Array.isArray(
+            progresso.historiasConcluidas
+        )
+            ? progresso.historiasConcluidas.length
+            : 0;
+
+
+    const jogos =
+        Array.isArray(
+            progresso.jogosConcluidos
+        )
+            ? progresso.jogosConcluidos.length
+            : 0;
+
+
+    const atividades =
+        Array.isArray(
+            progresso.atividadesConcluidas
+        )
+            ? progresso.atividadesConcluidas.length
+            : 0;
+
+
+    const totalAtividades =
+        ingles.length +
+        jesus.length +
+        momentos.length +
+        historias +
+        jogos +
+        atividades;
+
+
+    document.getElementById(
+        "atividadesConcluidas"
+    ).textContent =
+        totalAtividades;
+
+
+    const conquistas =
+        Array.isArray(
+            progresso.conquistasDesbloqueadas
+        )
+            ? progresso.conquistasDesbloqueadas.length
+            : 0;
+
+
+    document.getElementById(
+        "totalConquistas"
+    ).textContent =
+        conquistas;
+
+
+    const dias =
+        Array.isArray(
+            progresso.diasAtivos
+        )
+            ? progresso.diasAtivos.length
+            : 0;
+
+
+    document.getElementById(
+        "diasAtivos"
+    ).textContent =
+        dias;
+
+
+    atualizarBarra(
+        "historiasBar",
+        "historiasTexto",
+        historias,
+        8
+    );
+
+
+    atualizarBarra(
+        "jesusBar",
+        "jesusTexto",
+        jesus.length,
+        4
+    );
+
+
+    atualizarBarra(
+        "inglesBar",
+        "inglesTexto",
+        ingles.length,
+        60
+    );
+
+
+    atualizarBarra(
+        "jogosBar",
+        "jogosTexto",
+        jogos,
+        5
+    );
+
+
+    atualizarBarra(
+        "momentosBar",
+        "momentosTexto",
+        momentos.length,
+        4
+    );
+
+}
+
+
+function atualizarBarra(
+    barraId,
+    textoId,
+    atual,
+    total
+) {
+
+    const percentual =
+        total > 0
+            ? Math.min(
+                100,
+                Math.round(
+                    (atual / total) * 100
+                )
+            )
+            : 0;
+
+
+    document.getElementById(
+        barraId
+    ).style.width =
+        percentual + "%";
+
+
+    document.getElementById(
+        textoId
+    ).textContent =
+        `${percentual}%`;
+
+}
+
+
+/* =========================
+   ATIVIDADES RECENTES
+========================= */
+
+function renderizarAtividades() {
+
+    const lista =
+        document.getElementById(
+            "atividadesLista"
+        );
+
+    const atividades = [];
+
+
+    const ingles =
+        lerJSON(
+            STORAGE_INGLES,
+            []
+        );
+
+    ingles
+        .slice(-3)
+        .reverse()
+        .forEach(() => {
+
+            atividades.push({
+                icon: "🌎",
+                titulo: "English with Jesus",
+                texto: "Atividade de inglês concluída."
+            });
+
+        });
+
+
+    const jesus =
+        lerJSON(
+            STORAGE_JESUS,
+            []
+        );
+
+    jesus
+        .slice(-2)
+        .reverse()
+        .forEach(() => {
+
+            atividades.push({
+                icon: "💜",
+                titulo: "Conhecendo Jesus",
+                texto: "Lição concluída."
+            });
+
+        });
+
+
+    const momentos =
+        lerJSON(
+            STORAGE_MOMENTOS,
+            []
+        );
+
+    momentos
+        .slice(-2)
+        .reverse()
+        .forEach(() => {
+
+            atividades.push({
+                icon: "🙏",
+                titulo: "Momento com Deus",
+                texto: "Momento de reflexão concluído."
+            });
+
+        });
+
+
+    if (!atividades.length) {
+
+        lista.innerHTML = `
+
+            <div class="activity">
+
+                <div class="activity-icon">
+                    🌱
+                </div>
+
+                <div class="activity-info">
+
+                    <strong>
+                        Ainda não há atividades
+                    </strong>
+
+                    <span>
+                        Comece uma aventura para aparecer aqui.
+                    </span>
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    lista.innerHTML =
+        atividades
+            .slice(0, 6)
+            .map(
+                item => `
+
+                    <div class="activity">
+
+                        <div class="activity-icon">
+                            ${item.icon}
+                        </div>
+
+                        <div class="activity-info">
+
+                            <strong>
+                                ${item.titulo}
+                            </strong>
+
+                            <span>
+                                ${item.texto}
+                            </span>
+
+                        </div>
+
+                        <div class="activity-check">
+                            ✓
+                        </div>
+
+                    </div>
+
+                `
+            )
+            .join("");
+
+}
+
+
+/* =========================
+   CONQUISTAS
+========================= */
+
+function renderizarConquistas() {
+
+    const lista =
+        document.getElementById(
+            "conquistasLista"
+        );
+
+
+    const progresso =
+        carregarProgresso();
+
+
+    const desbloqueadas =
+        Array.isArray(
+            progresso.conquistasDesbloqueadas
+        )
+            ? progresso.conquistasDesbloqueadas
+            : [];
+
+
+    const conquistas = [
+
+        {
+            id: "primeiro-passo",
+            icon: "👣",
+            nome: "Primeiros passos"
+        },
+
+        {
+            id: "primeira-historia",
+            icon: "📖",
+            nome: "Primeira história"
+        },
+
+        {
+            id: "amigo-da-biblia",
+            icon: "📚",
+            nome: "Amigo da Bíblia"
+        },
+
+        {
+            id: "coracao-feliz",
+            icon: "💛",
+            nome: "Coração feliz"
+        },
+
+        {
+            id: "english-first-step",
+            icon: "🌎",
+            nome: "Primeiro passo no inglês"
+        },
+
+        {
+            id: "mestre-dos-jogos",
+            icon: "🎮",
+            nome: "Mestre dos jogos"
+        },
+
+        {
+            id: "explorador-da-fe",
+            icon: "🧭",
+            nome: "Explorador da fé"
+        },
+
+        {
+            id: "grande-aventureiro",
+            icon: "🏆",
+            nome: "Grande aventureiro"
+        }
+
+    ];
+
+
+    lista.innerHTML =
+        conquistas
+            .map(
+                item => {
+
+                    const liberada =
+                        desbloqueadas.includes(
+                            item.id
+                        );
+
+
+                    return `
+
+                        <div
+                            class="achievement"
+                            style="
+                                opacity:
+                                ${liberada ? "1" : ".45"};
+                            "
+                        >
+
+                            <div class="achievement-icon">
+                                ${liberada
+                                    ? item.icon
+                                    : "🔒"}
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    ${item.nome}
+                                </strong>
+
+                                <span>
+                                    ${liberada
+                                        ? "Desbloqueada"
+                                        : "Ainda bloqueada"}
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    `;
+
+                }
+            )
+            .join("");
+
+}
+
+
+/* =========================
+   PEDIDO DE ORAÇÃO
+========================= */
+
+function carregarPedido() {
+
+    const pedido =
+        localStorage.getItem(
+            STORAGE_PEDIDO
+        );
+
+
+    const elemento =
+        document.getElementById(
+            "pedidoPais"
+        );
+
+
+    if (!pedido) {
+        return;
+    }
+
+
+    const data =
+        new Date();
+
+
+    elemento.innerHTML = `
+
+        <span class="prayer-label">
+            MOMENTO COM DEUS
+        </span>
+
+        <h3>
+            Pedido de oração
+        </h3>
+
+        <p>
+            “${escaparHTML(pedido)}”
+        </p>
+
+        <span class="prayer-date">
+            Pedido salvo neste dispositivo.
+        </span>
+
+    `;
+
+}
+
+
+function escaparHTML(texto) {
+
+    return texto
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================
+   PERSONAGEM
+========================= */
+
+function carregarPersonagem() {
+
+    const personagem =
+        lerJSON(
+            STORAGE_PERSONAGEM,
+            null
+        );
+
+
+    const avatar =
+        document.getElementById(
+            "childAvatar"
+        );
+
+
+    if (!personagem) {
+        return;
+    }
+
+
+    if (
+        personagem.genero === "menina"
+    ) {
+
+        avatar.textContent =
+            "👧";
+
+    } else {
+
+        avatar.textContent =
+            "👦";
+
+    }
+
+}
+
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
+function irParaPainel() {
+
+    window.location.href =
+        "painel.html";
+
+}
+
+
+function refazerPersonagem() {
+
+    const confirmar =
+        confirm(
+            "Quer criar um novo personagem?"
+        );
+
+
+    if (!confirmar) {
+        return;
+    }
+
+
+    localStorage.removeItem(
+        STORAGE_CONFIG
+    );
+
+    localStorage.removeItem(
+        STORAGE_PERSONAGEM
+    );
+
+
+    window.location.href =
+        "index.html";
+
+}
+
+
+/* =========================
+   APAGAR PROGRESSO
+========================= */
+
+function apagarProgresso() {
+
+    const confirmar =
+        confirm(
+            "Tem certeza que deseja apagar todo o progresso? Essa ação não pode ser desfeita."
+        );
+
+
+    if (!confirmar) {
+        return;
+    }
+
+
+    const chaves = [
+
+        STORAGE_PROGRESSO,
+
+        STORAGE_INGLES,
+        STORAGE_INGLES_XP,
+
+        STORAGE_JESUS,
+        STORAGE_JESUS_XP,
+
+        STORAGE_MOMENTOS,
+        STORAGE_MOMENTOS_XP,
+
+        STORAGE_JOGOS_XP,
+        STORAGE_JOGOS_QUIZ,
+        STORAGE_JOGOS_QUEM,
+        STORAGE_JOGOS_VERSICULOS,
+        STORAGE_JOGOS_MEMORIA,
+        STORAGE_JOGOS_RAPIDO,
+
+        STORAGE_PEDIDO
+
+    ];
+
+
+    chaves.forEach(
+        chave => {
+            localStorage.removeItem(
+                chave
+            );
+        }
+    );
+
+
+    mostrarToast(
+        "🗑️ Progresso apagado."
+    );
+
+
+    setTimeout(
+        () => {
+            window.location.reload();
+        },
+        900
+    );
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+function fecharModal() {
+
+    document
+        .getElementById("modal")
+        .classList.remove("open");
+
+}
+
+
+function mostrarToast(texto) {
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        texto;
+
+
+    toast.classList.add(
+        "show"
+    );
+
+
+    setTimeout(
+        () => {
+
+            toast.classList.remove(
+                "show"
+            );
+
+        },
+        2200
+    );
+
+}
+
+
+/* =========================
+   INIT
+========================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        atualizarResumo();
+
+        renderizarAtividades();
+
+        renderizarConquistas();
+
+        carregarPedido();
+
+        carregarPersonagem();
+
+    }
+);
+
+
+/* ESC */
+
+document.addEventListener(
+    "keydown",
+    evento => {
+
+        if (
+            evento.key === "Escape"
+        ) {
+
+            fecharModal();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2735 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Conhecendo Jesus — Pequenos na Fé</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#fffaf3;
+    --card:#ffffff;
+    --text:#29353b;
+    --muted:#78858d;
+
+    --blue:#78bdf2;
+    --blue-dark:#4b9bdd;
+    --yellow:#ffd86b;
+    --mint:#8dddc0;
+    --purple:#b9a5ee;
+    --pink:#f3aac5;
+    --green:#63c79b;
+
+    --shadow:0 15px 40px rgba(50,60,70,.08);
+}
+
+body{
+    min-height:100vh;
+    background:
+        radial-gradient(
+            circle at 8% 8%,
+            rgba(255,216,107,.17),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 92% 12%,
+            rgba(120,189,242,.16),
+            transparent 27%
+        ),
+        var(--bg);
+
+    color:var(--text);
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+button{
+    font:inherit;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    bottom:0;
+    width:245px;
+
+    background:rgba(255,255,255,.96);
+
+    border-right:1px solid #eee7de;
+
+    padding:24px 16px;
+
+    z-index:30;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    padding:4px 10px 28px;
+}
+
+.logo-icon{
+    width:46px;
+    height:46px;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #78bdf2,
+            #b9a5ee
+        );
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    font-size:24px;
+
+    box-shadow:
+        0 8px 18px
+        rgba(120,189,242,.22);
+}
+
+.logo strong{
+    display:block;
+    font-size:17px;
+}
+
+.logo span{
+    display:block;
+    color:#8a959c;
+    font-size:11px;
+    margin-top:3px;
+}
+
+.menu-title{
+    color:#a1a8ad;
+    font-size:10px;
+
+    text-transform:uppercase;
+    letter-spacing:1px;
+
+    padding:0 12px 9px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+}
+
+.menu a{
+    display:flex;
+    align-items:center;
+    gap:11px;
+
+    padding:12px 13px;
+
+    border-radius:14px;
+
+    color:#69757c;
+    font-size:14px;
+
+    transition:.2s;
+}
+
+.menu a:hover{
+    background:#f5f8fa;
+}
+
+.menu a.active{
+    background:#fff0f6;
+    color:#d0648d;
+    font-weight:bold;
+}
+
+.sidebar-bottom{
+    position:absolute;
+    left:16px;
+    right:16px;
+    bottom:20px;
+}
+
+.back-btn{
+    width:100%;
+
+    border:0;
+
+    background:#f7f3eb;
+    color:#657178;
+
+    border-radius:14px;
+
+    padding:12px;
+
+    cursor:pointer;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    margin-left:245px;
+
+    padding:34px 42px 60px;
+
+    max-width:1450px;
+}
+
+.topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    margin-bottom:28px;
+}
+
+.crumb{
+    color:#98a0a6;
+    font-size:13px;
+}
+
+.stats{
+    display:flex;
+    gap:10px;
+}
+
+.stat{
+    background:#fff;
+
+    border:1px solid #eee8df;
+
+    border-radius:15px;
+
+    padding:9px 14px;
+
+    font-size:13px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(50,60,70,.04);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:285px;
+
+    border-radius:31px;
+
+    padding:38px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0f6 0%,
+            #fff8dc 52%,
+            #eef8ff 100%
+        );
+
+    margin-bottom:30px;
+}
+
+.hero:before{
+    content:"";
+
+    position:absolute;
+
+    width:270px;
+    height:270px;
+
+    border-radius:50%;
+
+    right:-65px;
+    top:-110px;
+
+    background:
+        rgba(243,170,197,.18);
+}
+
+.hero:after{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    right:220px;
+    bottom:-120px;
+
+    background:
+        rgba(120,189,242,.13);
+}
+
+.hero-content{
+    position:relative;
+    z-index:3;
+}
+
+.badge{
+    display:inline-block;
+
+    background:white;
+
+    color:#d0648d;
+
+    padding:7px 12px;
+
+    border-radius:30px;
+
+    font-size:11px;
+    font-weight:bold;
+
+    margin-bottom:13px;
+}
+
+.hero h1{
+    font-size:36px;
+
+    margin-bottom:10px;
+}
+
+.hero p{
+    max-width:660px;
+
+    color:#71808a;
+
+    line-height:1.65;
+}
+
+.hero-art{
+    position:relative;
+
+    z-index:3;
+
+    font-size:110px;
+
+    transform:rotate(-4deg);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.section-title{
+    margin-bottom:17px;
+}
+
+.section-title h2{
+    font-size:22px;
+}
+
+.section-title p{
+    color:var(--muted);
+    font-size:13px;
+    margin-top:5px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.lessons{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:17px;
+}
+
+.lesson-card{
+    background:#fff;
+
+    border:1px solid #eee8df;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:var(--shadow);
+
+    transition:.25s;
+}
+
+.lesson-card:hover{
+    transform:translateY(-5px);
+}
+
+.lesson-cover{
+    height:150px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:72px;
+
+    position:relative;
+}
+
+.cover-love{
+    background:
+        linear-gradient(
+            135deg,
+            #ffe8f0,
+            #f8c9db
+        );
+}
+
+.cover-help{
+    background:
+        linear-gradient(
+            135deg,
+            #e7f6ff,
+            #c5e8fb
+        );
+}
+
+.cover-forgive{
+    background:
+        linear-gradient(
+            135deg,
+            #eee9ff,
+            #d8cdf8
+        );
+}
+
+.cover-pray{
+    background:
+        linear-gradient(
+            135deg,
+            #fff6cb,
+            #ffe291
+        );
+}
+
+.lesson-info{
+    padding:18px;
+}
+
+.lesson-tag{
+    display:inline-block;
+
+    font-size:9px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.8px;
+
+    color:#8a969c;
+
+    margin-bottom:8px;
+}
+
+.lesson-info h3{
+    font-size:17px;
+
+    margin-bottom:7px;
+}
+
+.lesson-info p{
+    font-size:12px;
+
+    line-height:1.55;
+
+    color:#7a858d;
+
+    min-height:39px;
+}
+
+.lesson-bottom{
+    margin-top:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+}
+
+.lesson-xp{
+    color:#d59d08;
+
+    font-size:11px;
+
+    font-weight:bold;
+}
+
+.lesson-status{
+    display:none;
+
+    color:#299365;
+
+    font-size:10px;
+
+    font-weight:bold;
+}
+
+.lesson-card.completed
+.lesson-status{
+    display:inline-block;
+}
+
+.play-btn{
+    border:0;
+
+    background:#29353b;
+
+    color:white;
+
+    border-radius:12px;
+
+    padding:9px 13px;
+
+    cursor:pointer;
+
+    font-size:11px;
+
+    font-weight:bold;
+}
+
+.lesson-card.completed
+.play-btn{
+    background:#63c79b;
+}
+
+/* =========================
+   BONUS CARD
+========================= */
+
+.special{
+    margin-top:28px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:17px;
+}
+
+.special-card{
+    border-radius:23px;
+
+    padding:23px;
+
+    background:white;
+
+    border:1px solid #eee8df;
+
+    box-shadow:
+        0 10px 30px
+        rgba(50,60,70,.06);
+}
+
+.special-card h3{
+    font-size:17px;
+
+    margin-bottom:7px;
+}
+
+.special-card p{
+    color:#78858c;
+
+    font-size:12px;
+
+    line-height:1.6;
+
+    margin-bottom:15px;
+}
+
+.special-button{
+    border:0;
+
+    background:#29353b;
+
+    color:white;
+
+    border-radius:13px;
+
+    padding:11px 16px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    font-size:12px;
+}
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-section{
+    margin-top:30px;
+
+    background:white;
+
+    border:1px solid #eee8df;
+
+    border-radius:23px;
+
+    padding:21px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(50,60,70,.05);
+}
+
+.progress-head{
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-bottom:10px;
+}
+
+.progress-head strong{
+    font-size:14px;
+}
+
+.progress-head span{
+    color:#71808a;
+
+    font-size:12px;
+}
+
+.progress-line{
+    height:9px;
+
+    border-radius:20px;
+
+    background:#edf0f2;
+
+    overflow:hidden;
+}
+
+.progress-fill{
+    height:100%;
+
+    width:0%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f3aac5,
+            #b9a5ee
+        );
+
+    transition:.5s;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    position:fixed;
+
+    inset:0;
+
+    z-index:100;
+
+    background:
+        rgba(30,40,46,.58);
+
+    backdrop-filter:blur(7px);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+}
+
+.modal.open{
+    display:flex;
+}
+
+.window{
+    width:min(900px,100%);
+
+    max-height:92vh;
+
+    overflow:auto;
+
+    background:white;
+
+    border-radius:30px;
+
+    box-shadow:
+        0 30px 90px
+        rgba(0,0,0,.23);
+}
+
+.window-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px 24px;
+
+    border-bottom:1px solid #eee;
+}
+
+.window-title{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.window-icon{
+    width:46px;
+    height:46px;
+
+    border-radius:14px;
+
+    background:#fff0f6;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:25px;
+}
+
+.window-title h2{
+    font-size:19px;
+}
+
+.window-title small{
+    display:block;
+
+    color:#89949b;
+
+    font-size:11px;
+
+    margin-top:3px;
+}
+
+.close{
+    width:38px;
+    height:38px;
+
+    border:0;
+
+    border-radius:50%;
+
+    background:#f2f4f5;
+
+    cursor:pointer;
+
+    font-size:20px;
+}
+
+.window-body{
+    padding:28px;
+}
+
+/* =========================
+   LESSON READER
+========================= */
+
+.reader-progress{
+    height:7px;
+
+    background:#edf0f2;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin-bottom:22px;
+}
+
+.reader-progress-fill{
+    height:100%;
+
+    width:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f3aac5,
+            #b9a5ee
+        );
+
+    transition:.3s;
+}
+
+.lesson-scene{
+    text-align:center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff6fa,
+            #fffbed
+        );
+
+    border:1px solid #f0e9e8;
+
+    border-radius:25px;
+
+    padding:30px;
+}
+
+.scene-icon{
+    font-size:82px;
+
+    margin-bottom:13px;
+}
+
+.lesson-scene h3{
+    font-size:25px;
+
+    margin-bottom:11px;
+}
+
+.lesson-scene p{
+    max-width:650px;
+
+    margin:auto;
+
+    color:#687780;
+
+    line-height:1.75;
+
+    font-size:15px;
+}
+
+.teaching{
+    margin-top:18px;
+
+    background:#f8f4ff;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    text-align:center;
+
+    color:#695b92;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
+
+.actions{
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.primary{
+    border:0;
+
+    background:#d0648d;
+
+    color:white;
+
+    border-radius:14px;
+
+    padding:13px 21px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+.secondary{
+    border:0;
+
+    background:#f0f2f3;
+
+    color:#58656c;
+
+    border-radius:14px;
+
+    padding:13px 21px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+}
+
+/* =========================
+   QUESTIONS
+========================= */
+
+.question{
+    text-align:center;
+}
+
+.question-label{
+    display:inline-block;
+
+    background:#fff0c5;
+
+    color:#ad8210;
+
+    border-radius:30px;
+
+    padding:7px 12px;
+
+    font-size:10px;
+
+    font-weight:bold;
+
+    margin-bottom:14px;
+}
+
+.question h3{
+    font-size:23px;
+
+    margin-bottom:9px;
+}
+
+.question p{
+    color:#75818a;
+
+    font-size:13px;
+
+    margin-bottom:18px;
+}
+
+.options{
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:12px;
+}
+
+.option{
+    border:2px solid #edf0f2;
+
+    background:#fff;
+
+    border-radius:16px;
+
+    padding:15px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    text-align:left;
+
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:#edb6c9;
+
+    background:#fff8fb;
+}
+
+.option.correct{
+    background:#eaf9f2;
+
+    border-color:#65c79c;
+
+    color:#28875f;
+}
+
+.option.wrong{
+    background:#fff0f1;
+
+    border-color:#ef8a91;
+
+    color:#c44f58;
+}
+
+.feedback{
+    min-height:25px;
+
+    margin-top:15px;
+
+    font-weight:bold;
+}
+
+.next{
+    display:none;
+
+    border:0;
+
+    background:#d0648d;
+
+    color:white;
+
+    border-radius:13px;
+
+    padding:11px 20px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    margin:10px auto 0;
+}
+
+.next.show{
+    display:block;
+}
+
+/* =========================
+   END
+========================= */
+
+.finish{
+    text-align:center;
+
+    padding:20px 10px;
+}
+
+.finish-icon{
+    font-size:78px;
+
+    margin-bottom:12px;
+}
+
+.finish h2{
+    font-size:28px;
+
+    margin-bottom:8px;
+}
+
+.finish p{
+    color:#75818a;
+
+    line-height:1.6;
+}
+
+.finish-xp{
+    color:#d59d08;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    margin:18px 0;
+}
+
+.finish-buttons{
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast{
+    position:fixed;
+
+    right:24px;
+    bottom:24px;
+
+    background:#29353b;
+
+    color:white;
+
+    padding:13px 18px;
+
+    border-radius:14px;
+
+    z-index:300;
+
+    transform:translateY(100px);
+
+    opacity:0;
+
+    transition:.3s;
+
+    font-size:13px;
+}
+
+.toast.show{
+    transform:translateY(0);
+
+    opacity:1;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:1100px){
+
+    .lessons{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+@media(max-width:850px){
+
+    .sidebar{
+        position:static;
+
+        width:100%;
+
+        height:auto;
+
+        border-right:0;
+
+        border-bottom:1px solid #eee7de;
+    }
+
+    .sidebar-bottom{
+        display:none;
+    }
+
+    .menu-title{
+        display:none;
+    }
+
+    .menu{
+        flex-direction:row;
+
+        overflow-x:auto;
+    }
+
+    .main{
+        margin-left:0;
+
+        padding:22px 15px 45px;
+    }
+
+    .hero-art{
+        display:none;
+    }
+
+    .special{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .lessons{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding:27px;
+    }
+
+    .hero h1{
+        font-size:29px;
+    }
+
+    .stats{
+        display:none;
+    }
+
+    .window-body{
+        padding:18px;
+    }
+
+    .lesson-scene{
+        padding:23px 17px;
+    }
+
+    .scene-icon{
+        font-size:65px;
+    }
+
+    .lesson-scene h3{
+        font-size:21px;
+    }
+
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .actions{
+        flex-direction:column;
+    }
+
+    .primary,
+    .secondary{
+        width:100%;
+    }
+
+    .finish-buttons{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            ✦
+        </div>
+
+        <div>
+            <strong>Pequenos na Fé</strong>
+            <span>Uma aventura com Deus</span>
+        </div>
+
+    </div>
+
+    <div class="menu-title">
+        Explorar
+    </div>
+
+    <nav class="menu">
+
+        <a href="painel.html">
+            🏠 Início
+        </a>
+
+        <a href="historias.html">
+            📖 Aventuras da Bíblia
+        </a>
+
+        <a
+            href="jesus.html"
+            class="active"
+        >
+            ❤️ Conhecendo Jesus
+        </a>
+
+        <a href="ingles.html">
+            🌎 English with Jesus
+        </a>
+
+        <a href="jogos.html">
+            🎮 Jogos da Fé
+        </a>
+
+        <a href="atividades.html">
+            🎨 Ateliê
+        </a>
+
+
+        </a>
+
+        <a href="momento-deus.html">
+            🙏 Momento com Deus
+        </a>
+
+        <a href="conquistas.html">
+            🏆 Conquistas
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+
+        <button
+            class="back-btn"
+            onclick="window.location.href='painel.html'"
+        >
+            ← Voltar para o início
+        </button>
+
+    </div>
+
+</aside>
+
+<main class="main">
+
+    <div class="topbar">
+
+        <div class="crumb">
+            Pequenos na Fé / Conhecendo Jesus
+        </div>
+
+        <div class="stats">
+
+            <div class="stat">
+                ⭐ <strong id="xpTotal">0</strong> XP
+            </div>
+
+            <div class="stat">
+                ❤️ <strong id="aulasFeitas">0</strong>/4
+            </div>
+
+        </div>
+
+    </div>
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="badge">
+                ❤️ APRENDENDO COM JESUS
+            </span>
+
+            <h1>
+                Conhecendo Jesus
+            </h1>
+
+            <p>
+                Descubra quem é Jesus, conheça seus ensinamentos
+                e aprenda como podemos colocar seus ensinamentos
+                em prática todos os dias.
+            </p>
+
+        </div>
+
+        <div class="hero-art">
+            ❤️✨
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="section-title">
+
+            <h2>
+                Descubra mais sobre Jesus
+            </h2>
+
+            <p>
+                Escolha uma lição e participe da aventura.
+            </p>
+
+        </div>
+
+        <div class="lessons">
+
+            <!-- AMOR -->
+
+            <article
+                class="lesson-card"
+                data-lesson-card="amor"
+            >
+
+                <div class="lesson-cover cover-love">
+                    ❤️
+                </div>
+
+                <div class="lesson-info">
+
+                    <span class="lesson-tag">
+                        Lição 1
+                    </span>
+
+                    <h3>
+                        Jesus nos ensina a amar
+                    </h3>
+
+                    <p>
+                        Descubra como Jesus mostrou amor
+                        pelas pessoas.
+                    </p>
+
+                    <div class="lesson-bottom">
+
+                        <span class="lesson-xp">
+                            ⭐ +25 XP
+                        </span>
+
+                        <span class="lesson-status">
+                            ✓ Concluída
+                        </span>
+
+                        <button
+                            class="play-btn"
+                            onclick="abrirLicao('amor')"
+                        >
+                            COMEÇAR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- AJUDAR -->
+
+            <article
+                class="lesson-card"
+                data-lesson-card="ajudar"
+            >
+
+                <div class="lesson-cover cover-help">
+                    🤝
+                </div>
+
+                <div class="lesson-info">
+
+                    <span class="lesson-tag">
+                        Lição 2
+                    </span>
+
+                    <h3>
+                        Jesus nos ensina a ajudar
+                    </h3>
+
+                    <p>
+                        Aprenda que pequenos gestos
+                        podem fazer uma grande diferença.
+                    </p>
+
+                    <div class="lesson-bottom">
+
+                        <span class="lesson-xp">
+                            ⭐ +25 XP
+                        </span>
+
+                        <span class="lesson-status">
+                            ✓ Concluída
+                        </span>
+
+                        <button
+                            class="play-btn"
+                            onclick="abrirLicao('ajudar')"
+                        >
+                            COMEÇAR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- PERDÃO -->
+
+            <article
+                class="lesson-card"
+                data-lesson-card="perdao"
+            >
+
+                <div class="lesson-cover cover-forgive">
+                    💜
+                </div>
+
+                <div class="lesson-info">
+
+                    <span class="lesson-tag">
+                        Lição 3
+                    </span>
+
+                    <h3>
+                        Jesus e o perdão
+                    </h3>
+
+                    <p>
+                        Entenda por que perdoar e pedir
+                        perdão são atitudes importantes.
+                    </p>
+
+                    <div class="lesson-bottom">
+
+                        <span class="lesson-xp">
+                            ⭐ +25 XP
+                        </span>
+
+                        <span class="lesson-status">
+                            ✓ Concluída
+                        </span>
+
+                        <button
+                            class="play-btn"
+                            onclick="abrirLicao('perdao')"
+                        >
+                            COMEÇAR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+            <!-- ORAÇÃO -->
+
+            <article
+                class="lesson-card"
+                data-lesson-card="oracao"
+            >
+
+                <div class="lesson-cover cover-pray">
+                    🙏
+                </div>
+
+                <div class="lesson-info">
+
+                    <span class="lesson-tag">
+                        Lição 4
+                    </span>
+
+                    <h3>
+                        Jesus e a oração
+                    </h3>
+
+                    <p>
+                        Aprenda o que significa conversar
+                        com Deus através da oração.
+                    </p>
+
+                    <div class="lesson-bottom">
+
+                        <span class="lesson-xp">
+                            ⭐ +25 XP
+                        </span>
+
+                        <span class="lesson-status">
+                            ✓ Concluída
+                        </span>
+
+                        <button
+                            class="play-btn"
+                            onclick="abrirLicao('oracao')"
+                        >
+                            COMEÇAR
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="special">
+
+        <div class="special-card">
+
+            <h3>
+                💡 Desafio do dia
+            </h3>
+
+            <p>
+                Pense em uma pessoa que precisa de carinho
+                ou ajuda hoje. O que você poderia fazer
+                para demonstrar amor?
+            </p>
+
+            <button
+                class="special-button"
+                onclick="abrirDesafioDoDia()"
+            >
+                Fazer desafio
+            </button>
+
+        </div>
+
+        <div class="special-card">
+
+            <h3>
+                🙏 Momento com Jesus
+            </h3>
+
+            <p>
+                Separe alguns segundos para agradecer a Deus
+                por uma coisa boa que aconteceu hoje.
+            </p>
+
+            <button
+                class="special-button"
+                onclick="abrirMomento()"
+            >
+                Começar momento
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="progress-section">
+
+        <div class="progress-head">
+
+            <strong>
+                ❤️ Sua caminhada com Jesus
+            </strong>
+
+            <span id="progressText">
+                0 de 4 lições
+            </span>
+
+        </div>
+
+        <div class="progress-line">
+
+            <div
+                class="progress-fill"
+                id="progressFill"
+            ></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- MODAL -->
+
+<div
+    class="modal"
+    id="modal"
+>
+
+    <div class="window">
+
+        <header class="window-header">
+
+            <div class="window-title">
+
+                <div
+                    class="window-icon"
+                    id="windowIcon"
+                >
+                    ❤️
+                </div>
+
+                <div>
+
+                    <h2 id="windowTitle">
+                        Conhecendo Jesus
+                    </h2>
+
+                    <small id="windowSubtitle">
+                        Pequenos na Fé
+                    </small>
+
+                </div>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="fecharModal()"
+            >
+                ×
+            </button>
+
+        </header>
+
+        <div
+            class="window-body"
+            id="windowBody"
+        ></div>
+
+    </div>
+
+</div>
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+<script>
+
+/* =========================================================
+   STORAGE
+========================================================= */
+
+const STORAGE_XP =
+    "pequenosNaFe_jesus_xp";
+
+const STORAGE_COMPLETAS =
+    "pequenosNaFe_jesus_completas";
+
+let xp =
+    parseInt(
+        localStorage.getItem(
+            STORAGE_XP
+        )
+    ) || 0;
+
+let completas =
+    carregarCompletas();
+
+function carregarCompletas(){
+
+    try{
+
+        const valor =
+            localStorage.getItem(
+                STORAGE_COMPLETAS
+            );
+
+        return valor
+            ? JSON.parse(valor)
+            : [];
+
+    }catch{
+
+        return [];
+    }
+}
+
+function salvarCompletas(){
+
+    localStorage.setItem(
+        STORAGE_COMPLETAS,
+        JSON.stringify(completas)
+    );
+}
+
+/* =========================================================
+   LIÇÕES
+========================================================= */
+
+const licoes = {
+
+    amor:{
+
+        titulo:
+        "Jesus nos ensina a amar",
+
+        subtitulo:
+        "O amor que transforma",
+
+        icon:"❤️",
+
+        xp:25,
+
+        cenas:[
+
+            {
+                icon:"❤️",
+                titulo:"Jesus falava sobre amor",
+                texto:
+                "Jesus ensinava que devemos amar a Deus e também demonstrar amor pelas outras pessoas."
+            },
+
+            {
+                icon:"🤝",
+                titulo:"Amor aparece nas atitudes",
+                texto:
+                "Amar não significa apenas dizer palavras bonitas. Podemos demonstrar amor ajudando, respeitando, ouvindo e cuidando."
+            },
+
+            {
+                icon:"😊",
+                titulo:"Pequenos gestos",
+                texto:
+                "Um sorriso, uma palavra gentil ou uma ajuda podem fazer alguém se sentir importante e amado."
+            },
+
+            {
+                icon:"🌎",
+                titulo:"Amar as pessoas",
+                texto:
+                "Jesus ensinou que devemos tratar as pessoas com bondade e respeito, inclusive aquelas que são diferentes de nós."
+            }
+
+        ],
+
+        pergunta:
+        "Qual dessas atitudes demonstra amor?",
+
+        opcoes:[
+            "Ajudar alguém",
+            "Zombar de alguém",
+            "Ignorar uma pessoa triste",
+            "Ser cruel"
+        ],
+
+        correta:0,
+
+        licao:
+        "Jesus nos ensina que o amor aparece nas nossas atitudes. Podemos demonstrar amor todos os dias."
+
+    },
+
+    ajudar:{
+
+        titulo:
+        "Jesus nos ensina a ajudar",
+
+        subtitulo:
+        "Servir com carinho",
+
+        icon:"🤝",
+
+        xp:25,
+
+        cenas:[
+
+            {
+                icon:"🤝",
+                titulo:"Ajudar é importante",
+                texto:
+                "Jesus mostrou muitas vezes que devemos cuidar das pessoas e estar dispostos a ajudar."
+            },
+
+            {
+                icon:"🧒",
+                titulo:"Você também pode ajudar",
+                texto:
+                "Crianças podem ajudar de várias maneiras: guardar os brinquedos, ajudar em casa, compartilhar e cuidar dos amigos."
+            },
+
+            {
+                icon:"💛",
+                titulo:"Não precisa ser algo enorme",
+                texto:
+                "Uma pequena atitude pode fazer uma grande diferença na vida de alguém."
+            },
+
+            {
+                icon:"🌟",
+                titulo:"Servir com alegria",
+                texto:
+                "Quando ajudamos alguém com carinho, estamos colocando em prática aquilo que Jesus ensinou."
+            }
+
+        ],
+
+        pergunta:
+        "Qual atitude mostra que você quer ajudar?",
+
+        opcoes:[
+            "Fingir que não viu",
+            "Ajudar alguém que precisa",
+            "Rir da pessoa",
+            "Brigar"
+        ],
+
+        correta:1,
+
+        licao:
+        "Ajudar pode começar com coisas pequenas. Procure oportunidades para cuidar das pessoas ao seu redor."
+
+    },
+
+    perdao:{
+
+        titulo:
+        "Jesus e o perdão",
+
+        subtitulo:
+        "Aprendendo a perdoar",
+
+        icon:"💜",
+
+        xp:25,
+
+        cenas:[
+
+            {
+                icon:"💜",
+                titulo:"Todos podem errar",
+                texto:
+                "Às vezes nós erramos e às vezes outras pessoas erram conosco. Jesus ensinou sobre a importância do perdão."
+            },
+
+            {
+                icon:"😔",
+                titulo:"Quando fazemos algo errado",
+                texto:
+                "Quando percebemos que fizemos algo errado, podemos reconhecer o erro, pedir desculpas e tentar fazer melhor."
+            },
+
+            {
+                icon:"🫶",
+                titulo:"Perdoar",
+                texto:
+                "Perdoar significa escolher não guardar o erro como motivo para continuar machucando a outra pessoa."
+            },
+
+            {
+                icon:"🌱",
+                titulo:"Um novo começo",
+                texto:
+                "O perdão pode ajudar relacionamentos a recomeçarem com mais amor e respeito."
+            }
+
+        ],
+
+        pergunta:
+        "O que podemos fazer quando percebemos que erramos?",
+
+        opcoes:[
+            "Fingir que nada aconteceu",
+            "Culpar outra pessoa",
+            "Pedir desculpas e tentar melhorar",
+            "Ficar bravo"
+        ],
+
+        correta:2,
+
+        licao:
+        "Pedir perdão exige humildade. Quando erramos, podemos reconhecer o erro e buscar um novo começo."
+
+    },
+
+    oracao:{
+
+        titulo:
+        "Jesus e a oração",
+
+        subtitulo:
+        "Conversando com Deus",
+
+        icon:"🙏",
+
+        xp:25,
+
+        cenas:[
+
+            {
+                icon:"🙏",
+                titulo:"O que é oração?",
+                texto:
+                "Orar é conversar com Deus. Podemos falar com Ele sobre nossos sentimentos, agradecer e pedir ajuda."
+            },
+
+            {
+                icon:"❤️",
+                titulo:"Podemos conversar com Deus",
+                texto:
+                "Não precisamos usar palavras difíceis. Podemos falar com Deus com sinceridade."
+            },
+
+            {
+                icon:"🌅",
+                titulo:"Em qualquer momento",
+                texto:
+                "Podemos orar pela manhã, antes de dormir, quando estamos felizes ou quando precisamos de ajuda."
+            },
+
+            {
+                icon:"✨",
+                titulo:"Um momento especial",
+                texto:
+                "A oração pode ser um momento tranquilo para agradecer a Deus e lembrar que Ele está presente."
+            }
+
+        ],
+
+        pergunta:
+        "O que podemos fazer durante uma oração?",
+
+        opcoes:[
+            "Conversar com Deus",
+            "Brigar",
+            "Zombar das pessoas",
+            "Ignorar tudo"
+        ],
+
+        correta:0,
+
+        licao:
+        "A oração é uma maneira de conversar com Deus. Você pode falar com Ele com sinceridade e gratidão."
+
+    }
+
+};
+
+/* =========================================================
+   ESTADO
+========================================================= */
+
+let licaoAtual = null;
+let etapa = 0;
+let respondeu = false;
+
+/* =========================================================
+   ABRIR
+========================================================= */
+
+function abrirLicao(id){
+
+    licaoAtual =
+        licoes[id];
+
+    if(!licaoAtual){
+        return;
+    }
+
+    etapa = 0;
+
+    respondeu = false;
+
+    document.getElementById(
+        "windowIcon"
+    ).textContent =
+        licaoAtual.icon;
+
+    document.getElementById(
+        "windowTitle"
+    ).textContent =
+        licaoAtual.titulo;
+
+    document.getElementById(
+        "windowSubtitle"
+    ).textContent =
+        licaoAtual.subtitulo;
+
+    document
+        .getElementById("modal")
+        .classList.add("open");
+
+    renderEtapa();
+}
+
+/* =========================================================
+   ETAPA
+========================================================= */
+
+function renderEtapa(){
+
+    const total =
+        licaoAtual.cenas.length;
+
+    const cena =
+        licaoAtual.cenas[etapa];
+
+    const progresso =
+        (etapa / total) * 100;
+
+    document.getElementById(
+        "windowBody"
+    ).innerHTML = `
+
+        <div class="reader-progress">
+
+            <div
+                class="reader-progress-fill"
+                style="width:${progresso}%"
+            ></div>
+
+        </div>
+
+        <div class="lesson-scene">
+
+            <div class="scene-icon">
+                ${cena.icon}
+            </div>
+
+            <h3>
+                ${cena.titulo}
+            </h3>
+
+            <p>
+                ${cena.texto}
+            </p>
+
+        </div>
+
+        <div class="actions">
+
+            ${
+                etapa > 0
+                ?
+                `
+                <button
+                    class="secondary"
+                    onclick="etapaAnterior()"
+                >
+                    ← Voltar
+                </button>
+                `
+                :
+                ""
+            }
+
+            <button
+                class="primary"
+                onclick="proximaEtapa()"
+            >
+                ${
+                    etapa === total - 1
+                    ?
+                    "🧠 Fazer atividade"
+                    :
+                    "Continuar →"
+                }
+            </button>
+
+        </div>
+    `;
+}
+
+/* =========================================================
+   NAVEGAÇÃO
+========================================================= */
+
+function proximaEtapa(){
+
+    if(
+        etapa <
+        licaoAtual.cenas.length - 1
+    ){
+
+        etapa++;
+
+        renderEtapa();
+
+    }else{
+
+        renderPergunta();
+    }
+}
+
+function etapaAnterior(){
+
+    if(etapa > 0){
+
+        etapa--;
+
+        renderEtapa();
+    }
+}
+
+/* =========================================================
+   PERGUNTA
+========================================================= */
+
+function renderPergunta(){
+
+    respondeu = false;
+
+    document.getElementById(
+        "windowBody"
+    ).innerHTML = `
+
+        <div class="reader-progress">
+
+            <div
+                class="reader-progress-fill"
+                style="width:100%"
+            ></div>
+
+        </div>
+
+        <div class="question">
+
+            <span class="question-label">
+                🧠 O QUE VOCÊ APRENDEU?
+            </span>
+
+            <h3>
+                ${licaoAtual.pergunta}
+            </h3>
+
+            <p>
+                Escolha a resposta correta.
+            </p>
+
+            <div class="options">
+
+                ${licaoAtual.opcoes
+                    .map(
+                        (opcao,index) => `
+
+                            <button
+                                class="option"
+                                onclick="responder(${index})"
+                            >
+                                ${opcao}
+                            </button>
+
+                        `
+                    )
+                    .join("")
+                }
+
+            </div>
+
+            <div
+                class="feedback"
+                id="feedback"
+            ></div>
+
+            <button
+                class="next"
+                id="nextButton"
+                onclick="finalizarLicao()"
+            >
+                Ver minha recompensa ✨
+            </button>
+
+        </div>
+    `;
+}
+
+/* =========================================================
+   RESPOSTA
+========================================================= */
+
+function responder(index){
+
+    if(respondeu){
+        return;
+    }
+
+    respondeu = true;
+
+    const botoes =
+        document.querySelectorAll(
+            ".option"
+        );
+
+    botoes.forEach(
+        (botao,i) => {
+
+            if(
+                i ===
+                licaoAtual.correta
+            ){
+
+                botao.classList.add(
+                    "correct"
+                );
+            }
+
+            if(
+                i === index &&
+                i !== licaoAtual.correta
+            ){
+
+                botao.classList.add(
+                    "wrong"
+                );
+            }
+
+            botao.disabled = true;
+        }
+    );
+
+    const feedback =
+        document.getElementById(
+            "feedback"
+        );
+
+    if(
+        index ===
+        licaoAtual.correta
+    ){
+
+        feedback.innerHTML =
+            "🎉 Muito bem! Você aprendeu!";
+
+    }else{
+
+        feedback.innerHTML =
+            "💡 Quase! A resposta correta está destacada.";
+    }
+
+    document
+        .getElementById(
+            "nextButton"
+        )
+        .classList.add("show");
+}
+
+/* =========================================================
+   FINALIZAR
+========================================================= */
+
+function finalizarLicao(){
+
+    const id =
+        Object.keys(licoes)
+            .find(
+                chave =>
+                    licoes[chave] ===
+                    licaoAtual
+            );
+
+    const primeiraVez =
+        !completas.includes(id);
+
+    if(primeiraVez){
+
+        completas.push(id);
+
+        salvarCompletas();
+
+        xp += licaoAtual.xp;
+
+        localStorage.setItem(
+            STORAGE_XP,
+            String(xp)
+        );
+
+        mostrarToast(
+            `⭐ +${licaoAtual.xp} XP!`
+        );
+    }
+
+    atualizarInterface();
+
+    document.getElementById(
+        "windowBody"
+    ).innerHTML = `
+
+        <div class="finish">
+
+            <div class="finish-icon">
+                ${
+                    primeiraVez
+                    ? "❤️"
+                    : "✨"
+                }
+            </div>
+
+            <h2>
+                ${
+                    primeiraVez
+                    ?
+                    "Lição concluída!"
+                    :
+                    "Você terminou novamente!"
+                }
+            </h2>
+
+            <p>
+                ${licaoAtual.licao}
+            </p>
+
+            ${
+                primeiraVez
+                ?
+                `
+                <div class="finish-xp">
+                    ⭐ +${licaoAtual.xp} XP
+                </div>
+                `
+                :
+                `
+                <div
+                    style="
+                    margin-top:18px;
+                    color:#78858d;
+                    font-size:13px;
+                    "
+                >
+                    O XP dessa lição já foi conquistado.
+                </div>
+                `
+            }
+
+            <div class="finish-buttons">
+
+                <button
+                    class="primary"
+                    onclick="abrirLicao('${id}')"
+                >
+                    🔄 Aprender novamente
+                </button>
+
+                <button
+                    class="secondary"
+                    onclick="fecharModal()"
+                >
+                    Voltar
+                </button>
+
+            </div>
+
+        </div>
+    `;
+}
+
+/* =========================================================
+   DESAFIO DO DIA
+========================================================= */
+
+function abrirDesafioDoDia(){
+
+    document.getElementById(
+        "windowIcon"
+    ).textContent = "🌟";
+
+    document.getElementById(
+        "windowTitle"
+    ).textContent =
+        "Desafio do Dia";
+
+    document.getElementById(
+        "windowSubtitle"
+    ).textContent =
+        "Uma pequena atitude de amor";
+
+    document
+        .getElementById("modal")
+        .classList.add("open");
+
+    document.getElementById(
+        "windowBody"
+    ).innerHTML = `
+
+        <div class="question">
+
+            <div
+                style="
+                font-size:78px;
+                margin-bottom:15px;
+                "
+            >
+                🤝
+            </div>
+
+            <span class="question-label">
+                🌟 DESAFIO
+            </span>
+
+            <h3>
+                O que você pode fazer hoje
+                para ajudar alguém?
+            </h3>
+
+            <p>
+                Escolha uma atitude que você pode
+                colocar em prática.
+            </p>
+
+            <div class="options">
+
+                <button
+                    class="option"
+                    onclick="concluirDesafio('ajudar')"
+                >
+                    🤝 Ajudar alguém
+                </button>
+
+                <button
+                    class="option"
+                    onclick="concluirDesafio('compartilhar')"
+                >
+                    🎁 Compartilhar algo
+                </button>
+
+                <button
+                    class="option"
+                    onclick="concluirDesafio('carinho')"
+                >
+                    ❤️ Dar carinho
+                </button>
+
+                <button
+                    class="option"
+                    onclick="concluirDesafio('palavra')"
+                >
+                    😊 Dizer uma palavra gentil
+                </button>
+
+            </div>
+
+            <div
+                id="feedback"
+                class="feedback"
+            ></div>
+
+        </div>
+    `;
+}
+
+function concluirDesafio(){
+
+    const botoes =
+        document.querySelectorAll(
+            ".option"
+        );
+
+    botoes.forEach(
+        botao => {
+            botao.disabled = true;
+            botao.classList.add(
+                "correct"
+            );
+        }
+    );
+
+    document.getElementById(
+        "feedback"
+    ).innerHTML =
+        "🌟 Muito bem! Agora tente colocar essa atitude em prática hoje!";
+}
+
+/* =========================================================
+   MOMENTO
+========================================================= */
+
+function abrirMomento(){
+
+    document.getElementById(
+        "windowIcon"
+    ).textContent = "🙏";
+
+    document.getElementById(
+        "windowTitle"
+    ).textContent =
+        "Momento com Jesus";
+
+    document.getElementById(
+        "windowSubtitle"
+    ).textContent =
+        "Um pequeno momento de gratidão";
+
+    document
+        .getElementById("modal")
+        .classList.add("open");
+
+    document.getElementById(
+        "windowBody"
+    ).innerHTML = `
+
+        <div class="finish">
+
+            <div class="finish-icon">
+                🙏
+            </div>
+
+            <h2>
+                Vamos agradecer?
+            </h2>
+
+            <p>
+                Feche os olhos por alguns segundos
+                e pense em uma coisa boa pela qual
+                você é grato hoje.
+            </p>
+
+            <div
+                style="
+                background:#fff8dc;
+                border-radius:20px;
+                padding:20px;
+                margin-top:20px;
+                color:#806b28;
+                line-height:1.7;
+                font-size:14px;
+                "
+            >
+                "Obrigado, Deus, por tudo de bom
+                que existe na minha vida.
+                Cuida de mim, da minha família
+                e das pessoas que eu amo. Amém."
+            </div>
+
+            <div class="finish-buttons">
+
+                <button
+                    class="primary"
+                    onclick="mostrarToast('🙏 Momento concluído!')"
+                >
+                    ❤️ Amém!
+                </button>
+
+                <button
+                    class="secondary"
+                    onclick="fecharModal()"
+                >
+                    Voltar
+                </button>
+
+            </div>
+
+        </div>
+    `;
+}
+
+/* =========================================================
+   FECHAR
+========================================================= */
+
+function fecharModal(){
+
+    document
+        .getElementById("modal")
+        .classList.remove("open");
+}
+
+document
+    .getElementById("modal")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target === this
+            ){
+
+                fecharModal();
+            }
+        }
+    );
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            fecharModal();
+        }
+    }
+);
+
+/* =========================================================
+   INTERFACE
+========================================================= */
+
+function atualizarInterface(){
+
+    document.getElementById(
+        "xpTotal"
+    ).textContent =
+        xp;
+
+    document.getElementById(
+        "aulasFeitas"
+    ).textContent =
+        completas.length;
+
+    const porcentagem =
+        (completas.length / 4) * 100;
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+        porcentagem + "%";
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+        `${completas.length} de 4 lições`;
+
+    document
+        .querySelectorAll(
+            "[data-lesson-card]"
+        )
+        .forEach(card => {
+
+            const id =
+                card.dataset.lessonCard;
+
+            if(
+                completas.includes(id)
+            ){
+
+                card.classList.add(
+                    "completed"
+                );
+
+                const botao =
+                    card.querySelector(
+                        ".play-btn"
+                    );
+
+                if(botao){
+
+                    botao.textContent =
+                        "REVER";
+                }
+            }
+        });
+}
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function mostrarToast(texto){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+    toast.textContent =
+        texto;
+
+    toast.classList.add(
+        "show"
+    );
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+    window.toastTimer =
+        setTimeout(
+            () => {
+
+                toast.classList.remove(
+                    "show"
+                );
+
+            },
+            2500
+        );
+}
+
+/* =========================================================
+   START
+========================================================= */
+
+atualizarInterface();
+
+</script>
+
+</body>
+</html>

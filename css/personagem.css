@@ -1,0 +1,856 @@
+/* =========================================================
+   PEQUENOS NA FÉ
+   PERSONAGEM
+   VERSÃO CORRIGIDA — 2 BRAÇOS
+   ========================================================= */
+
+
+/* =========================================================
+   PREVIEW
+   ========================================================= */
+
+.character-preview {
+    --skin: #F6C9A8;
+    --hair: #171717;
+
+    position: relative;
+
+    width: 330px;
+    height: 430px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 5px;
+
+    z-index: 4;
+}
+
+
+/* =========================================================
+   SOMBRA
+   ========================================================= */
+
+.character-shadow {
+    position: absolute;
+
+    width: 160px;
+    height: 25px;
+
+    left: 50%;
+    bottom: 22px;
+
+    transform: translateX(-50%);
+
+    border-radius: 50%;
+
+    background: rgba(46, 38, 75, 0.14);
+
+    filter: blur(7px);
+
+    animation: shadowFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PERSONAGEM
+   ========================================================= */
+
+.character {
+    position: relative;
+
+    width: 230px;
+    height: 380px;
+
+    animation: characterFloat 3s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   CABELO BASE
+   ========================================================= */
+
+.character-hair {
+    position: absolute;
+
+    background: var(--hair);
+
+    transition: all 0.3s ease;
+}
+
+
+/* =========================================================
+   CABEÇA
+   ========================================================= */
+
+.character-head {
+    position: absolute;
+
+    width: 148px;
+    height: 165px;
+
+    left: 50%;
+    top: 45px;
+
+    transform: translateX(-50%);
+
+    background: var(--skin);
+
+    border-radius:
+        48%
+        48%
+        46%
+        46%;
+
+    z-index: 5;
+
+    box-shadow:
+        inset 0 -5px 0 rgba(0,0,0,0.025);
+}
+
+
+/* =========================================================
+   ORELHAS
+   ========================================================= */
+
+.ear {
+    position: absolute;
+
+    width: 25px;
+    height: 42px;
+
+    top: 65px;
+
+    background: var(--skin);
+
+    border-radius: 50%;
+
+    z-index: -1;
+}
+
+.ear-left {
+    left: -14px;
+}
+
+.ear-right {
+    right: -14px;
+}
+
+
+/* =========================================================
+   SOBRANCELHAS
+   ========================================================= */
+
+.eyebrow {
+    position: absolute;
+
+    width: 27px;
+    height: 5px;
+
+    top: 65px;
+
+    background: #402A24;
+
+    border-radius: 10px;
+
+    z-index: 8;
+}
+
+.eyebrow-left {
+    left: 31px;
+
+    transform: rotate(-4deg);
+}
+
+.eyebrow-right {
+    right: 31px;
+
+    transform: rotate(4deg);
+}
+
+
+/* =========================================================
+   OLHOS
+   ========================================================= */
+
+.eye {
+    position: absolute;
+
+    width: 27px;
+    height: 35px;
+
+    top: 76px;
+
+    background: #29253A;
+
+    border-radius: 50%;
+
+    z-index: 8;
+
+    box-shadow:
+        inset 0 -4px 0 rgba(0,0,0,0.08);
+}
+
+.eye-left {
+    left: 32px;
+}
+
+.eye-right {
+    right: 32px;
+}
+
+.eye span {
+    position: absolute;
+
+    width: 9px;
+    height: 9px;
+
+    top: 6px;
+    left: 6px;
+
+    background: white;
+
+    border-radius: 50%;
+}
+
+.eye span::after {
+    content: "";
+
+    position: absolute;
+
+    width: 4px;
+    height: 4px;
+
+    top: 15px;
+    left: 9px;
+
+    background: rgba(255,255,255,0.7);
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   BOCHECHAS
+   ========================================================= */
+
+.cheek {
+    position: absolute;
+
+    width: 24px;
+    height: 12px;
+
+    top: 112px;
+
+    background:
+        rgba(239,120,135,0.23);
+
+    border-radius: 50%;
+
+    z-index: 7;
+}
+
+.cheek-left {
+    left: 17px;
+}
+
+.cheek-right {
+    right: 17px;
+}
+
+
+/* =========================================================
+   SORRISO
+   ========================================================= */
+
+.smile {
+    position: absolute;
+
+    width: 39px;
+    height: 22px;
+
+    left: 50%;
+    top: 105px;
+
+    transform: translateX(-50%);
+
+    border-bottom:
+        5px solid #5A3039;
+
+    border-radius:
+        0
+        0
+        30px
+        30px;
+
+    z-index: 8;
+}
+
+
+/* =========================================================
+   PESCOÇO
+   ========================================================= */
+
+.character-neck {
+    position: absolute;
+
+    width: 43px;
+    height: 42px;
+
+    left: 50%;
+    top: 184px;
+
+    transform: translateX(-50%);
+
+    background: var(--skin);
+
+    border-radius:
+        0
+        0
+        18px
+        18px;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   BRAÇOS
+   ========================================================= */
+
+.character::before,
+.character::after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 78px;
+    top: 225px;
+    background: var(--skin);
+    border-radius: 20px;
+    z-index: 2;
+}
+
+.character::before {
+    left: 28px;
+    transform: rotate(10deg);
+}
+
+.character::after {
+    right: 28px;
+    transform: rotate(-10deg);
+}
+
+
+/* braço esquerdo */
+
+.character::before {
+    left: 20px;
+
+    transform:
+        rotate(12deg);
+}
+
+
+/* braço direito */
+
+.character::after {
+    right: 20px;
+
+    transform:
+        rotate(-12deg);
+}
+
+
+/* =========================================================
+   MÃOS
+   ========================================================= */
+
+.character::before {
+    box-shadow:
+        inset 0 -3px 0 rgba(0,0,0,0.035),
+        0 70px 0 -12px var(--skin);
+}
+
+.character::after {
+    box-shadow:
+        inset 0 -3px 0 rgba(0,0,0,0.035),
+        0 70px 0 -12px var(--skin);
+}
+
+
+/* =========================================================
+   CORPO
+   ========================================================= */
+
+.character-body {
+    position: absolute;
+
+    width: 150px;
+    height: 125px;
+
+    left: 50%;
+    top: 205px;
+
+    transform: translateX(-50%);
+
+    background: #4E9FE6;
+
+    border-radius:
+        48px
+        48px
+        25px
+        25px;
+
+    z-index: 3;
+
+    box-shadow:
+        inset 0 -7px 0 rgba(0,0,0,0.07);
+
+    transition:
+        all 0.3s ease;
+}
+
+
+/* =========================================================
+   ESTRELA
+   ========================================================= */
+
+.shirt-symbol {
+    position: absolute;
+
+    left: 50%;
+    top: 40px;
+
+    transform: translateX(-50%);
+
+    color: #FFE27A;
+
+    font-size: 28px;
+
+    text-shadow:
+        0 2px 0 rgba(0,0,0,0.05);
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   PERNAS
+   ========================================================= */
+
+.character-legs {
+    position: absolute;
+
+    width: 100px;
+    height: 75px;
+
+    left: 50%;
+    top: 315px;
+
+    transform: translateX(-50%);
+
+    z-index: 1;
+}
+
+.leg {
+    position: absolute;
+
+    width: 42px;
+    height: 60px;
+
+    background: var(--skin);
+
+    border-radius:
+        0
+        0
+        22px
+        22px;
+}
+
+.leg-left {
+    left: 5px;
+}
+
+.leg-right {
+    right: 5px;
+}
+
+
+/* =========================================================
+   SAPATOS
+   ========================================================= */
+
+.shoe {
+    position: absolute;
+
+    width: 52px;
+    height: 25px;
+
+    bottom: -7px;
+
+    background: #4A405F;
+
+    border-radius:
+        18px
+        18px
+        12px
+        12px;
+}
+
+.leg-left .shoe {
+    left: -5px;
+}
+
+.leg-right .shoe {
+    right: -5px;
+}
+
+
+/* =========================================================
+   MENINO
+   ========================================================= */
+
+.character-preview[data-gender="menino"]
+.character-hair {
+    width: 155px;
+    height: 100px;
+
+    left: 50%;
+    top: 22px;
+
+    transform: translateX(-50%);
+
+    border-radius:
+        80px
+        80px
+        35px
+        35px;
+
+    z-index: 7;
+}
+
+
+/* cabelo lateral esquerdo */
+
+.character-preview[data-gender="menino"]
+.character-hair::before {
+    content: "";
+
+    position: absolute;
+
+    width: 30px;
+    height: 70px;
+
+    left: -2px;
+    top: 40px;
+
+    background: var(--hair);
+
+    border-radius:
+        20px
+        10px
+        15px
+        20px;
+}
+
+
+/* cabelo lateral direito */
+
+.character-preview[data-gender="menino"]
+.character-hair::after {
+    content: "";
+
+    position: absolute;
+
+    width: 30px;
+    height: 70px;
+
+    right: -2px;
+    top: 40px;
+
+    background: var(--hair);
+
+    border-radius:
+        10px
+        20px
+        20px
+        15px;
+}
+
+
+/* topo do cabelo */
+
+.character-preview[data-gender="menino"]
+.character-head::before {
+    content: "";
+
+    position: absolute;
+
+    width: 75px;
+    height: 30px;
+
+    left: 35px;
+    top: -7px;
+
+    background: var(--hair);
+
+    border-radius: 50%;
+
+    z-index: 9;
+}
+
+
+/* camisa */
+
+.character-preview[data-gender="menino"]
+.character-body {
+    background: #4E9FE6;
+}
+
+
+/* bermuda */
+
+.character-preview[data-gender="menino"]
+.character-body::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 43px;
+
+    left: 0;
+    bottom: -25px;
+
+    background: #394E82;
+
+    border-radius:
+        8px
+        8px
+        20px
+        20px;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   MENINA
+   ========================================================= */
+
+.character-preview[data-gender="menina"]
+.character-hair {
+    width: 190px;
+    height: 270px;
+
+    left: 50%;
+    top: 15px;
+
+    transform: translateX(-50%);
+
+    border-radius:
+        95px
+        95px
+        55px
+        55px;
+
+    z-index: 2;
+
+    box-shadow:
+        inset 10px 0 0 rgba(255,255,255,0.06),
+        inset -10px 0 0 rgba(0,0,0,0.08);
+}
+
+
+/* cabelo esquerdo */
+
+.character-preview[data-gender="menina"]
+.character-hair::before {
+    content: "";
+
+    position: absolute;
+
+    width: 58px;
+    height: 215px;
+
+    left: -16px;
+    top: 55px;
+
+    background: var(--hair);
+
+    border-radius:
+        40px
+        25px
+        42px
+        48px;
+
+    transform: rotate(5deg);
+}
+
+
+/* cabelo direito */
+
+.character-preview[data-gender="menina"]
+.character-hair::after {
+    content: "";
+
+    position: absolute;
+
+    width: 58px;
+    height: 215px;
+
+    right: -16px;
+    top: 55px;
+
+    background: var(--hair);
+
+    border-radius:
+        25px
+        40px
+        48px
+        42px;
+
+    transform: rotate(-5deg);
+}
+
+
+/* franja */
+
+.character-preview[data-gender="menina"]
+.character-head::before {
+    content: "";
+
+    position: absolute;
+
+    width: 138px;
+    height: 68px;
+
+    left: 5px;
+    top: -13px;
+
+    background: var(--hair);
+
+    border-radius:
+        75px
+        75px
+        35px
+        30px;
+
+    z-index: 9;
+}
+
+
+/* mecha frontal */
+
+.character-preview[data-gender="menina"]
+.character-head::after {
+    content: "";
+
+    position: absolute;
+
+    width: 35px;
+    height: 105px;
+
+    left: 8px;
+    top: 18px;
+
+    background: var(--hair);
+
+    border-radius:
+        25px
+        10px
+        30px
+        35px;
+
+    transform: rotate(7deg);
+
+    z-index: 9;
+}
+
+
+/* =========================================================
+   CORPO DA MENINA
+   ========================================================= */
+
+.character-preview[data-gender="menina"]
+.character-body {
+    width: 150px;
+    height: 125px;
+
+    top: 205px;
+
+    background: #C58BEF;
+
+    border-radius:
+        48px
+        48px
+        25px
+        25px;
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
+
+@keyframes characterFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+@keyframes shadowFloat {
+
+    0%,
+    100% {
+        transform:
+            translateX(-50%)
+            scaleX(1);
+
+        opacity: 0.20;
+    }
+
+    50% {
+        transform:
+            translateX(-50%)
+            scaleX(0.86);
+
+        opacity: 0.12;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .character-preview {
+        transform: scale(0.82);
+
+        margin-top: -20px;
+        margin-bottom: -20px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .character-preview {
+        transform: scale(0.72);
+
+        margin-top: -40px;
+        margin-bottom: -40px;
+    }
+
+}

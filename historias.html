@@ -1,0 +1,3062 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aventuras da Bíblia — Pequenos na Fé</title>
+
+    <meta
+        name="description"
+        content="Aventuras da Bíblia para crianças aprenderem sobre Deus de forma divertida e interativa."
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #fffaf2;
+            --card: #ffffff;
+            --text: #29343a;
+            --muted: #78848d;
+
+            --blue: #78bdf2;
+            --blue-dark: #4b9bdd;
+
+            --yellow: #ffd96d;
+            --mint: #8dddc0;
+            --purple: #b9a5ee;
+            --pink: #f3abc6;
+            --green: #64c79c;
+
+            --shadow: 0 15px 40px rgba(60, 70, 80, .09);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        button,
+        a {
+            font-family: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           SIDEBAR
+        ========================= */
+
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 245px;
+            height: 100vh;
+
+            background: #ffffff;
+            border-right: 1px solid #eee8df;
+
+            padding: 25px 18px;
+
+            display: flex;
+            flex-direction: column;
+
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 4px 8px 25px;
+        }
+
+        .logo-icon {
+            width: 43px;
+            height: 43px;
+
+            border-radius: 14px;
+
+            background: linear-gradient(
+                135deg,
+                #ffd96d,
+                #f3abc6
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #ffffff;
+            font-size: 22px;
+
+            box-shadow: 0 8px 18px rgba(243, 171, 198, .22);
+        }
+
+        .logo strong {
+            display: block;
+            font-size: 15px;
+            line-height: 1.2;
+        }
+
+        .logo span {
+            display: block;
+            margin-top: 4px;
+
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .menu-title {
+            padding: 0 10px;
+            margin: 5px 0 10px;
+
+            color: #a0a8ad;
+            font-size: 10px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+            letter-spacing: .12em;
+        }
+
+        .menu {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .menu a {
+            display: flex;
+            align-items: center;
+
+            gap: 11px;
+
+            min-height: 46px;
+
+            padding: 0 13px;
+
+            border-radius: 14px;
+
+            color: #66727a;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            transition:
+                background .2s ease,
+                color .2s ease,
+                transform .2s ease;
+        }
+
+        .menu a:hover {
+            background: #f7f9fb;
+            color: var(--text);
+            transform: translateX(2px);
+        }
+
+        .menu a.active {
+            background: #edf7ff;
+            color: #4b9bdd;
+        }
+
+        .sidebar-bottom {
+            margin-top: auto;
+            padding: 10px 0 0;
+        }
+
+        .back-btn {
+            width: 100%;
+
+            border: 1px solid #e8edf1;
+            background: #ffffff;
+
+            padding: 12px 14px;
+
+            border-radius: 13px;
+
+            color: #6d7981;
+            font-size: 12px;
+            font-weight: 700;
+
+            transition: .2s ease;
+        }
+
+        .back-btn:hover {
+            background: #f7fbff;
+            border-color: #cfe7f8;
+            color: var(--blue-dark);
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            margin-left: 245px;
+            min-height: 100vh;
+
+            padding: 38px 42px 60px;
+        }
+
+        .page {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eaf7ff 0%,
+                    #f7f5ff 50%,
+                    #fff7e6 100%
+                );
+
+            border: 1px solid #edf0f3;
+
+            border-radius: 30px;
+
+            padding: 42px;
+
+            box-shadow: var(--shadow);
+
+            margin-bottom: 32px;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            border-radius: 50%;
+
+            background: rgba(255, 217, 109, .22);
+
+            right: -60px;
+            top: -65px;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 120px;
+            height: 120px;
+
+            border-radius: 50%;
+
+            background: rgba(141, 221, 192, .2);
+
+            right: 150px;
+            bottom: -70px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 720px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+
+            padding: 8px 12px;
+
+            border-radius: 999px;
+
+            background: rgba(255, 255, 255, .75);
+
+            color: #638096;
+
+            font-size: 10px;
+            font-weight: 900;
+
+            letter-spacing: .12em;
+            text-transform: uppercase;
+
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 4vw, 46px);
+            line-height: 1.05;
+
+            letter-spacing: -.04em;
+
+            margin-bottom: 13px;
+        }
+
+        .hero p {
+            max-width: 600px;
+
+            color: #6d7b84;
+
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .hero-icon {
+            position: absolute;
+
+            right: 50px;
+            bottom: 24px;
+
+            font-size: 76px;
+
+            transform: rotate(-5deg);
+
+            filter: drop-shadow(
+                0 10px 20px rgba(70, 100, 120, .12)
+            );
+        }
+
+        /* =========================
+           SECTION HEADER
+        ========================= */
+
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 18px;
+        }
+
+        .section-header h2 {
+            font-size: 22px;
+            letter-spacing: -.025em;
+        }
+
+        .section-header p {
+            margin-top: 5px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           STORIES GRID
+        ========================= */
+
+        .stories-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, minmax(0, 1fr));
+
+            gap: 18px;
+        }
+
+        .story-card {
+            position: relative;
+
+            background: var(--card);
+
+            border: 1px solid #eeeae5;
+
+            border-radius: 22px;
+
+            padding: 20px;
+
+            box-shadow: 0 10px 30px rgba(50, 60, 70, .055);
+
+            overflow: hidden;
+
+            transition:
+                transform .22s ease,
+                box-shadow .22s ease,
+                border-color .22s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 18px 40px rgba(50, 60, 70, .11);
+
+            border-color: #dcebf5;
+        }
+
+        .story-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            margin-bottom: 20px;
+        }
+
+        .story-icon {
+            width: 58px;
+            height: 58px;
+
+            border-radius: 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 30px;
+
+            background: #edf8ff;
+        }
+
+        .story-xp {
+            padding: 6px 9px;
+
+            border-radius: 999px;
+
+            background: #fff7d9;
+
+            color: #9a7a25;
+
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        .story-card h3 {
+            font-size: 17px;
+            margin-bottom: 7px;
+        }
+
+        .story-card p {
+            min-height: 42px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .story-reference {
+            margin-top: 13px;
+
+            color: #89949a;
+
+            font-size: 11px;
+            font-weight: 700;
+        }
+
+        .story-button {
+            width: 100%;
+
+            margin-top: 17px;
+
+            border: 0;
+
+            padding: 11px 13px;
+
+            border-radius: 12px;
+
+            background: #f2f8fc;
+
+            color: #4b91c8;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            transition: .2s ease;
+        }
+
+        .story-button:hover {
+            background: #e4f3fd;
+            transform: translateY(-1px);
+        }
+
+        .story-card.completed .story-button {
+            background: #eaf8f1;
+            color: #4d9c79;
+        }
+
+        .completed-label {
+            display: none;
+
+            margin-top: 9px;
+
+            color: #57a783;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            text-align: center;
+        }
+
+        .story-card.completed .completed-label {
+            display: block;
+        }
+
+        /* =========================
+           JOURNEY
+        ========================= */
+
+        .journey {
+            margin-top: 34px;
+
+            background: #ffffff;
+
+            border: 1px solid #eeeae5;
+
+            border-radius: 24px;
+
+            padding: 25px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .journey-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 16px;
+        }
+
+        .journey-header h3 {
+            font-size: 17px;
+        }
+
+        .journey-header span {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 12px;
+
+            background: #f0f3f5;
+
+            border-radius: 999px;
+
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #78bdf2,
+                    #8dddc0
+                );
+
+            border-radius: inherit;
+
+            transition: width .5s ease;
+        }
+
+        .journey-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-top: 11px;
+        }
+
+        .journey-bottom span {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal-overlay {
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(26, 35, 42, .52);
+
+            backdrop-filter: blur(6px);
+
+            display: none;
+            align-items: center;
+            justify-content: center;
+
+            padding: 20px;
+
+            z-index: 3000;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .story-modal {
+            width: min(760px, 100%);
+            max-height: 90vh;
+
+            overflow: auto;
+
+            background: #ffffff;
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 30px 90px rgba(0, 0, 0, .2);
+
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+
+            right: 17px;
+            top: 17px;
+
+            width: 38px;
+            height: 38px;
+
+            border: 0;
+
+            border-radius: 50%;
+
+            background: rgba(255, 255, 255, .85);
+
+            color: #66727a;
+
+            font-size: 18px;
+
+            z-index: 5;
+        }
+
+        .modal-close:hover {
+            background: #f1f4f6;
+        }
+
+        .modal-header {
+            padding: 34px 34px 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #eef9ff,
+                    #f8f5ff
+                );
+
+            border-radius: 28px 28px 0 0;
+        }
+
+        .modal-icon {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .modal-header h2 {
+            font-size: 27px;
+            letter-spacing: -.035em;
+        }
+
+        .modal-header p {
+            margin-top: 7px;
+
+            color: var(--muted);
+
+            font-size: 13px;
+        }
+
+        .modal-progress {
+            height: 6px;
+
+            background: #edf0f2;
+        }
+
+        .modal-progress-fill {
+            height: 100%;
+
+            width: 0%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #78bdf2,
+                    #b9a5ee
+                );
+
+            transition: width .3s ease;
+        }
+
+        .modal-body {
+            padding: 30px 34px 34px;
+        }
+
+        .scene-number {
+            display: inline-flex;
+
+            padding: 6px 10px;
+
+            border-radius: 999px;
+
+            background: #f2f7fa;
+
+            color: #75838b;
+
+            font-size: 10px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: .08em;
+
+            margin-bottom: 14px;
+        }
+
+        .scene-title {
+            font-size: 24px;
+
+            margin-bottom: 12px;
+
+            letter-spacing: -.025em;
+        }
+
+        .scene-text {
+            color: #647179;
+
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .scene-highlight {
+            margin-top: 20px;
+
+            padding: 18px;
+
+            border-radius: 18px;
+
+            background: #fff9df;
+
+            border: 1px solid #f5e7a8;
+
+            color: #76652c;
+
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: space-between;
+
+            gap: 12px;
+
+            margin-top: 28px;
+        }
+
+        .modal-btn {
+            border: 0;
+
+            border-radius: 13px;
+
+            padding: 12px 18px;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            transition: .2s ease;
+        }
+
+        .modal-btn.secondary {
+            background: #f1f4f6;
+            color: #65727a;
+        }
+
+        .modal-btn.secondary:hover {
+            background: #e7ecef;
+        }
+
+        .modal-btn.primary {
+            background: #78bdf2;
+            color: #ffffff;
+
+            box-shadow:
+                0 8px 18px rgba(120, 189, 242, .25);
+        }
+
+        .modal-btn.primary:hover {
+            background: #64aee9;
+            transform: translateY(-1px);
+        }
+
+        /* =========================
+           CHALLENGE
+        ========================= */
+
+        .challenge {
+            margin-top: 25px;
+
+            padding: 22px;
+
+            border-radius: 20px;
+
+            background: #f8f5ff;
+
+            border: 1px solid #ebe5fa;
+        }
+
+        .challenge-label {
+            display: inline-block;
+
+            margin-bottom: 8px;
+
+            color: #8770bd;
+
+            font-size: 10px;
+            font-weight: 900;
+
+            text-transform: uppercase;
+            letter-spacing: .1em;
+        }
+
+        .challenge h3 {
+            font-size: 18px;
+            margin-bottom: 16px;
+        }
+
+        .challenge-options {
+            display: grid;
+            gap: 9px;
+        }
+
+        .challenge-option {
+            width: 100%;
+
+            text-align: left;
+
+            border: 1px solid #e6e0f5;
+
+            background: #ffffff;
+
+            padding: 12px 14px;
+
+            border-radius: 12px;
+
+            color: #59656d;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            transition: .2s ease;
+        }
+
+        .challenge-option:hover {
+            border-color: #cfc0ef;
+            background: #fcfaff;
+        }
+
+        .challenge-option.correct {
+            border-color: #9bdabd;
+            background: #effbf5;
+            color: #438768;
+        }
+
+        .challenge-option.wrong {
+            border-color: #efb1b1;
+            background: #fff4f4;
+            color: #a95f5f;
+        }
+
+        .challenge-result {
+            margin-top: 13px;
+
+            font-size: 12px;
+            font-weight: 800;
+
+            min-height: 18px;
+        }
+
+        /* =========================
+           FINISH
+        ========================= */
+
+        .finish {
+            text-align: center;
+
+            padding: 18px 5px 5px;
+        }
+
+        .finish-icon {
+            font-size: 65px;
+            margin-bottom: 10px;
+        }
+
+        .finish h2 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .finish p {
+            color: var(--muted);
+
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .finish-xp {
+            display: inline-flex;
+
+            margin-top: 18px;
+
+            padding: 9px 14px;
+
+            border-radius: 999px;
+
+            background: #fff7d9;
+
+            color: #9a7a25;
+
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+            position: fixed;
+
+            left: 50%;
+            bottom: 25px;
+
+            transform:
+                translate(-50%, 30px);
+
+            opacity: 0;
+
+            pointer-events: none;
+
+            background: #29343a;
+            color: #ffffff;
+
+            padding: 12px 17px;
+
+            border-radius: 13px;
+
+            font-size: 12px;
+            font-weight: 700;
+
+            box-shadow:
+                0 12px 35px rgba(0, 0, 0, .18);
+
+            transition: .25s ease;
+
+            z-index: 5000;
+        }
+
+        .toast.show {
+            opacity: 1;
+
+            transform:
+                translate(-50%, 0);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        .mobile-header {
+            display: none;
+        }
+
+        @media (max-width: 1100px) {
+            .stories-grid {
+                grid-template-columns:
+                    repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 850px) {
+
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform .25s ease;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main {
+                margin-left: 0;
+
+                padding:
+                    80px
+                    18px
+                    40px;
+            }
+
+            .mobile-header {
+                display: flex;
+
+                position: fixed;
+
+                left: 0;
+                top: 0;
+
+                width: 100%;
+                height: 62px;
+
+                background: rgba(255, 255, 255, .94);
+
+                backdrop-filter: blur(10px);
+
+                border-bottom: 1px solid #eee8df;
+
+                align-items: center;
+                justify-content: space-between;
+
+                padding: 0 17px;
+
+                z-index: 2000;
+            }
+
+            .mobile-title {
+                font-size: 14px;
+                font-weight: 900;
+            }
+
+            .menu-toggle {
+                width: 40px;
+                height: 40px;
+
+                border: 1px solid #e8edf1;
+
+                background: #ffffff;
+
+                border-radius: 12px;
+
+                font-size: 18px;
+            }
+
+            .hero {
+                padding: 30px 25px;
+            }
+
+            .hero-icon {
+                opacity: .35;
+                right: 20px;
+            }
+
+            .stories-grid {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 560px) {
+
+            .main {
+                padding:
+                    77px
+                    14px
+                    30px;
+            }
+
+            .hero {
+                border-radius: 22px;
+                padding: 25px 20px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 13px;
+            }
+
+            .hero-icon {
+                display: none;
+            }
+
+            .section-header {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .stories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .story-card {
+                padding: 18px;
+            }
+
+            .journey {
+                padding: 20px;
+                border-radius: 20px;
+            }
+
+            .modal-overlay {
+                padding: 8px;
+            }
+
+            .story-modal {
+                max-height: 94vh;
+                border-radius: 22px;
+            }
+
+            .modal-header {
+                padding:
+                    28px
+                    22px
+                    18px;
+
+                border-radius: 22px 22px 0 0;
+            }
+
+            .modal-body {
+                padding:
+                    23px
+                    20px
+                    25px;
+            }
+
+            .modal-actions {
+                flex-direction: column-reverse;
+            }
+
+            .modal-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         MOBILE HEADER
+    ========================= -->
+
+    <header class="mobile-header">
+
+        <div class="mobile-title">
+            Pequenos na Fé
+        </div>
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Abrir menu"
+        >
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- =========================
+         SIDEBAR
+    ========================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ✦
+            </div>
+
+            <div>
+                <strong>
+                    Pequenos na Fé
+                </strong>
+
+                <span>
+                    Uma aventura com Deus
+                </span>
+            </div>
+
+        </div>
+
+
+        <div class="menu-title">
+            Explorar
+        </div>
+
+
+        <nav class="menu">
+
+            <a href="painel.html">
+                🏠
+                <span>Início</span>
+            </a>
+
+            <a
+                href="historias.html"
+                class="active"
+            >
+                📖
+                <span>Aventuras da Bíblia</span>
+            </a>
+
+            <a href="jesus.html">
+                ❤️
+                <span>Conhecendo Jesus</span>
+            </a>
+
+            <a href="ingles.html">
+                🌎
+                <span>English with Jesus</span>
+            </a>
+
+            <a href="jogos.html">
+                🎮
+                <span>Jogos da Fé</span>
+            </a>
+
+            <a href="atividades.html">
+                🎨
+                <span>Ateliê</span>
+            </a>
+
+            <a href="momento-deus.html">
+                🙏
+                <span>Momento com Deus</span>
+            </a>
+
+            <a href="conquistas.html">
+                🏆
+                <span>Conquistas</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                class="back-btn"
+                onclick="window.location.href='painel.html'"
+            >
+                ← Voltar para o início
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <main class="main">
+
+        <div class="page">
+
+            <!-- HERO -->
+
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <div class="hero-badge">
+                        📖 Uma nova aventura
+                    </div>
+
+                    <h1>
+                        Aventuras da Bíblia
+                    </h1>
+
+                    <p>
+                        Descubra histórias incríveis da Bíblia,
+                        conheça personagens que confiaram em Deus
+                        e aprenda lições que podem fazer parte
+                        da sua vida todos os dias.
+                    </p>
+
+                </div>
+
+                <div class="hero-icon">
+                    📖✨
+                </div>
+
+            </section>
+
+
+            <!-- STORIES -->
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Escolha uma aventura
+                    </h2>
+
+                    <p>
+                        Leia, responda e descubra a lição de cada história.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <section
+                class="stories-grid"
+                id="storiesGrid"
+            >
+
+                <!-- A CRIAÇÃO -->
+
+                <article
+                    class="story-card"
+                    data-story="criacao"
+                >
+
+                    <div class="story-top">
+
+                        <div
+                            class="story-icon"
+                            style="background:#eef8ff;"
+                        >
+                            🌎
+                        </div>
+
+                        <span class="story-xp">
+                            +30 XP
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        A Criação
+                    </h3>
+
+                    <p>
+                        Descubra como Deus criou o mundo
+                        e tudo o que existe nele.
+                    </p>
+
+                    <div class="story-reference">
+                        Gênesis 1
+                    </div>
+
+                    <button
+                        class="story-button"
+                        onclick="abrirHistoria('criacao')"
+                    >
+                        Começar aventura →
+                    </button>
+
+                    <div class="completed-label">
+                        ✓ Aventura concluída
+                    </div>
+
+                </article>
+
+
+                <!-- NOÉ -->
+
+                <article
+                    class="story-card"
+                    data-story="noe"
+                >
+
+                    <div class="story-top">
+
+                        <div
+                            class="story-icon"
+                            style="background:#eefbf5;"
+                        >
+                            🛶
+                        </div>
+
+                        <span class="story-xp">
+                            +30 XP
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Noé e a Arca
+                    </h3>
+
+                    <p>
+                        Conheça Noé e descubra como ele
+                        confiou em Deus.
+                    </p>
+
+                    <div class="story-reference">
+                        Gênesis 6–9
+                    </div>
+
+                    <button
+                        class="story-button"
+                        onclick="abrirHistoria('noe')"
+                    >
+                        Começar aventura →
+                    </button>
+
+                    <div class="completed-label">
+                        ✓ Aventura concluída
+                    </div>
+
+                </article>
+
+
+                <!-- ABRAÃO -->
+
+                <article
+                    class="story-card"
+                    data-story="abraao"
+                >
+
+                    <div class="story-top">
+
+                        <div
+                            class="story-icon"
+                            style="background:#fff8df;"
+                        >
+                            ⭐
+                        </div>
+
+                        <span class="story-xp">
+                            +30 XP
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Abraão e a Promessa
+                    </h3>
+
+                    <p>
+                        Uma história sobre confiança,
+                        promessa e fé em Deus.
+                    </p>
+
+                    <div class="story-reference">
+                        Gênesis 12–22
+                    </div>
+
+                    <button
+                        class="story-button"
+                        onclick="abrirHistoria('abraao')"
+                    >
+                        Começar aventura →
+                    </button>
+
+                    <div class="completed-label">
+                        ✓ Aventura concluída
+                    </div>
+
+                </article>
+
+
+                <!-- MOISÉS -->
+
+                <article
+                    class="story-card"
+                    data-story="moises"
+                >
+
+                    <div class="story-top">
+
+                        <div
+                            class="story-icon"
+                            style="background:#eef7ff;"
+                        >
+                            🌊
+                        </div>
+
+                        <span class="story-xp">
+                            +30 XP
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Moisés e o Mar
+                    </h3>
+
+                    <p>
+                        Veja como Moisés confiou em Deus
+                        diante de um grande desafio.
+                    </p>
+
+                    <div class="story-reference">
+                        Êxodo 14
+                    </div>
+
+                    <button
+                        class="story-button"
+                        onclick="abrirHistoria('moises')"
+                    >
+                        Começar aventura →
+                    </button>
+
+                    <div class="completed-label">
+                        ✓ Aventura concluída
+                    </div>
+
+                </article>
+
+
+                <!-- DAVI -->
+
+                <article
+                    class="story-card"
+                    data-story="davi"
+                >
+
+                    <div class="story-top">
+
+                        <div
+                            class="story-icon"
+                            style="background:#fff0f5;"
+                        >
+                            🪨
+                        </div>
+
+                        <span class="story-xp">
+                            +30 XP
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Davi e Golias
+                    </h3>
+
+                    <p>
+                        Um jovem pastor enfrenta um gigante
+                        confiando em Deus.
+                    </p>
+
+                    <div class="story-reference">
+                        1 Samuel 17
+                    </div>
+
+                    <button
+                        class="story-button"
+                        onclick="abrirHistoria('davi')"
+                    >
+                        Começar aventura →
+                    </button>
+
+                    <div class="completed-label">
+                        ✓ Aventura concluída
+                    </div>
+
+                </article>
+
+
+                <!-- DANIEL -->
+
+                <article
+                    class="story-card"
+                    data-story="daniel"
+                >
+
+                    <div class="story-top">
+
+                        <div
+                            class="story-icon"
+                            style="background:#f2edff;"
+                        >
+                            🦁
+                        </div>
+
+                        <span class="story-xp">
+                            +30 XP
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Daniel e os Leões
+                    </h3>
+
+                    <p>
+                        Daniel continua confiando em Deus
+                        mesmo diante de um grande perigo.
+                    </p>
+
+                    <div class="story-reference">
+                        Daniel 6
+                    </div>
+
+                    <button
+                        class="story-button"
+                        onclick="abrirHistoria('daniel')"
+                    >
+                        Começar aventura →
+                    </button>
+
+                    <div class="completed-label">
+                        ✓ Aventura concluída
+                    </div>
+
+                </article>
+
+
+                <!-- JONAS -->
+
+                <article
+                    class="story-card"
+                    data-story="jonas"
+                >
+
+                    <div class="story-top">
+
+                        <div
+                            class="story-icon"
+                            style="background:#eefaff;"
+                        >
+                            🐋
+                        </div>
+
+                        <span class="story-xp">
+                            +30 XP
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Jonas e o Grande Peixe
+                    </h3>
+
+                    <p>
+                        Jonas aprende sobre obediência,
+                        arrependimento e misericórdia.
+                    </p>
+
+                    <div class="story-reference">
+                        Jonas 1–4
+                    </div>
+
+                    <button
+                        class="story-button"
+                        onclick="abrirHistoria('jonas')"
+                    >
+                        Começar aventura →
+                    </button>
+
+                    <div class="completed-label">
+                        ✓ Aventura concluída
+                    </div>
+
+                </article>
+
+
+                <!-- JESUS -->
+
+                <article
+                    class="story-card"
+                    data-story="jesus"
+                >
+
+                    <div class="story-top">
+
+                        <div
+                            class="story-icon"
+                            style="background:#fff0f4;"
+                        >
+                            ❤️
+                        </div>
+
+                        <span class="story-xp">
+                            +30 XP
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        O Nascimento de Jesus
+                    </h3>
+
+                    <p>
+                        Conheça a história do nascimento
+                        de Jesus em Belém.
+                    </p>
+
+                    <div class="story-reference">
+                        Lucas 2
+                    </div>
+
+                    <button
+                        class="story-button"
+                        onclick="abrirHistoria('jesus')"
+                    >
+                        Começar aventura →
+                    </button>
+
+                    <div class="completed-label">
+                        ✓ Aventura concluída
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- JOURNEY -->
+
+            <section class="journey">
+
+                <div class="journey-header">
+
+                    <h3>
+                        Sua jornada pela Bíblia
+                    </h3>
+
+                    <span id="progressText">
+                        0 de 8 aventuras
+                    </span>
+
+                </div>
+
+                <div class="progress-track">
+
+                    <div
+                        class="progress-fill"
+                        id="progressFill"
+                    ></div>
+
+                </div>
+
+                <div class="journey-bottom">
+
+                    <span>
+                        Continue explorando!
+                    </span>
+
+                    <span id="progressPercent">
+                        0%
+                    </span>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         MODAL
+    ========================= -->
+
+    <div
+        class="modal-overlay"
+        id="storyModal"
+    >
+
+        <div class="story-modal">
+
+            <button
+                class="modal-close"
+                onclick="fecharHistoria()"
+                aria-label="Fechar"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-header">
+
+                <div
+                    class="modal-icon"
+                    id="modalIcon"
+                >
+                    📖
+                </div>
+
+                <h2 id="modalTitle">
+                    História
+                </h2>
+
+                <p id="modalReference">
+                    Bíblia
+                </p>
+
+            </div>
+
+
+            <div class="modal-progress">
+
+                <div
+                    class="modal-progress-fill"
+                    id="modalProgressFill"
+                ></div>
+
+            </div>
+
+
+            <div
+                class="modal-body"
+                id="modalBody"
+            >
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div
+        class="toast"
+        id="toast"
+    ></div>
+
+
+    <script>
+
+        /* =========================
+           DADOS
+        ========================= */
+
+        const historias = {
+
+            criacao: {
+                titulo: "A Criação",
+                referencia: "Gênesis 1",
+                icone: "🌎",
+
+                cenas: [
+
+                    {
+                        titulo: "No começo...",
+                        texto:
+                            "No começo, a Terra estava sem forma. Então Deus começou sua maravilhosa obra de criação.",
+                        destaque:
+                            "Deus criou tudo com sabedoria e cuidado."
+                    },
+
+                    {
+                        titulo: "A luz",
+                        texto:
+                            "Deus criou a luz e separou a luz da escuridão. Assim surgiu o dia e a noite.",
+                        destaque:
+                            "Deus trouxe ordem onde antes havia escuridão."
+                    },
+
+                    {
+                        titulo: "A vida",
+                        texto:
+                            "Deus criou plantas, árvores, animais, os mares, os céus e tudo o que existe.",
+                        destaque:
+                            "Cada parte da criação mostra o cuidado de Deus."
+                    },
+
+                    {
+                        titulo: "O ser humano",
+                        texto:
+                            "Deus criou o ser humano de maneira especial e deu a ele a responsabilidade de cuidar da criação.",
+                        destaque:
+                            "Nós também podemos cuidar do mundo que Deus criou."
+                    }
+
+                ],
+
+                pergunta:
+                    "Qual foi uma das primeiras coisas que Deus criou?",
+
+                opcoes: [
+                    "A luz",
+                    "Um carro",
+                    "Uma cidade"
+                ],
+
+                correta: 0,
+
+                licao:
+                    "Deus criou todas as coisas com sabedoria e cuidado. Podemos agradecer e cuidar da criação."
+            },
+
+
+            noe: {
+                titulo: "Noé e a Arca",
+                referencia: "Gênesis 6–9",
+                icone: "🛶",
+
+                cenas: [
+
+                    {
+                        titulo: "Noé confiava em Deus",
+                        texto:
+                            "Noé era um homem que procurava seguir os caminhos de Deus.",
+                        destaque:
+                            "Confiar em Deus significa continuar fazendo o que é certo."
+                    },
+
+                    {
+                        titulo: "Uma grande missão",
+                        texto:
+                            "Deus pediu que Noé construísse uma grande arca porque uma grande inundação viria.",
+                        destaque:
+                            "A missão parecia enorme, mas Noé decidiu obedecer."
+                    },
+
+                    {
+                        titulo: "Os animais",
+                        texto:
+                            "Noé entrou na arca com sua família e recebeu animais para preservar a vida.",
+                        destaque:
+                            "Noé cuidou dos animais durante aquela grande missão."
+                    },
+
+                    {
+                        titulo: "A promessa",
+                        texto:
+                            "Depois das águas baixarem, Deus fez uma promessa a Noé. O arco-íris tornou-se um sinal dessa promessa.",
+                        destaque:
+                            "Deus mostrou sua promessa e seu cuidado."
+                    }
+
+                ],
+
+                pergunta:
+                    "O que Noé fez quando Deus deu uma missão?",
+
+                opcoes: [
+                    "Obedeceu",
+                    "Escondeu-se",
+                    "Foi embora"
+                ],
+
+                correta: 0,
+
+                licao:
+                    "A história de Noé ensina sobre confiança, obediência e cuidado."
+            },
+
+
+            abraao: {
+                titulo: "Abraão e a Promessa",
+                referencia: "Gênesis 12–22",
+                icone: "⭐",
+
+                cenas: [
+
+                    {
+                        titulo: "Um chamado",
+                        texto:
+                            "Deus chamou Abraão para sair de sua terra e seguir para um lugar que Ele mostraria.",
+                        destaque:
+                            "Abraão precisou confiar mesmo sem conhecer todos os detalhes."
+                    },
+
+                    {
+                        titulo: "Uma promessa",
+                        texto:
+                            "Deus prometeu que faria de Abraão uma grande família e que ele seria uma bênção.",
+                        destaque:
+                            "A promessa de Deus deu esperança a Abraão."
+                    },
+
+                    {
+                        titulo: "Esperando",
+                        texto:
+                            "O tempo passou e Abraão continuou esperando pela promessa de Deus.",
+                        destaque:
+                            "Esperar também pode ser uma forma de confiar."
+                    },
+
+                    {
+                        titulo: "Fé",
+                        texto:
+                            "Abraão aprendeu a confiar em Deus mesmo quando não conseguia entender tudo.",
+                        destaque:
+                            "A fé ajuda a continuar caminhando."
+                    }
+
+                ],
+
+                pergunta:
+                    "O que Abraão precisou fazer?",
+
+                opcoes: [
+                    "Confiar em Deus",
+                    "Desistir da promessa",
+                    "Esconder-se"
+                ],
+
+                correta: 0,
+
+                licao:
+                    "Abraão nos ensina que podemos confiar em Deus mesmo quando ainda não sabemos o que acontecerá."
+            },
+
+
+            moises: {
+                titulo: "Moisés e o Mar",
+                referencia: "Êxodo 14",
+                icone: "🌊",
+
+                cenas: [
+
+                    {
+                        titulo: "Uma grande dificuldade",
+                        texto:
+                            "O povo de Israel estava diante do mar e parecia não haver caminho para continuar.",
+                        destaque:
+                            "Às vezes enfrentamos situações que parecem impossíveis."
+                    },
+
+                    {
+                        titulo: "Moisés confiou",
+                        texto:
+                            "Moisés disse ao povo para não ter medo e confiar em Deus.",
+                        destaque:
+                            "Coragem não significa não sentir medo. Significa continuar confiando."
+                    },
+
+                    {
+                        titulo: "Um caminho",
+                        texto:
+                            "De acordo com o relato bíblico, Deus abriu um caminho pelo mar para que o povo pudesse atravessar.",
+                        destaque:
+                            "O povo encontrou um caminho quando parecia não existir saída."
+                    },
+
+                    {
+                        titulo: "Depois do desafio",
+                        texto:
+                            "O povo atravessou e continuou sua caminhada.",
+                        destaque:
+                            "Podemos lembrar das coisas que Deus já fez quando enfrentamos novos desafios."
+                    }
+
+                ],
+
+                pergunta:
+                    "O que Moisés ensinou ao povo naquele momento?",
+
+                opcoes: [
+                    "Confiar em Deus",
+                    "Voltar para casa",
+                    "Desistir"
+                ],
+
+                correta: 0,
+
+                licao:
+                    "Quando encontramos dificuldades, podemos buscar coragem e confiar em Deus."
+            },
+
+
+            davi: {
+                titulo: "Davi e Golias",
+                referencia: "1 Samuel 17",
+                icone: "🪨",
+
+                cenas: [
+
+                    {
+                        titulo: "Um gigante",
+                        texto:
+                            "Golias era um guerreiro muito grande e assustava o exército de Israel.",
+                        destaque:
+                            "O tamanho de um desafio não determina sozinho o que podemos fazer."
+                    },
+
+                    {
+                        titulo: "Um jovem pastor",
+                        texto:
+                            "Davi era jovem e cuidava de ovelhas. Ele acreditava que Deus estaria com ele.",
+                        destaque:
+                            "Davi confiava em Deus mesmo sendo mais jovem."
+                    },
+
+                    {
+                        titulo: "A coragem",
+                        texto:
+                            "Davi decidiu enfrentar Golias usando uma funda e pedras.",
+                        destaque:
+                            "Davi não confiou apenas em sua própria força."
+                    },
+
+                    {
+                        titulo: "A vitória",
+                        texto:
+                            "Davi conseguiu derrotar Golias e mostrou coragem diante de um grande desafio.",
+                        destaque:
+                            "A história destaca a confiança de Davi em Deus."
+                    }
+
+                ],
+
+                pergunta:
+                    "Por que Davi teve coragem?",
+
+                opcoes: [
+                    "Porque confiava em Deus",
+                    "Porque era o maior",
+                    "Porque tinha um exército enorme"
+                ],
+
+                correta: 0,
+
+                licao:
+                    "Davi nos ensina que podemos enfrentar desafios com coragem e confiança em Deus."
+            },
+
+
+            daniel: {
+                titulo: "Daniel e os Leões",
+                referencia: "Daniel 6",
+                icone: "🦁",
+
+                cenas: [
+
+                    {
+                        titulo: "Daniel orava",
+                        texto:
+                            "Daniel tinha o costume de orar a Deus e continuou fazendo isso mesmo quando surgiram dificuldades.",
+                        destaque:
+                            "Daniel manteve sua fé."
+                    },
+
+                    {
+                        titulo: "Uma regra",
+                        texto:
+                            "Algumas pessoas criaram uma regra que tornava perigoso continuar orando.",
+                        destaque:
+                            "Daniel precisou escolher entre medo e fidelidade."
+                    },
+
+                    {
+                        titulo: "A cova",
+                        texto:
+                            "Daniel foi colocado em uma cova com leões por causa de sua fé.",
+                        destaque:
+                            "Mesmo em uma situação assustadora, Daniel continuou confiando."
+                    },
+
+                    {
+                        titulo: "Deus cuidou",
+                        texto:
+                            "O relato bíblico conta que Deus protegeu Daniel naquela noite.",
+                        destaque:
+                            "A história ensina sobre confiança e perseverança."
+                    }
+
+                ],
+
+                pergunta:
+                    "O que Daniel continuou fazendo?",
+
+                opcoes: [
+                    "Orando a Deus",
+                    "Fugindo da cidade",
+                    "Escondendo sua fé"
+                ],
+
+                correta: 0,
+
+                licao:
+                    "Daniel nos ensina a permanecer firmes em nossa fé mesmo quando surgem dificuldades."
+            },
+
+
+            jonas: {
+                titulo: "Jonas e o Grande Peixe",
+                referencia: "Jonas 1–4",
+                icone: "🐋",
+
+                cenas: [
+
+                    {
+                        titulo: "Uma missão",
+                        texto:
+                            "Deus chamou Jonas para levar uma mensagem à cidade de Nínive.",
+                        destaque:
+                            "Jonas recebeu uma missão importante."
+                    },
+
+                    {
+                        titulo: "Jonas fugiu",
+                        texto:
+                            "Jonas tentou fugir para longe em vez de seguir o que Deus havia pedido.",
+                        destaque:
+                            "Nem sempre queremos fazer aquilo que sabemos ser certo."
+                    },
+
+                    {
+                        titulo: "O grande peixe",
+                        texto:
+                            "Durante a viagem, Jonas acabou no mar e, segundo o relato bíblico, foi engolido por um grande peixe.",
+                        destaque:
+                            "Jonas teve tempo para pensar e orar."
+                    },
+
+                    {
+                        titulo: "Uma nova oportunidade",
+                        texto:
+                            "Jonas voltou a cumprir sua missão e levou a mensagem para Nínive.",
+                        destaque:
+                            "Deus também nos ensina através de novas oportunidades."
+                    }
+
+                ],
+
+                pergunta:
+                    "O que Jonas fez depois de receber uma nova oportunidade?",
+
+                opcoes: [
+                    "Cumpriu sua missão",
+                    "Fugiu novamente",
+                    "Esqueceu tudo"
+                ],
+
+                correta: 0,
+
+                licao:
+                    "Jonas nos ensina sobre obediência, arrependimento e a importância de aproveitar novas oportunidades."
+            },
+
+
+            jesus: {
+                titulo: "O Nascimento de Jesus",
+                referencia: "Lucas 2",
+                icone: "❤️",
+
+                cenas: [
+
+                    {
+                        titulo: "Uma noite especial",
+                        texto:
+                            "Maria e José viajaram até Belém. Foi ali que Jesus nasceu.",
+                        destaque:
+                            "O nascimento de Jesus é uma das histórias centrais da fé cristã."
+                    },
+
+                    {
+                        titulo: "Uma manjedoura",
+                        texto:
+                            "Como não havia espaço disponível para eles, Jesus foi colocado em uma manjedoura.",
+                        destaque:
+                            "Jesus nasceu de maneira simples."
+                    },
+
+                    {
+                        titulo: "Os pastores",
+                        texto:
+                            "Pastores que estavam nos campos receberam a notícia do nascimento de Jesus.",
+                        destaque:
+                            "Eles foram conhecer o bebê e ficaram maravilhados."
+                    },
+
+                    {
+                        titulo: "Uma mensagem de esperança",
+                        texto:
+                            "O nascimento de Jesus é celebrado pelos cristãos como uma mensagem de esperança, amor e salvação.",
+                        destaque:
+                            "A história aponta para o amor de Deus."
+                    }
+
+                ],
+
+                pergunta:
+                    "Onde Jesus foi colocado depois de nascer?",
+
+                opcoes: [
+                    "Em uma manjedoura",
+                    "Em um palácio",
+                    "Em um castelo"
+                ],
+
+                correta: 0,
+
+                licao:
+                    "O nascimento de Jesus é uma história de esperança e amor."
+            }
+
+        };
+
+
+        /* =========================
+           ESTADO
+        ========================= */
+
+        let historiaAtual = null;
+        let cenaAtual = 0;
+        let desafioRespondido = false;
+
+
+        const XP_KEY =
+            "pequenosNaFe_historias_xp";
+
+        const COMPLETAS_KEY =
+            "pequenosNaFe_historias_completas";
+
+
+        /* =========================
+           STORAGE
+        ========================= */
+
+        function obterXP() {
+
+            return Number(
+                localStorage.getItem(XP_KEY) || 0
+            );
+
+        }
+
+
+        function adicionarXP(valor) {
+
+            const atual = obterXP();
+
+            localStorage.setItem(
+                XP_KEY,
+                atual + valor
+            );
+
+        }
+
+
+        function obterCompletas() {
+
+            try {
+
+                const dados =
+                    JSON.parse(
+                        localStorage.getItem(COMPLETAS_KEY)
+                        || "[]"
+                    );
+
+                return Array.isArray(dados)
+                    ? dados
+                    : [];
+
+            } catch {
+
+                return [];
+
+            }
+
+        }
+
+
+        function salvarCompleta(id) {
+
+            const completas =
+                obterCompletas();
+
+            if (!completas.includes(id)) {
+
+                completas.push(id);
+
+                localStorage.setItem(
+                    COMPLETAS_KEY,
+                    JSON.stringify(completas)
+                );
+
+                adicionarXP(30);
+
+            }
+
+        }
+
+
+        /* =========================
+           ABRIR HISTÓRIA
+        ========================= */
+
+        function abrirHistoria(id) {
+
+            if (!historias[id]) {
+                return;
+            }
+
+            historiaAtual = id;
+
+            cenaAtual = 0;
+
+            desafioRespondido = false;
+
+            const historia =
+                historias[id];
+
+            document.getElementById(
+                "modalIcon"
+            ).textContent = historia.icone;
+
+            document.getElementById(
+                "modalTitle"
+            ).textContent = historia.titulo;
+
+            document.getElementById(
+                "modalReference"
+            ).textContent = historia.referencia;
+
+            document.getElementById(
+                "storyModal"
+            ).classList.add("show");
+
+            document.body.style.overflow = "hidden";
+
+            renderCena();
+
+        }
+
+
+        /* =========================
+           RENDERIZAR CENA
+        ========================= */
+
+        function renderCena() {
+
+            const historia =
+                historias[historiaAtual];
+
+            if (!historia) {
+                return;
+            }
+
+            const total =
+                historia.cenas.length;
+
+            const body =
+                document.getElementById(
+                    "modalBody"
+                );
+
+            const percentual =
+                ((cenaAtual + 1) / (total + 1)) * 100;
+
+            document.getElementById(
+                "modalProgressFill"
+            ).style.width =
+                `${percentual}%`;
+
+
+            const cena =
+                historia.cenas[cenaAtual];
+
+
+            body.innerHTML = `
+
+                <div class="scene-number">
+                    Parte ${cenaAtual + 1} de ${total}
+                </div>
+
+                <h3 class="scene-title">
+                    ${cena.titulo}
+                </h3>
+
+                <p class="scene-text">
+                    ${cena.texto}
+                </p>
+
+                <div class="scene-highlight">
+                    💡 ${cena.destaque}
+                </div>
+
+                <div class="modal-actions">
+
+                    <button
+                        class="modal-btn secondary"
+                        onclick="cenaAnterior()"
+                        ${cenaAtual === 0 ? "disabled" : ""}
+                    >
+                        ← Voltar
+                    </button>
+
+                    <button
+                        class="modal-btn primary"
+                        onclick="proximaCena()"
+                    >
+                        ${cenaAtual === total - 1
+                            ? "Continuar para o desafio"
+                            : "Continuar →"}
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================
+           PRÓXIMA CENA
+        ========================= */
+
+        function proximaCena() {
+
+            const historia =
+                historias[historiaAtual];
+
+            if (!historia) {
+                return;
+            }
+
+            if (
+                cenaAtual <
+                historia.cenas.length - 1
+            ) {
+
+                cenaAtual++;
+
+                renderCena();
+
+                return;
+            }
+
+            renderDesafio();
+
+        }
+
+
+        /* =========================
+           CENA ANTERIOR
+        ========================= */
+
+        function cenaAnterior() {
+
+            if (cenaAtual <= 0) {
+                return;
+            }
+
+            cenaAtual--;
+
+            renderCena();
+
+        }
+
+
+        /* =========================
+           DESAFIO
+        ========================= */
+
+        function renderDesafio() {
+
+            const historia =
+                historias[historiaAtual];
+
+            if (!historia) {
+                return;
+            }
+
+            const body =
+                document.getElementById(
+                    "modalBody"
+                );
+
+            const total =
+                historia.cenas.length;
+
+            document.getElementById(
+                "modalProgressFill"
+            ).style.width = "90%";
+
+
+            body.innerHTML = `
+
+                <div class="challenge">
+
+                    <div class="challenge-label">
+                        ✨ Desafio da aventura
+                    </div>
+
+                    <h3>
+                        ${historia.pergunta}
+                    </h3>
+
+                    <div
+                        class="challenge-options"
+                        id="challengeOptions"
+                    >
+
+                        ${historia.opcoes
+                            .map(
+                                (opcao, index) => `
+                                    <button
+                                        class="challenge-option"
+                                        onclick="responderDesafio(${index})"
+                                    >
+                                        ${opcao}
+                                    </button>
+                                `
+                            )
+                            .join("")
+                        }
+
+                    </div>
+
+                    <div
+                        class="challenge-result"
+                        id="challengeResult"
+                    ></div>
+
+                </div>
+
+                <div class="modal-actions">
+
+                    <button
+                        class="modal-btn secondary"
+                        onclick="renderCena()"
+                    >
+                        ← Voltar
+                    </button>
+
+                </div>
+
+            `;
+
+        }
+
+
+        /* =========================
+           RESPONDER DESAFIO
+        ========================= */
+
+        function responderDesafio(indice) {
+
+            if (desafioRespondido) {
+                return;
+            }
+
+            const historia =
+                historias[historiaAtual];
+
+            const botoes =
+                document.querySelectorAll(
+                    ".challenge-option"
+                );
+
+            const resultado =
+                document.getElementById(
+                    "challengeResult"
+                );
+
+
+            if (
+                indice === historia.correta
+            ) {
+
+                desafioRespondido = true;
+
+                botoes[indice]
+                    .classList
+                    .add("correct");
+
+                resultado.innerHTML = `
+                    🎉 Muito bem! Você acertou!
+                    <br><br>
+                    <strong>${historia.licao}</strong>
+                `;
+
+                resultado.style.color =
+                    "#438768";
+
+
+                botoes.forEach(
+                    botao => {
+                        botao.disabled = true;
+                    }
+                );
+
+
+                setTimeout(
+                    () => {
+                        finalizarHistoria();
+                    },
+                    1700
+                );
+
+            } else {
+
+                botoes[indice]
+                    .classList
+                    .add("wrong");
+
+                resultado.textContent =
+                    "Quase! Tente outra vez.";
+
+                resultado.style.color =
+                    "#a95f5f";
+
+                setTimeout(
+                    () => {
+
+                        botoes[indice]
+                            .classList
+                            .remove("wrong");
+
+                    },
+                    700
+                );
+
+            }
+
+        }
+
+
+        /* =========================
+           FINALIZAR
+        ========================= */
+
+        function finalizarHistoria() {
+
+            const historia =
+                historias[historiaAtual];
+
+            const jaConcluida =
+                obterCompletas()
+                    .includes(historiaAtual);
+
+
+            salvarCompleta(
+                historiaAtual
+            );
+
+
+            const body =
+                document.getElementById(
+                    "modalBody"
+                );
+
+
+            document.getElementById(
+                "modalProgressFill"
+            ).style.width = "100%";
+
+
+            body.innerHTML = `
+
+                <div class="finish">
+
+                    <div class="finish-icon">
+                        🎉
+                    </div>
+
+                    <h2>
+                        Aventura concluída!
+                    </h2>
+
+                    <p>
+                        Você terminou
+                        <strong>
+                            ${historia.titulo}
+                        </strong>.
+                    </p>
+
+                    <p style="margin-top:8px;">
+                        ${historia.licao}
+                    </p>
+
+                    ${
+                        jaConcluida
+                        ? `
+                            <div class="finish-xp">
+                                ✓ Aventura já concluída
+                            </div>
+                        `
+                        : `
+                            <div class="finish-xp">
+                                ⭐ +30 XP conquistados
+                            </div>
+                        `
+                    }
+
+                    <div
+                        class="modal-actions"
+                        style="justify-content:center;"
+                    >
+
+                        <button
+                            class="modal-btn primary"
+                            onclick="fecharHistoria()"
+                        >
+                            Continuar
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+
+            atualizarInterface();
+
+            mostrarToast(
+                jaConcluida
+                    ? "Aventura revisada!"
+                    : "+30 XP conquistados! ⭐"
+            );
+
+        }
+
+
+        /* =========================
+           FECHAR MODAL
+        ========================= */
+
+        function fecharHistoria() {
+
+            document
+                .getElementById("storyModal")
+                .classList
+                .remove("show");
+
+            document.body.style.overflow =
+                "";
+
+            historiaAtual = null;
+
+        }
+
+
+        /* =========================
+           INTERFACE
+        ========================= */
+
+        function atualizarInterface() {
+
+            const completas =
+                obterCompletas();
+
+            const total =
+                Object.keys(historias).length;
+
+            const quantidade =
+                completas.length;
+
+            const percentual =
+                total > 0
+                    ? Math.round(
+                        (quantidade / total) * 100
+                    )
+                    : 0;
+
+
+            document.getElementById(
+                "progressText"
+            ).textContent =
+                `${quantidade} de ${total} aventuras`;
+
+
+            document.getElementById(
+                "progressPercent"
+            ).textContent =
+                `${percentual}%`;
+
+
+            document.getElementById(
+                "progressFill"
+            ).style.width =
+                `${percentual}%`;
+
+
+            document
+                .querySelectorAll(".story-card")
+                .forEach(card => {
+
+                    const id =
+                        card.dataset.story;
+
+                    if (
+                        completas.includes(id)
+                    ) {
+
+                        card.classList.add(
+                            "completed"
+                        );
+
+                    } else {
+
+                        card.classList.remove(
+                            "completed"
+                        );
+
+                    }
+
+                });
+
+        }
+
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        let toastTimer;
+
+        function mostrarToast(mensagem) {
+
+            const toast =
+                document.getElementById(
+                    "toast"
+                );
+
+            toast.textContent =
+                mensagem;
+
+            toast.classList.add("show");
+
+            clearTimeout(toastTimer);
+
+            toastTimer =
+                setTimeout(
+                    () => {
+                        toast.classList.remove(
+                            "show"
+                        );
+                    },
+                    2500
+                );
+
+        }
+
+
+        /* =========================
+           MOBILE MENU
+        ========================= */
+
+        const menuToggle =
+            document.getElementById(
+                "menuToggle"
+            );
+
+        const sidebar =
+            document.getElementById(
+                "sidebar"
+            );
+
+
+        menuToggle.addEventListener(
+            "click",
+            () => {
+
+                sidebar.classList.toggle(
+                    "open"
+                );
+
+            }
+        );
+
+
+        document
+            .querySelectorAll(".menu a")
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    () => {
+
+                        sidebar.classList.remove(
+                            "open"
+                        );
+
+                    }
+                );
+
+            });
+
+
+        /* =========================
+           FECHAR CLICANDO FORA
+        ========================= */
+
+        document
+            .getElementById("storyModal")
+            .addEventListener(
+                "click",
+                event => {
+
+                    if (
+                        event.target.id ===
+                        "storyModal"
+                    ) {
+
+                        fecharHistoria();
+
+                    }
+
+                }
+            );
+
+
+        /* =========================
+           ESC FECHA MODAL
+        ========================= */
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (
+                    event.key === "Escape"
+                ) {
+
+                    fecharHistoria();
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           INICIAR
+        ========================= */
+
+        atualizarInterface();
+
+    </script>
+
+</body>
+</html>

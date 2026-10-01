@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pequenos na Fé</title>
+
+    <meta
+        name="description"
+        content="Crie seu personagem e comece uma aventura com Deus."
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/personagem.css">
+</head>
+
+<body class="onboarding-page">
+
+    <!-- =========================================
+         DECORAÇÃO DO FUNDO
+    ========================================== -->
+
+    <div class="background-decoration">
+
+        <span class="cloud cloud-1">☁</span>
+        <span class="cloud cloud-2">☁</span>
+        <span class="star star-1">✦</span>
+        <span class="star star-2">✦</span>
+        <span class="star star-3">✦</span>
+
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+    </div>
+
+
+    <!-- =========================================
+         TOPO
+    ========================================== -->
+
+    <header class="top-header">
+
+        <a href="index.html" class="brand">
+
+            <div class="brand-icon">
+                ✦
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    PEQUENOS NA FÉ
+                </strong>
+
+                <span>
+                    Uma aventura com Deus
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <div class="top-progress">
+
+            <span class="progress-active"></span>
+            <span></span>
+            <span></span>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================
+         CONTEÚDO
+    ========================================== -->
+
+    <main class="creator-page">
+
+
+        <!-- =====================================
+             TÍTULO
+        ====================================== -->
+
+        <section class="creator-heading">
+
+            <div class="heading-label">
+                ✨ PRIMEIRO PASSO
+            </div>
+
+            <h1>
+                Crie seu personagem
+            </h1>
+
+            <p>
+                Escolha cada detalhe e prepare seu
+                novo amigo para essa aventura.
+            </p>
+
+        </section>
+
+
+        <!-- =====================================
+             ÁREA PRINCIPAL
+        ====================================== -->
+
+        <section class="creator-layout">
+
+
+            <!-- =================================
+                 PERSONAGEM
+            ================================== -->
+
+            <div class="character-stage">
+
+                <div class="stage-glow"></div>
+
+                <div class="stage-cloud cloud-stage-1">
+                    ☁
+                </div>
+
+                <div class="stage-cloud cloud-stage-2">
+                    ☁
+                </div>
+
+
+                <div class="stage-title">
+
+                    <span>
+                        Seu personagem
+                    </span>
+
+                    <strong>
+                        está esperando você!
+                    </strong>
+
+                </div>
+
+
+                <div
+                    id="characterPreview"
+                    class="character-preview"
+                    data-gender="menino"
+                    data-skin="#F6C9A8"
+                    data-hair="#171717"
+                >
+
+                    <div class="character-shadow"></div>
+
+
+                    <div class="character">
+
+                        <div class="character-hair"></div>
+
+
+                        <div class="character-head">
+
+                            <div class="ear ear-left"></div>
+                            <div class="ear ear-right"></div>
+
+                            <div class="eyebrow eyebrow-left"></div>
+                            <div class="eyebrow eyebrow-right"></div>
+
+                            <div class="eye eye-left">
+                                <span></span>
+                            </div>
+
+                            <div class="eye eye-right">
+                                <span></span>
+                            </div>
+
+                            <div class="cheek cheek-left"></div>
+                            <div class="cheek cheek-right"></div>
+
+                            <div class="smile"></div>
+
+                        </div>
+
+
+                        <div class="character-neck"></div>
+
+
+                        <div class="character-body">
+
+                            <div class="shirt-symbol">
+                                ★
+                            </div>
+
+                        </div>
+
+
+                        <div class="character-legs">
+
+                            <div class="leg leg-left">
+                                <div class="shoe"></div>
+                            </div>
+
+                            <div class="leg leg-right">
+                                <div class="shoe"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stage-message">
+
+                    <span class="message-icon">
+                        💛
+                    </span>
+
+                    <div>
+                        <strong>
+                            Esse vai ser seu companheiro!
+                        </strong>
+
+                        <small>
+                            Você pode mudar tudo antes de começar.
+                        </small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================
+                 PAINEL DE PERSONALIZAÇÃO
+            ================================== -->
+
+            <div class="customization-panel">
+
+
+                <!-- PASSO 1 -->
+
+                <div class="custom-step">
+
+                    <div class="step-header">
+
+                        <div class="step-number">
+                            1
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Quem será seu personagem?
+                            </strong>
+
+                            <span>
+                                Escolha menino ou menina
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="gender-options">
+
+
+                        <button
+                            type="button"
+                            class="gender-card selected"
+                            data-gender="menino"
+                        >
+
+                            <div class="gender-icon boy">
+                                👦
+                            </div>
+
+                            <div class="gender-info">
+
+                                <strong>
+                                    Menino
+                                </strong>
+
+                                <span>
+                                    Vamos nessa!
+                                </span>
+
+                            </div>
+
+                            <div class="selection-mark">
+                                ✓
+                            </div>
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="gender-card"
+                            data-gender="menina"
+                        >
+
+                            <div class="gender-icon girl">
+                                👧
+                            </div>
+
+                            <div class="gender-info">
+
+                                <strong>
+                                    Menina
+                                </strong>
+
+                                <span>
+                                    Vamos nessa!
+                                </span>
+
+                            </div>
+
+                            <div class="selection-mark">
+                                ✓
+                            </div>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSO 2 -->
+
+                <div class="custom-step">
+
+                    <div class="step-header">
+
+                        <div class="step-number">
+                            2
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Qual será a cor da pele?
+                            </strong>
+
+                            <span>
+                                Escolha uma opção
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="color-options">
+
+
+                        <button
+                            type="button"
+                            class="color-choice selected"
+                            data-skin="#F6C9A8"
+                            style="--choice-color:#F6C9A8"
+                            aria-label="Pele clara"
+                        ></button>
+
+
+                        <button
+                            type="button"
+                            class="color-choice"
+                            data-skin="#E8AA7C"
+                            style="--choice-color:#E8AA7C"
+                            aria-label="Pele clara média"
+                        ></button>
+
+
+                        <button
+                            type="button"
+                            class="color-choice"
+                            data-skin="#C98255"
+                            style="--choice-color:#C98255"
+                            aria-label="Pele média"
+                        ></button>
+
+
+                        <button
+                            type="button"
+                            class="color-choice"
+                            data-skin="#A85D39"
+                            style="--choice-color:#A85D39"
+                            aria-label="Pele morena"
+                        ></button>
+
+
+                        <button
+                            type="button"
+                            class="color-choice"
+                            data-skin="#75432E"
+                            style="--choice-color:#75432E"
+                            aria-label="Pele escura"
+                        ></button>
+
+
+                        <button
+                            type="button"
+                            class="color-choice"
+                            data-skin="#4C2A20"
+                            style="--choice-color:#4C2A20"
+                            aria-label="Pele escura"
+                        ></button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASSO 3 -->
+
+                <div class="custom-step">
+
+                    <div class="step-header">
+
+                        <div class="step-number">
+                            3
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Escolha o cabelo
+                            </strong>
+
+                            <span>
+                                Qual combina mais?
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hair-options">
+
+
+                        <button
+                            type="button"
+                            class="hair-choice selected"
+                            data-hair="#171717"
+                            style="--hair-color:#171717"
+                            aria-label="Cabelo preto"
+                        >
+                            <span></span>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="hair-choice"
+                            data-hair="#3A2418"
+                            style="--hair-color:#3A2418"
+                            aria-label="Cabelo castanho escuro"
+                        >
+                            <span></span>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="hair-choice"
+                            data-hair="#6B4226"
+                            style="--hair-color:#6B4226"
+                            aria-label="Cabelo castanho"
+                        >
+                            <span></span>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="hair-choice"
+                            data-hair="#D5A83C"
+                            style="--hair-color:#D5A83C"
+                            aria-label="Cabelo loiro"
+                        >
+                            <span></span>
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="hair-choice"
+                            data-hair="#A64B2A"
+                            style="--hair-color:#A64B2A"
+                            aria-label="Cabelo ruivo"
+                        >
+                            <span></span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     CONTINUAR
+                ================================== -->
+
+                <div class="continue-area">
+
+                    <button
+                        id="continueButton"
+                        class="primary-button"
+                        type="button"
+                    >
+
+                        <span>
+                            Começar minha aventura
+                        </span>
+
+                        <span class="button-arrow">
+                            →
+                        </span>
+
+                    </button>
+
+                    <small>
+                        🔒 Suas escolhas ficam salvas neste dispositivo.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script src="js/personagem.js"></script>
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

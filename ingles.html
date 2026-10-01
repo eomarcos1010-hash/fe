@@ -1,0 +1,4204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>English with Jesus — Pequenos na Fé</title>
+
+    <meta
+        name="description"
+        content="Aprenda inglês brincando com histórias, animais, frases e a Bíblia."
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f8f7f3;
+            --card: #ffffff;
+            --text: #202735;
+            --muted: #7d8492;
+
+            --blue: #7aaee8;
+            --blue-dark: #4f86c6;
+            --blue-soft: #eaf4ff;
+
+            --yellow: #ffd978;
+            --yellow-soft: #fff6d8;
+
+            --green: #8fd8bd;
+            --green-soft: #e9faf3;
+
+            --purple: #b6a1e8;
+            --purple-soft: #f1ecff;
+
+            --pink: #f4b8ca;
+            --pink-soft: #fff0f5;
+
+            --orange: #f3bd78;
+            --orange-soft: #fff2df;
+
+            --shadow: 0 14px 40px rgba(44, 55, 75, .08);
+            --shadow-small: 0 7px 22px rgba(44, 55, 75, .07);
+
+            --radius: 24px;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(122,174,232,.14), transparent 25%),
+                radial-gradient(circle at 90% 20%, rgba(182,161,232,.12), transparent 25%),
+                var(--bg);
+
+            color: var(--text);
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+        }
+
+        button,
+        textarea {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        /* =========================
+           LAYOUT
+        ========================= */
+
+        .app {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 270px;
+            flex-shrink: 0;
+            background: rgba(255,255,255,.9);
+            border-right: 1px solid rgba(40,50,70,.07);
+            padding: 25px 18px;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            backdrop-filter: blur(14px);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 5px 10px 25px;
+        }
+
+        .brand-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 15px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #8fc4f5, #a991e8);
+            color: white;
+            font-size: 22px;
+            box-shadow: 0 9px 20px rgba(109, 125, 210, .2);
+        }
+
+        .brand-text strong {
+            display: block;
+            font-size: 16px;
+            line-height: 1.1;
+        }
+
+        .brand-text span {
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        .nav-title {
+            color: #a0a5ae;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .12em;
+            margin: 13px 10px 8px;
+            text-transform: uppercase;
+        }
+
+        .nav {
+            display: grid;
+            gap: 5px;
+        }
+
+        .nav a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 13px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #626b7a;
+            font-size: 13px;
+            font-weight: 650;
+            transition: .2s ease;
+        }
+
+        .nav a:hover {
+            background: #f3f6fa;
+            color: var(--text);
+            transform: translateX(2px);
+        }
+
+        .nav a.active {
+            background: var(--blue-soft);
+            color: var(--blue-dark);
+        }
+
+        .nav-icon {
+            width: 27px;
+            height: 27px;
+            border-radius: 9px;
+            display: grid;
+            place-items: center;
+            background: #f5f5f5;
+            font-size: 14px;
+        }
+
+        .nav a.active .nav-icon {
+            background: white;
+        }
+
+        .sidebar-bottom {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 19px;
+            background: linear-gradient(145deg, #fff8df, #fff2c5);
+        }
+
+        .sidebar-bottom strong {
+            font-size: 12px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .sidebar-bottom span {
+            color: #81775e;
+            font-size: 11px;
+            line-height: 1.45;
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        .main {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 30px 34px 70px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .back {
+            border: 0;
+            background: white;
+            border-radius: 13px;
+            padding: 10px 14px;
+            color: #687181;
+            font-weight: 700;
+            box-shadow: var(--shadow-small);
+        }
+
+        .back:hover {
+            transform: translateY(-1px);
+        }
+
+        .xp-pill {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 9px 13px;
+            border-radius: 14px;
+            background: var(--yellow-soft);
+            color: #8b6a19;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            padding: 38px;
+            background:
+                radial-gradient(circle at 90% 20%, rgba(255,255,255,.8), transparent 30%),
+                linear-gradient(125deg, #e8f5ff, #f0ecff 52%, #fff9e6);
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+        }
+
+        .hero::after {
+            content: "ABC";
+            position: absolute;
+            right: 40px;
+            bottom: -40px;
+            font-size: 145px;
+            font-weight: 900;
+            color: rgba(255,255,255,.5);
+            transform: rotate(-8deg);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 650px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.7);
+            color: var(--blue-dark);
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            letter-spacing: -.045em;
+            line-height: .98;
+            margin-bottom: 14px;
+        }
+
+        .hero p {
+            color: #697384;
+            line-height: 1.65;
+            max-width: 570px;
+            font-size: 14px;
+        }
+
+        /* =========================
+           COURSE PROGRESS
+        ========================= */
+
+        .progress-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow-small);
+            margin-bottom: 32px;
+        }
+
+        .progress-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 12px;
+        }
+
+        .progress-top strong {
+            font-size: 14px;
+        }
+
+        .progress-number {
+            color: var(--blue-dark);
+            font-size: 13px;
+            font-weight: 900;
+        }
+
+        .progress-bar {
+            height: 11px;
+            background: #edf0f4;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #79b7ed, #a997e9);
+            transition: width .4s ease;
+        }
+
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 9px;
+            color: var(--muted);
+            font-size: 11px;
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            margin-top: 35px;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 16px;
+        }
+
+        .section-heading h2 {
+            font-size: 22px;
+            letter-spacing: -.025em;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .section-count {
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: #f0f2f6;
+            color: #717987;
+            font-size: 11px;
+            font-weight: 800;
+            white-space: nowrap;
+        }
+
+        /* =========================
+           UNITS
+        ========================= */
+
+        .unit {
+            background: white;
+            border-radius: 27px;
+            padding: 22px;
+            box-shadow: var(--shadow-small);
+            margin-bottom: 20px;
+        }
+
+        .unit-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 20px;
+        }
+
+        .unit-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 17px;
+            display: grid;
+            place-items: center;
+            font-size: 25px;
+            flex-shrink: 0;
+        }
+
+        .unit.noah .unit-icon {
+            background: var(--green-soft);
+        }
+
+        .unit.love .unit-icon {
+            background: var(--pink-soft);
+        }
+
+        .unit-header h3 {
+            font-size: 17px;
+        }
+
+        .unit-header p {
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 3px;
+        }
+
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+
+        .activity-card {
+            position: relative;
+            border: 1px solid #edf0f4;
+            border-radius: 19px;
+            padding: 15px;
+            background: #fff;
+            min-height: 135px;
+            text-align: left;
+            transition: .2s ease;
+            overflow: hidden;
+        }
+
+        .activity-card:hover:not(.locked) {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(40,50,70,.08);
+            border-color: #dce6f0;
+        }
+
+        .activity-card.completed {
+            background: #f8fffc;
+            border-color: #cfeee0;
+        }
+
+        .activity-card.locked {
+            opacity: .55;
+            cursor: not-allowed;
+            background: #f8f9fa;
+        }
+
+        .activity-number {
+            font-size: 10px;
+            color: #9aa0aa;
+            font-weight: 900;
+            margin-bottom: 9px;
+        }
+
+        .activity-emoji {
+            width: 42px;
+            height: 42px;
+            display: grid;
+            place-items: center;
+            border-radius: 14px;
+            background: #f5f7fa;
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .activity-title {
+            font-size: 12px;
+            font-weight: 800;
+            line-height: 1.35;
+        }
+
+        .activity-type {
+            margin-top: 4px;
+            color: #9aa0aa;
+            font-size: 9px;
+        }
+
+        .check {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #83d4b5;
+            color: white;
+            display: grid;
+            place-items: center;
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .lock {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 14px;
+        }
+
+        /* =========================
+           BIBLE KIDS
+        ========================= */
+
+        .bible-section {
+            margin-top: 45px;
+        }
+
+        .bible-banner {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 92% 20%, rgba(255,255,255,.85), transparent 25%),
+                linear-gradient(135deg, #f0ebff, #e9f7ff 50%, #fff8df);
+            border-radius: 30px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+            margin-bottom: 18px;
+        }
+
+        .bible-banner::before {
+            content: "✦";
+            position: absolute;
+            right: 80px;
+            top: 12px;
+            font-size: 75px;
+            color: rgba(255,255,255,.75);
+            transform: rotate(15deg);
+        }
+
+        .bible-banner-content {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+        }
+
+        .bible-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 11px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.75);
+            color: #7055a9;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .bible-banner h2 {
+            font-size: 30px;
+            letter-spacing: -.04em;
+            margin-bottom: 8px;
+        }
+
+        .bible-banner p {
+            color: #697384;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .bible-progress-card {
+            background: white;
+            border-radius: 22px;
+            padding: 18px;
+            margin-bottom: 15px;
+            box-shadow: var(--shadow-small);
+        }
+
+        .bible-progress-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 9px;
+        }
+
+        .bible-progress-row strong {
+            font-size: 12px;
+        }
+
+        .bible-progress-row span {
+            font-size: 11px;
+            color: #8b72bb;
+            font-weight: 900;
+        }
+
+        .bible-progress {
+            height: 9px;
+            border-radius: 999px;
+            background: #edf0f4;
+            overflow: hidden;
+        }
+
+        .bible-progress-fill {
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(90deg, #a995e5, #83c4eb);
+            transition: width .4s ease;
+        }
+
+        .bible-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        .verse-card {
+            border: 1px solid #ece9f7;
+            background: white;
+            border-radius: 21px;
+            padding: 17px;
+            min-height: 185px;
+            text-align: left;
+            transition: .2s ease;
+            position: relative;
+        }
+
+        .verse-card:hover:not(.locked) {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 26px rgba(75,65,110,.08);
+        }
+
+        .verse-card.completed {
+            background: #fbfaff;
+            border-color: #dcd1f5;
+        }
+
+        .verse-card.locked {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        .verse-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 15px;
+            display: grid;
+            place-items: center;
+            background: var(--purple-soft);
+            font-size: 23px;
+            margin-bottom: 13px;
+        }
+
+        .verse-ref {
+            font-size: 10px;
+            color: #866bb6;
+            font-weight: 900;
+            margin-bottom: 6px;
+        }
+
+        .verse-title {
+            font-size: 13px;
+            font-weight: 850;
+            line-height: 1.35;
+        }
+
+        .verse-description {
+            color: #9298a4;
+            font-size: 10px;
+            line-height: 1.45;
+            margin-top: 6px;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 31, 43, .45);
+            backdrop-filter: blur(7px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .modal-backdrop.open {
+            display: flex;
+        }
+
+        .modal {
+            width: min(720px, 100%);
+            max-height: min(850px, 92vh);
+            overflow-y: auto;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 30px 90px rgba(15,20,35,.2);
+            padding: 27px;
+            animation: modalIn .22s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: translateY(14px) scale(.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .modal-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 22px;
+        }
+
+        .modal-label {
+            color: var(--blue-dark);
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: .1em;
+            margin-bottom: 5px;
+        }
+
+        .modal h2 {
+            font-size: 25px;
+            letter-spacing: -.035em;
+        }
+
+        .close {
+            width: 38px;
+            height: 38px;
+            border: 0;
+            border-radius: 12px;
+            background: #f2f4f7;
+            color: #687181;
+            font-size: 20px;
+        }
+
+        .close:hover {
+            background: #e9edf2;
+        }
+
+        .question {
+            font-size: 18px;
+            line-height: 1.45;
+            font-weight: 750;
+            margin-bottom: 18px;
+        }
+
+        .instruction {
+            color: #7e8794;
+            font-size: 12px;
+            line-height: 1.55;
+            margin-top: -8px;
+            margin-bottom: 18px;
+        }
+
+        .speak-button {
+            border: 0;
+            background: var(--blue-soft);
+            color: var(--blue-dark);
+            padding: 11px 15px;
+            border-radius: 13px;
+            font-size: 12px;
+            font-weight: 850;
+            margin-bottom: 18px;
+        }
+
+        .speak-button:hover {
+            background: #deefff;
+        }
+
+        .answers {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .answer-button {
+            border: 1px solid #e6e9ee;
+            background: white;
+            border-radius: 16px;
+            padding: 14px;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 750;
+            transition: .2s;
+        }
+
+        .answer-button:hover {
+            border-color: #bed9ef;
+            background: #f9fcff;
+        }
+
+        .answer-button.correct {
+            border-color: #9cddc3;
+            background: #effbf5;
+            color: #34775d;
+        }
+
+        .answer-button.wrong {
+            border-color: #f0b7b7;
+            background: #fff4f4;
+            color: #a04d4d;
+        }
+
+        .sentence-builder {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 15px;
+            background: #f8f9fb;
+            border-radius: 18px;
+            min-height: 68px;
+            margin-bottom: 14px;
+        }
+
+        .word-chip {
+            border: 0;
+            background: white;
+            padding: 9px 12px;
+            border-radius: 11px;
+            box-shadow: 0 4px 12px rgba(30,40,55,.07);
+            color: #4e596a;
+            font-weight: 750;
+            font-size: 12px;
+        }
+
+        .word-chip:hover {
+            transform: translateY(-1px);
+        }
+
+        .selected-words {
+            min-height: 58px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 7px;
+            padding: 12px;
+            border: 2px dashed #dce1e8;
+            border-radius: 17px;
+            margin-bottom: 14px;
+        }
+
+        .selected-chip {
+            background: var(--blue-soft);
+            color: var(--blue-dark);
+            border-radius: 10px;
+            padding: 8px 10px;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .primary-button {
+            width: 100%;
+            border: 0;
+            border-radius: 15px;
+            padding: 14px 18px;
+            background: linear-gradient(135deg, #75afe4, #9b89dc);
+            color: white;
+            font-weight: 900;
+            font-size: 13px;
+            box-shadow: 0 10px 22px rgba(109,130,200,.18);
+            transition: .2s;
+        }
+
+        .primary-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 15px;
+            border-radius: 17px;
+            padding: 15px;
+            font-size: 12px;
+            line-height: 1.55;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.success {
+            background: var(--green-soft);
+            color: #37765d;
+        }
+
+        .feedback.error {
+            background: #fff3f3;
+            color: #985050;
+        }
+
+        .next-button {
+            display: none;
+            margin-top: 10px;
+            width: 100%;
+            border: 0;
+            border-radius: 15px;
+            padding: 13px;
+            background: #f0f2f5;
+            color: #5e6776;
+            font-weight: 850;
+        }
+
+        .next-button.show {
+            display: block;
+        }
+
+        /* =========================
+           BIBLE MODAL
+        ========================= */
+
+        .bible-modal .modal {
+            width: min(790px, 100%);
+        }
+
+        .verse-reference-big {
+            color: #7b61ad;
+            font-weight: 900;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: 12px;
+        }
+
+        .verse-box {
+            background:
+                linear-gradient(145deg, #faf7ff, #f5fbff);
+            border: 1px solid #e9e5f4;
+            border-radius: 22px;
+            padding: 22px;
+            margin-bottom: 15px;
+        }
+
+        .verse-english {
+            font-family: Georgia, serif;
+            font-size: 21px;
+            line-height: 1.65;
+            color: #3d4350;
+        }
+
+        .verse-english::before {
+            content: "“";
+            color: #a991df;
+            font-size: 42px;
+            vertical-align: -12px;
+            margin-right: 3px;
+        }
+
+        .verse-help-area {
+            display: grid;
+            gap: 9px;
+            margin: 15px 0;
+        }
+
+        .help-button {
+            width: fit-content;
+            border: 1px dashed #b9a9dc;
+            background: #fbf9ff;
+            color: #795fa8;
+            border-radius: 12px;
+            padding: 10px 13px;
+            font-size: 11px;
+            font-weight: 850;
+        }
+
+        .help-box {
+            display: none;
+            border-radius: 17px;
+            padding: 15px;
+            background: #f7f4ff;
+            border: 1px solid #e6def9;
+        }
+
+        .help-box.show {
+            display: block;
+        }
+
+        .help-title {
+            color: #7459a5;
+            font-size: 11px;
+            font-weight: 900;
+            margin-bottom: 8px;
+        }
+
+        .help-words {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .help-word {
+            background: white;
+            border-radius: 10px;
+            padding: 7px 9px;
+            color: #626a78;
+            font-size: 11px;
+        }
+
+        .translation-area {
+            margin-top: 16px;
+        }
+
+        .translation-area label {
+            display: block;
+            font-size: 12px;
+            font-weight: 850;
+            margin-bottom: 8px;
+        }
+
+        .translation-area textarea {
+            width: 100%;
+            min-height: 125px;
+            resize: vertical;
+            border: 1px solid #e0e4ea;
+            border-radius: 17px;
+            outline: none;
+            padding: 14px;
+            color: #3d4552;
+            line-height: 1.55;
+            font-size: 13px;
+            background: #fcfdff;
+        }
+
+        .translation-area textarea:focus {
+            border-color: #b7a6df;
+            box-shadow: 0 0 0 4px rgba(183,166,223,.12);
+        }
+
+        .meaning-note {
+            margin-top: 8px;
+            color: #9a9faa;
+            font-size: 10px;
+        }
+
+        .bible-result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 17px;
+            background: #f8f9fb;
+            display: none;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .bible-result.show {
+            display: block;
+        }
+
+        .bible-result strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .bible-result small {
+            display: block;
+            margin-top: 7px;
+            color: #858c99;
+        }
+
+        /* =========================
+           COMPLETION
+        ========================= */
+
+        .completion {
+            display: none;
+            text-align: center;
+            padding: 25px 10px 10px;
+        }
+
+        .completion.show {
+            display: block;
+        }
+
+        .completion-icon {
+            width: 75px;
+            height: 75px;
+            border-radius: 25px;
+            display: grid;
+            place-items: center;
+            background: var(--green-soft);
+            margin: 0 auto 15px;
+            font-size: 35px;
+        }
+
+        .completion h3 {
+            font-size: 21px;
+            margin-bottom: 6px;
+        }
+
+        .completion p {
+            color: #7f8794;
+            font-size: 12px;
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 1050px) {
+            .sidebar {
+                width: 220px;
+            }
+
+            .activity-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .bible-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .app {
+                display: block;
+            }
+
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                border-right: 0;
+                border-bottom: 1px solid rgba(40,50,70,.07);
+                padding: 12px;
+            }
+
+            .brand {
+                padding-bottom: 12px;
+            }
+
+            .nav {
+                display: flex;
+                overflow-x: auto;
+                padding-bottom: 3px;
+            }
+
+            .nav a {
+                white-space: nowrap;
+            }
+
+            .nav-title,
+            .sidebar-bottom {
+                display: none;
+            }
+
+            .main {
+                padding: 20px 15px 50px;
+            }
+
+            .hero {
+                padding: 27px 23px;
+            }
+
+            .activity-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .bible-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .activity-grid,
+            .bible-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+
+            .activity-card {
+                min-height: 120px;
+                padding: 12px;
+            }
+
+            .verse-card {
+                min-height: 165px;
+                padding: 13px;
+            }
+
+            .answers {
+                grid-template-columns: 1fr;
+            }
+
+            .modal {
+                padding: 20px;
+                border-radius: 24px;
+            }
+
+            .hero h1 {
+                font-size: 35px;
+            }
+
+            .verse-english {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">✦</div>
+
+            <div class="brand-text">
+                <strong>Pequenos na Fé</strong>
+                <span>aprendendo com alegria</span>
+            </div>
+        </div>
+
+        <div class="nav-title">Explorar</div>
+
+        <nav class="nav">
+
+            <a href="painel.html">
+                <span class="nav-icon">⌂</span>
+                Início
+            </a>
+
+            <a href="historias.html">
+                <span class="nav-icon">📖</span>
+                Aventuras da Bíblia
+            </a>
+
+            <a href="jesus.html">
+                <span class="nav-icon">♡</span>
+                Conhecendo Jesus
+            </a>
+
+            <a href="ingles.html" class="active">
+                <span class="nav-icon">🌎</span>
+                English with Jesus
+            </a>
+
+            <a href="jogos.html">
+                <span class="nav-icon">🎮</span>
+                Jogos da Fé
+            </a>
+
+            <a href="atividades.html">
+                <span class="nav-icon">🎨</span>
+                Ateliê dos Pequenos
+            </a>
+
+        
+            </a>
+
+            <a href="momento-deus.html">
+                <span class="nav-icon">☀️</span>
+                Momento com Deus
+            </a>
+
+            <a href="conquistas.html">
+                <span class="nav-icon">🏆</span>
+                Conquistas
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <strong>🌟 Keep learning!</strong>
+            <span>
+                Cada pequena atividade é um novo passo na sua aventura.
+            </span>
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <button
+                class="back"
+                onclick="window.location.href='painel.html'"
+            >
+                ← Voltar
+            </button>
+
+            <div class="xp-pill">
+                ⭐ <span id="xpDisplay">0 XP</span>
+            </div>
+
+        </div>
+
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    English with Jesus
+                </div>
+
+                <h1>
+                    Let's learn<br>
+                    English! 🌎
+                </h1>
+
+                <p>
+                    Aprenda palavras, sons, frases e pequenas conversas
+                    em inglês através de uma aventura divertida.
+                    E depois vá ainda mais longe no <strong>Bible Kids</strong>.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PROGRESS -->
+
+        <section class="progress-card">
+
+            <div class="progress-top">
+                <strong>Seu progresso no curso</strong>
+
+                <span
+                    class="progress-number"
+                    id="progressNumber"
+                >
+                    0 / 60
+                </span>
+            </div>
+
+            <div class="progress-bar">
+                <div
+                    class="progress-fill"
+                    id="progressFill"
+                ></div>
+            </div>
+
+            <div class="progress-meta">
+                <span id="progressMessage">
+                    Comece sua primeira atividade!
+                </span>
+
+                <span>
+                    60 atividades
+                </span>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             NOAH
+        ========================== -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>🛶 Noah's Ark</h2>
+
+                    <p>
+                        Animals, words and simple English sentences.
+                    </p>
+                </div>
+
+                <div class="section-count">
+                    <span id="noahCount">0 / 40</span>
+                </div>
+
+            </div>
+
+            <div class="unit noah">
+
+                <div class="unit-header">
+
+                    <div class="unit-icon">
+                        🦁
+                    </div>
+
+                    <div>
+                        <h3>40 activities</h3>
+
+                        <p>
+                            Do primeiro som até frases completas.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div
+                    class="activity-grid"
+                    id="noahGrid"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             LOVE
+        ========================== -->
+
+        <section class="section">
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>💗 Love</h2>
+
+                    <p>
+                        Words about love, kindness, friendship and helping.
+                    </p>
+                </div>
+
+                <div class="section-count">
+                    <span id="loveCount">0 / 20</span>
+                </div>
+
+            </div>
+
+            <div class="unit love">
+
+                <div class="unit-header">
+
+                    <div class="unit-icon">
+                        💕
+                    </div>
+
+                    <div>
+                        <h3>20 activities</h3>
+
+                        <p>
+                            Aprenda inglês usando situações do dia a dia.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div
+                    class="activity-grid"
+                    id="loveGrid"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             BIBLE KIDS
+        ========================== -->
+
+        <section class="bible-section">
+
+            <div class="bible-banner">
+
+                <div class="bible-banner-content">
+
+                    <div class="bible-badge">
+                        ✦ Bônus especial
+                    </div>
+
+                    <h2>
+                        📖 Bible Kids
+                    </h2>
+
+                    <p>
+                        Agora você pode aprender inglês através da Bíblia.
+                        Ouça o versículo, leia com atenção e tente explicar
+                        em <strong>português</strong> o que você entendeu.
+                        Se precisar, peça ajuda!
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="bible-progress-card">
+
+                <div class="bible-progress-row">
+
+                    <strong>
+                        Progresso do Bible Kids
+                    </strong>
+
+                    <span id="bibleCount">
+                        0 / 5
+                    </span>
+
+                </div>
+
+                <div class="bible-progress">
+                    <div
+                        class="bible-progress-fill"
+                        id="bibleProgressFill"
+                    ></div>
+                </div>
+
+            </div>
+
+
+            <div
+                class="bible-grid"
+                id="bibleGrid"
+            ></div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================
+     ACTIVITY MODAL
+========================== -->
+
+<div
+    class="modal-backdrop"
+    id="activityModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-top">
+
+            <div>
+
+                <div
+                    class="modal-label"
+                    id="modalLabel"
+                >
+                    Atividade
+                </div>
+
+                <h2 id="modalTitle">
+                    Vamos aprender!
+                </h2>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="fecharAtividade()"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div id="activityContent"></div>
+
+        <div
+            class="feedback"
+            id="activityFeedback"
+        ></div>
+
+        <button
+            class="next-button"
+            id="nextButton"
+            onclick="mostrarProxima()"
+        >
+            Próxima atividade →
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     BIBLE MODAL
+========================== -->
+
+<div
+    class="modal-backdrop bible-modal"
+    id="bibleModal"
+>
+
+    <div class="modal">
+
+        <div class="modal-top">
+
+            <div>
+
+                <div class="modal-label">
+                    Bible Kids
+                </div>
+
+                <h2 id="bibleModalTitle">
+                    Vamos entender a Palavra
+                </h2>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="fecharBible()"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div
+            class="verse-reference-big"
+            id="bibleReference"
+        >
+            John 3:16
+        </div>
+
+
+        <div class="verse-box">
+
+            <div
+                class="verse-english"
+                id="bibleVerse"
+            ></div>
+
+        </div>
+
+
+        <button
+            class="speak-button"
+            onclick="falarBibleAtual()"
+        >
+            🔊 Ouvir o versículo
+        </button>
+
+
+        <div class="instruction">
+            Primeiro tente entender sozinho.
+            Depois escreva em português o significado que você entendeu.
+        </div>
+
+
+        <div class="verse-help-area">
+
+            <button
+                class="help-button"
+                id="helpButton"
+                onclick="mostrarAjudaBible()"
+            >
+                💡 Preciso de ajuda
+            </button>
+
+            <div
+                class="help-box"
+                id="helpBox"
+            >
+
+                <div class="help-title">
+                    Dicas para entender
+                </div>
+
+                <div
+                    class="help-words"
+                    id="helpWords"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+        <div class="translation-area">
+
+            <label for="bibleAnswer">
+                ✍️ O que você entendeu em português?
+            </label>
+
+            <textarea
+                id="bibleAnswer"
+                placeholder="Escreva com suas palavras o significado do versículo..."
+            ></textarea>
+
+            <div class="meaning-note">
+                Não precisa escrever exatamente igual à tradução.
+                Queremos saber se você entendeu a ideia principal.
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-button"
+            style="margin-top:15px"
+            onclick="verificarBible()"
+        >
+            Verificar minha resposta
+        </button>
+
+
+        <div
+            class="bible-result"
+            id="bibleResult"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================================================
+       CONFIGURAÇÃO
+    ========================================================= */
+
+    const STORAGE_ATIVIDADES =
+        "pequenosNaFe_ingles_atividades";
+
+    const STORAGE_XP =
+        "pequenosNaFe_ingles_xp";
+
+    const STORAGE_BIBLE =
+        "pequenosNaFe_bible_kids";
+
+    let concluidas = carregarConcluidas();
+    let xp = carregarXP();
+
+    let atividadeAtual = null;
+
+    let bibleConcluidas =
+        carregarBibleConcluidas();
+
+    let bibleAtual = null;
+
+
+    /* =========================================================
+       60 ATIVIDADES
+    ========================================================= */
+
+    const atividades = [
+
+        /* ======================
+           NOAH 1 - 40
+        ====================== */
+
+        {
+            id: 1,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🦁",
+            titulo: "Lion",
+            pergunta: "Listen and choose the lion.",
+            fala: "Lion",
+            opcoes: ["🦁 Lion", "🐄 Cow", "🐟 Fish", "🐴 Horse"],
+            resposta: 0
+        },
+
+        {
+            id: 2,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐘",
+            titulo: "Elephant",
+            pergunta: "Listen and choose the elephant.",
+            fala: "Elephant",
+            opcoes: ["🐒 Monkey", "🐘 Elephant", "🐑 Sheep", "🐦 Bird"],
+            resposta: 1
+        },
+
+        {
+            id: 3,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐒",
+            titulo: "Monkey",
+            pergunta: "Listen and choose the monkey.",
+            fala: "Monkey",
+            opcoes: ["🦒 Giraffe", "🐒 Monkey", "🐄 Cow", "🦁 Lion"],
+            resposta: 1
+        },
+
+        {
+            id: 4,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🦒",
+            titulo: "Giraffe",
+            pergunta: "Listen and choose the giraffe.",
+            fala: "Giraffe",
+            opcoes: ["🦒 Giraffe", "🐴 Horse", "🐟 Fish", "🐑 Sheep"],
+            resposta: 0
+        },
+
+        {
+            id: 5,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐑",
+            titulo: "Sheep",
+            pergunta: "Listen and choose the sheep.",
+            fala: "Sheep",
+            opcoes: ["🐄 Cow", "🐑 Sheep", "🦁 Lion", "🐒 Monkey"],
+            resposta: 1
+        },
+
+        {
+            id: 6,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐄",
+            titulo: "Cow",
+            pergunta: "Listen and choose the cow.",
+            fala: "Cow",
+            opcoes: ["🐄 Cow", "🐘 Elephant", "🐦 Bird", "🐴 Horse"],
+            resposta: 0
+        },
+
+        {
+            id: 7,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐴",
+            titulo: "Horse",
+            pergunta: "Listen and choose the horse.",
+            fala: "Horse",
+            opcoes: ["🐟 Fish", "🐴 Horse", "🐒 Monkey", "🦒 Giraffe"],
+            resposta: 1
+        },
+
+        {
+            id: 8,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐦",
+            titulo: "Bird",
+            pergunta: "Listen and choose the bird.",
+            fala: "Bird",
+            opcoes: ["🐦 Bird", "🐄 Cow", "🐑 Sheep", "🐘 Elephant"],
+            resposta: 0
+        },
+
+        {
+            id: 9,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🔤",
+            titulo: "Match the animal",
+            pergunta: "Which word means 🦁?",
+            opcoes: ["Lion", "Horse", "Fish", "Bird"],
+            resposta: 0
+        },
+
+        {
+            id: 10,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🦁",
+            titulo: "Lion word",
+            pergunta: "Choose the correct English word.",
+            opcoes: ["Lion", "Cow", "Sheep", "Bird"],
+            resposta: 0
+        },
+
+        {
+            id: 11,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐘",
+            titulo: "Elephant word",
+            pergunta: "Choose the correct English word.",
+            opcoes: ["Fish", "Elephant", "Horse", "Monkey"],
+            resposta: 1
+        },
+
+        {
+            id: 12,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐑",
+            titulo: "Sheep word",
+            pergunta: "Choose the correct English word.",
+            opcoes: ["Giraffe", "Cow", "Sheep", "Lion"],
+            resposta: 2
+        },
+
+        {
+            id: 13,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐴",
+            titulo: "Horse word",
+            pergunta: "Choose the correct English word.",
+            opcoes: ["Horse", "Bird", "Fish", "Cow"],
+            resposta: 0
+        },
+
+        {
+            id: 14,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🧩",
+            titulo: "Complete L _ O N",
+            pergunta: "Complete the animal word: L _ O N",
+            opcoes: ["I", "A", "E", "U"],
+            resposta: 0
+        },
+
+        {
+            id: 15,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🧩",
+            titulo: "Complete C _ W",
+            pergunta: "Complete the animal word: C _ W",
+            opcoes: ["A", "O", "E", "I"],
+            resposta: 1
+        },
+
+        {
+            id: 16,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🧩",
+            titulo: "Complete H _ RSE",
+            pergunta: "Complete the animal word: H _ RSE",
+            opcoes: ["A", "O", "E", "I"],
+            resposta: 0
+        },
+
+        {
+            id: 17,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🦁",
+            titulo: "This is a lion",
+            pergunta: "This is a lion. Which animal do you see?",
+            fala: "This is a lion.",
+            opcoes: ["🦁 Lion", "🐄 Cow", "🐑 Sheep", "🐴 Horse"],
+            resposta: 0
+        },
+
+        {
+            id: 18,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐄",
+            titulo: "This is a cow",
+            pergunta: "This is a cow. Which animal do you see?",
+            fala: "This is a cow.",
+            opcoes: ["🐘 Elephant", "🐄 Cow", "🐦 Bird", "🦁 Lion"],
+            resposta: 1
+        },
+
+        {
+            id: 19,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐑",
+            titulo: "This is a sheep",
+            pergunta: "This is a sheep. Which animal do you see?",
+            fala: "This is a sheep.",
+            opcoes: ["🐴 Horse", "🐒 Monkey", "🐑 Sheep", "🐟 Fish"],
+            resposta: 2
+        },
+
+        {
+            id: 20,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐴",
+            titulo: "This is a horse",
+            pergunta: "This is a horse. Which animal do you see?",
+            fala: "This is a horse.",
+            opcoes: ["🐴 Horse", "🦒 Giraffe", "🐄 Cow", "🐦 Bird"],
+            resposta: 0
+        },
+
+        {
+            id: 21,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐦",
+            titulo: "Bird can fly",
+            pergunta: "The bird can fly. Which animal is it?",
+            fala: "The bird can fly.",
+            opcoes: ["🐦 Bird", "🐟 Fish", "🐄 Cow", "🐑 Sheep"],
+            resposta: 0
+        },
+
+        {
+            id: 22,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐟",
+            titulo: "Fish can swim",
+            pergunta: "The fish can swim. Which animal is it?",
+            fala: "The fish can swim.",
+            opcoes: ["🐴 Horse", "🐟 Fish", "🦁 Lion", "🐒 Monkey"],
+            resposta: 1
+        },
+
+        {
+            id: 23,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐴",
+            titulo: "Horse can run",
+            pergunta: "The horse can run. Which animal is it?",
+            fala: "The horse can run.",
+            opcoes: ["🐴 Horse", "🐘 Elephant", "🐦 Bird", "🐟 Fish"],
+            resposta: 0
+        },
+
+        {
+            id: 24,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐒",
+            titulo: "Monkey can climb",
+            pergunta: "The monkey can climb. Which animal is it?",
+            fala: "The monkey can climb.",
+            opcoes: ["🐄 Cow", "🐒 Monkey", "🐑 Sheep", "🦒 Giraffe"],
+            resposta: 1
+        },
+
+        {
+            id: 25,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐘",
+            titulo: "Big",
+            pergunta: "What does BIG mean?",
+            opcoes: ["Grande", "Pequeno", "Rápido", "Devagar"],
+            resposta: 0
+        },
+
+        {
+            id: 26,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐜",
+            titulo: "Small",
+            pergunta: "What does SMALL mean?",
+            opcoes: ["Grande", "Pequeno", "Forte", "Feliz"],
+            resposta: 1
+        },
+
+        {
+            id: 27,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "⚡",
+            titulo: "Fast",
+            pergunta: "What does FAST mean?",
+            opcoes: ["Devagar", "Grande", "Rápido", "Pequeno"],
+            resposta: 2
+        },
+
+        {
+            id: 28,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐢",
+            titulo: "Slow",
+            pergunta: "What does SLOW mean?",
+            opcoes: ["Rápido", "Devagar", "Feliz", "Grande"],
+            resposta: 1
+        },
+
+        {
+            id: 29,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐘",
+            titulo: "The elephant is...",
+            pergunta: "The elephant is ____.",
+            fala: "The elephant is big.",
+            opcoes: ["big", "small", "slow", "sad"],
+            resposta: 0
+        },
+
+        {
+            id: 30,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐴",
+            titulo: "The horse is...",
+            pergunta: "The horse is ____.",
+            fala: "The horse is fast.",
+            opcoes: ["small", "fast", "sad", "slow"],
+            resposta: 1
+        },
+
+        {
+            id: 31,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐟",
+            titulo: "Fish can...",
+            pergunta: "The fish can ____.",
+            fala: "The fish can swim.",
+            opcoes: ["fly", "run", "swim", "climb"],
+            resposta: 2
+        },
+
+        {
+            id: 32,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐦",
+            titulo: "Bird can...",
+            pergunta: "The bird can ____.",
+            fala: "The bird can fly.",
+            opcoes: ["fly", "swim", "run", "sleep"],
+            resposta: 0
+        },
+
+        {
+            id: 33,
+            unidade: "noah",
+            tipo: "builder",
+            emoji: "🧩",
+            titulo: "Build the sentence",
+            pergunta: "Build: This is a lion.",
+            palavras: ["This", "is", "a", "lion"],
+            resposta: "This is a lion"
+        },
+
+        {
+            id: 34,
+            unidade: "noah",
+            tipo: "builder",
+            emoji: "🧩",
+            titulo: "Build the sentence",
+            pergunta: "Build: This is a sheep.",
+            palavras: ["This", "is", "a", "sheep"],
+            resposta: "This is a sheep"
+        },
+
+        {
+            id: 35,
+            unidade: "noah",
+            tipo: "builder",
+            emoji: "🧩",
+            titulo: "Build the sentence",
+            pergunta: "Build: The bird can fly.",
+            palavras: ["The", "bird", "can", "fly"],
+            resposta: "The bird can fly"
+        },
+
+        {
+            id: 36,
+            unidade: "noah",
+            tipo: "builder",
+            emoji: "🧩",
+            titulo: "Build the sentence",
+            pergunta: "Build: The fish can swim.",
+            palavras: ["The", "fish", "can", "swim"],
+            resposta: "The fish can swim"
+        },
+
+        {
+            id: 37,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🐑",
+            titulo: "Noah has a...",
+            pergunta: "Noah has a ____.",
+            fala: "Noah has a sheep.",
+            opcoes: ["Sheep", "Car", "House", "Book"],
+            resposta: 0
+        },
+
+        {
+            id: 38,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🛶",
+            titulo: "The animals are...",
+            pergunta: "The animals are in the ____.",
+            fala: "The animals are in the ark.",
+            opcoes: ["school", "ark", "house", "garden"],
+            resposta: 1
+        },
+
+        {
+            id: 39,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🌈",
+            titulo: "Look and understand",
+            pergunta: "Imagine an ark with a lion, a cow and a sheep. Which sentence matches?",
+            opcoes: [
+                "I see a lion, a cow and a sheep.",
+                "I see a fish and a horse.",
+                "I see only a bird.",
+                "I see a monkey and a giraffe."
+            ],
+            resposta: 0
+        },
+
+        {
+            id: 40,
+            unidade: "noah",
+            tipo: "choice",
+            emoji: "🏆",
+            titulo: "Final Noah Challenge",
+            pergunta: "Which sentence is correct?",
+            fala: "This is a lion. The bird can fly.",
+            opcoes: [
+                "This is a lion. The bird can fly.",
+                "This is a fish. The bird can swim.",
+                "This is a horse. The bird can run.",
+                "This is a cow. The bird can climb."
+            ],
+            resposta: 0
+        },
+
+
+        /* ======================
+           LOVE 41 - 60
+        ====================== */
+
+        {
+            id: 41,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "❤️",
+            titulo: "Love",
+            pergunta: "What does LOVE mean?",
+            fala: "Love",
+            opcoes: ["Amor", "Raiva", "Tristeza", "Sono"],
+            resposta: 0
+        },
+
+        {
+            id: 42,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "👫",
+            titulo: "Friend",
+            pergunta: "What does FRIEND mean?",
+            fala: "Friend",
+            opcoes: ["Amigo", "Professor", "Animal", "Casa"],
+            resposta: 0
+        },
+
+        {
+            id: 43,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "😊",
+            titulo: "Happy",
+            pergunta: "What does HAPPY mean?",
+            fala: "Happy",
+            opcoes: ["Bravo", "Feliz", "Cansado", "Triste"],
+            resposta: 1
+        },
+
+        {
+            id: 44,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "🤝",
+            titulo: "Kind",
+            pergunta: "Which action is KIND?",
+            opcoes: [
+                "Helping a friend",
+                "Hurting a friend",
+                "Laughing at someone",
+                "Taking someone's toy"
+            ],
+            resposta: 0
+        },
+
+        {
+            id: 45,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "🙋",
+            titulo: "Help",
+            pergunta: "What does HELP mean?",
+            fala: "Help",
+            opcoes: ["Ajudar", "Dormir", "Correr", "Comer"],
+            resposta: 0
+        },
+
+        {
+            id: 46,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "✝️",
+            titulo: "Jesus loves me",
+            pergunta: "Which sentence means 'Jesus me ama'?",
+            opcoes: [
+                "Jesus loves me.",
+                "Jesus helps a dog.",
+                "Jesus likes a book.",
+                "Jesus runs fast."
+            ],
+            resposta: 0
+        },
+
+        {
+            id: 47,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "👨‍👩‍👧",
+            titulo: "My family",
+            pergunta: "What does FAMILY mean?",
+            fala: "Family",
+            opcoes: ["Família", "Amigo", "Escola", "Igreja"],
+            resposta: 0
+        },
+
+        {
+            id: 48,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "🤝",
+            titulo: "I help my friend",
+            pergunta: "Who is helping?",
+            fala: "I help my friend.",
+            opcoes: [
+                "The child helping the friend",
+                "The child running away",
+                "The child sleeping",
+                "Nobody"
+            ],
+            resposta: 0
+        },
+
+        {
+            id: 49,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "💛",
+            titulo: "Be kind",
+            pergunta: "What should you do when someone needs help?",
+            fala: "Be kind.",
+            opcoes: [
+                "Be kind and help.",
+                "Be angry.",
+                "Run away.",
+                "Laugh."
+            ],
+            resposta: 0
+        },
+
+        {
+            id: 50,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "❤️",
+            titulo: "Love your friend",
+            pergunta: "Which attitude shows love?",
+            opcoes: [
+                "Helping and caring",
+                "Hurting",
+                "Ignoring",
+                "Taking"
+            ],
+            resposta: 0
+        },
+
+        {
+            id: 51,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "✝️",
+            titulo: "Complete",
+            pergunta: "Jesus ___ me.",
+            opcoes: ["loves", "runs", "sleeps", "eats"],
+            resposta: 0
+        },
+
+        {
+            id: 52,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "👨‍👩‍👧",
+            titulo: "My family",
+            pergunta: "I ___ my family.",
+            opcoes: ["love", "run", "sleep", "fly"],
+            resposta: 0
+        },
+
+        {
+            id: 53,
+            unidade: "love",
+            tipo: "builder",
+            emoji: "✝️",
+            titulo: "Build the sentence",
+            pergunta: "Build: Jesus loves me.",
+            palavras: ["Jesus", "loves", "me"],
+            resposta: "Jesus loves me"
+        },
+
+        {
+            id: 54,
+            unidade: "love",
+            tipo: "builder",
+            emoji: "🤝",
+            titulo: "Build the sentence",
+            pergunta: "Build: I help my friend.",
+            palavras: ["I", "help", "my", "friend"],
+            resposta: "I help my friend"
+        },
+
+        {
+            id: 55,
+            unidade: "love",
+            tipo: "builder",
+            emoji: "❤️",
+            titulo: "Build the sentence",
+            pergunta: "Build: I love my family.",
+            palavras: ["I", "love", "my", "family"],
+            resposta: "I love my family"
+        },
+
+        {
+            id: 56,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "😢",
+            titulo: "Someone is sad",
+            pergunta: "Someone is sad. What can you do?",
+            opcoes: [
+                "Help",
+                "Run away",
+                "Laugh",
+                "Ignore"
+            ],
+            resposta: 0
+        },
+
+        {
+            id: 57,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "🤍",
+            titulo: "Be kind",
+            pergunta: "Your friend fell. Be ____.",
+            opcoes: [
+                "kind",
+                "angry",
+                "mean",
+                "sad"
+            ],
+            resposta: 0
+        },
+
+        {
+            id: 58,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "🏠",
+            titulo: "Mom needs help",
+            pergunta: "Mom needs help. I can ____.",
+            opcoes: [
+                "help",
+                "sleep",
+                "run",
+                "hide"
+            ],
+            resposta: 0
+        },
+
+        {
+            id: 59,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "😊",
+            titulo: "My friend is...",
+            pergunta: "My friend is happy. My friend is ____.",
+            opcoes: [
+                "happy",
+                "sad",
+                "angry",
+                "sleepy"
+            ],
+            resposta: 0
+        },
+
+        {
+            id: 60,
+            unidade: "love",
+            tipo: "choice",
+            emoji: "❤️",
+            titulo: "Show love",
+            pergunta: "Someone needs affection. Show ____.",
+            opcoes: [
+                "love",
+                "anger",
+                "fear",
+                "silence"
+            ],
+            resposta: 0
+        }
+
+    ];
+
+
+    /* =========================================================
+       BIBLE KIDS
+    ========================================================= */
+
+    const bibleKids = [
+
+        {
+            id: 1,
+            reference: "John 3:16",
+            title: "God's Love",
+            emoji: "❤️",
+
+            verse:
+                "For God so loved the world that he gave his Son.",
+
+            audio:
+                "For God so loved the world that he gave his Son.",
+
+            help: [
+                ["God", "Deus"],
+                ["loved", "amou"],
+                ["world", "mundo"],
+                ["gave", "deu"],
+                ["Son", "Filho"]
+            ],
+
+            keywords: [
+                ["deus"],
+                ["amou", "ama", "amor"],
+                ["mundo"],
+                ["deu", "dar"],
+                ["filho", "jesus"]
+            ],
+
+            expected:
+                "A ideia principal é que Deus ama o mundo e deu seu Filho."
+        },
+
+        {
+            id: 2,
+            reference: "Psalm 23:1",
+            title: "The Shepherd",
+            emoji: "🐑",
+
+            verse:
+                "The Lord is my shepherd; I shall not want.",
+
+            audio:
+                "The Lord is my shepherd. I shall not want.",
+
+            help: [
+                ["Lord", "Senhor"],
+                ["shepherd", "pastor"],
+                ["want", "ter falta / precisar"]
+            ],
+
+            keywords: [
+                ["senhor", "deus"],
+                ["pastor"],
+                ["nada", "falta", "faltará", "precisar"]
+            ],
+
+            expected:
+                "A ideia principal é que o Senhor é como um pastor que cuida de nós."
+        },
+
+        {
+            id: 3,
+            reference: "Proverbs 3:5",
+            title: "Trust God",
+            emoji: "🙏",
+
+            verse:
+                "Trust in the Lord with all your heart.",
+
+            audio:
+                "Trust in the Lord with all your heart.",
+
+            help: [
+                ["Trust", "confiar"],
+                ["Lord", "Senhor"],
+                ["all", "todo"],
+                ["heart", "coração"]
+            ],
+
+            keywords: [
+                ["confia", "confiar", "confie", "confiança"],
+                ["senhor", "deus"],
+                ["todo", "toda"],
+                ["coração"]
+            ],
+
+            expected:
+                "A ideia principal é confiar no Senhor de todo o coração."
+        },
+
+        {
+            id: 4,
+            reference: "Philippians 4:13",
+            title: "I Can Do All Things",
+            emoji: "💪",
+
+            verse:
+                "I can do all things through Christ who strengthens me.",
+
+            audio:
+                "I can do all things through Christ who strengthens me.",
+
+            help: [
+                ["can", "posso"],
+                ["all things", "todas as coisas"],
+                ["Christ", "Cristo"],
+                ["strengthens", "fortalece"]
+            ],
+
+            keywords: [
+                ["posso", "poder"],
+                ["tudo", "todas", "coisas"],
+                ["cristo", "jesus", "deus"],
+                ["fortalece", "força"]
+            ],
+
+            expected:
+                "A ideia principal é que podemos fazer todas as coisas através de Cristo, que nos fortalece."
+        },
+
+        {
+            id: 5,
+            reference: "Psalm 119:105",
+            title: "A Light on My Path",
+            emoji: "💡",
+
+            verse:
+                "Your word is a lamp for my feet, a light on my path.",
+
+            audio:
+                "Your word is a lamp for my feet, a light on my path.",
+
+            help: [
+                ["word", "palavra"],
+                ["lamp", "lâmpada"],
+                ["feet", "pés"],
+                ["light", "luz"],
+                ["path", "caminho"]
+            ],
+
+            keywords: [
+                ["palavra"],
+                ["lâmpada", "lampada"],
+                ["pés", "pes"],
+                ["luz"],
+                ["caminho", "caminhada"]
+            ],
+
+            expected:
+                "A ideia principal é que a Palavra de Deus é como uma luz que guia nosso caminho."
+        }
+
+    ];
+
+
+    /* =========================================================
+       STORAGE
+    ========================================================= */
+
+    function carregarConcluidas() {
+
+        try {
+
+            const salvo =
+                localStorage.getItem(
+                    STORAGE_ATIVIDADES
+                );
+
+            return salvo
+                ? JSON.parse(salvo)
+                : [];
+
+        } catch {
+
+            return [];
+
+        }
+
+    }
+
+
+    function salvarConcluidas() {
+
+        localStorage.setItem(
+            STORAGE_ATIVIDADES,
+            JSON.stringify(concluidas)
+        );
+
+    }
+
+
+    function carregarXP() {
+
+        const valor =
+            Number(
+                localStorage.getItem(
+                    STORAGE_XP
+                )
+            );
+
+        return Number.isFinite(valor)
+            ? valor
+            : 0;
+
+    }
+
+
+    function salvarXP() {
+
+        localStorage.setItem(
+            STORAGE_XP,
+            String(xp)
+        );
+
+    }
+
+
+    function carregarBibleConcluidas() {
+
+        try {
+
+            const salvo =
+                localStorage.getItem(
+                    STORAGE_BIBLE
+                );
+
+            return salvo
+                ? JSON.parse(salvo)
+                : [];
+
+        } catch {
+
+            return [];
+
+        }
+
+    }
+
+
+    function salvarBibleConcluidas() {
+
+        localStorage.setItem(
+            STORAGE_BIBLE,
+            JSON.stringify(bibleConcluidas)
+        );
+
+    }
+
+
+    /* =========================================================
+       HELPERS
+    ========================================================= */
+
+    function estaConcluida(id) {
+
+        return concluidas.includes(id);
+
+    }
+
+
+    function bibleConcluido(id) {
+
+        return bibleConcluidas.includes(id);
+
+    }
+
+
+    function atividadeDesbloqueada(id) {
+
+        if (id === 1) {
+            return true;
+        }
+
+        return estaConcluida(id - 1);
+
+    }
+
+
+    function nomeCurto(texto) {
+
+        if (!texto) {
+            return "";
+        }
+
+        return texto.length > 28
+            ? texto.substring(0, 28) + "..."
+            : texto;
+
+    }
+
+
+    /* =========================================================
+       RENDER CURSO
+    ========================================================= */
+
+    function renderizarCurso() {
+
+        const noah =
+            document.getElementById(
+                "noahGrid"
+            );
+
+        const love =
+            document.getElementById(
+                "loveGrid"
+            );
+
+        noah.innerHTML = "";
+        love.innerHTML = "";
+
+        atividades.forEach((atividade) => {
+
+            const card =
+                document.createElement("button");
+
+            card.className =
+                "activity-card";
+
+            const concluida =
+                estaConcluida(
+                    atividade.id
+                );
+
+            const desbloqueada =
+                atividadeDesbloqueada(
+                    atividade.id
+                );
+
+            if (concluida) {
+                card.classList.add(
+                    "completed"
+                );
+            }
+
+            if (!desbloqueada) {
+                card.classList.add(
+                    "locked"
+                );
+            }
+
+            card.innerHTML = `
+
+                <div class="activity-number">
+                    ATIVIDADE ${atividade.id}
+                </div>
+
+                <div class="activity-emoji">
+                    ${atividade.emoji}
+                </div>
+
+                <div class="activity-title">
+                    ${nomeCurto(atividade.titulo)}
+                </div>
+
+                <div class="activity-type">
+                    ${
+                        atividade.tipo === "builder"
+                        ? "Montar frase"
+                        : "Pergunta"
+                    }
+                </div>
+
+                ${
+                    concluida
+                    ? `<div class="check">✓</div>`
+                    : !desbloqueada
+                    ? `<div class="lock">🔒</div>`
+                    : ""
+                }
+
+            `;
+
+            if (desbloqueada) {
+
+                card.addEventListener(
+                    "click",
+                    () => abrirAtividade(
+                        atividade.id
+                    )
+                );
+
+            }
+
+            if (
+                atividade.unidade === "noah"
+            ) {
+
+                noah.appendChild(card);
+
+            } else {
+
+                love.appendChild(card);
+
+            }
+
+        });
+
+        atualizarProgresso();
+    }
+
+
+    /* =========================================================
+       PROGRESS
+    ========================================================= */
+
+    function atualizarProgresso() {
+
+        const total =
+            atividades.length;
+
+        const concluidasTotal =
+            atividades.filter(
+                atividade =>
+                    estaConcluida(
+                        atividade.id
+                    )
+            ).length;
+
+        const porcentagem =
+            total === 0
+                ? 0
+                : (
+                    concluidasTotal /
+                    total
+                ) * 100;
+
+        document.getElementById(
+            "progressNumber"
+        ).textContent =
+            `${concluidasTotal} / ${total}`;
+
+        document.getElementById(
+            "progressFill"
+        ).style.width =
+            `${porcentagem}%`;
+
+        const noahTotal =
+            atividades.filter(
+                a =>
+                    a.unidade === "noah" &&
+                    estaConcluida(a.id)
+            ).length;
+
+        const loveTotal =
+            atividades.filter(
+                a =>
+                    a.unidade === "love" &&
+                    estaConcluida(a.id)
+            ).length;
+
+        document.getElementById(
+            "noahCount"
+        ).textContent =
+            `${noahTotal} / 40`;
+
+        document.getElementById(
+            "loveCount"
+        ).textContent =
+            `${loveTotal} / 20`;
+
+        document.getElementById(
+            "xpDisplay"
+        ).textContent =
+            `${xp} XP`;
+
+        const mensagem =
+            document.getElementById(
+                "progressMessage"
+            );
+
+        if (concluidasTotal === 0) {
+
+            mensagem.textContent =
+                "Comece sua primeira atividade!";
+
+        } else if (
+            concluidasTotal < 10
+        ) {
+
+            mensagem.textContent =
+                "Muito bem! Continue aprendendo.";
+
+        } else if (
+            concluidasTotal < 30
+        ) {
+
+            mensagem.textContent =
+                "Você está avançando muito!";
+
+        } else if (
+            concluidasTotal < 60
+        ) {
+
+            mensagem.textContent =
+                "Você já é um pequeno explorador!";
+
+        } else {
+
+            mensagem.textContent =
+                "🎉 Você completou o curso!";
+        }
+
+        atualizarBibleProgresso();
+
+    }
+
+
+    /* =========================================================
+       ABRIR ATIVIDADE
+    ========================================================= */
+
+    function abrirAtividade(id) {
+
+        const atividade =
+            atividades.find(
+                item =>
+                    item.id === id
+            );
+
+        if (!atividade) {
+            return;
+        }
+
+        atividadeAtual =
+            atividade;
+
+        document.getElementById(
+            "activityModal"
+        ).classList.add("open");
+
+        document.getElementById(
+            "modalLabel"
+        ).textContent =
+            `Atividade ${atividade.id}`;
+
+        document.getElementById(
+            "modalTitle"
+        ).textContent =
+            atividade.titulo;
+
+        document.getElementById(
+            "activityFeedback"
+        ).className =
+            "feedback";
+
+        document.getElementById(
+            "activityFeedback"
+        ).innerHTML = "";
+
+        document.getElementById(
+            "nextButton"
+        ).classList.remove(
+            "show"
+        );
+
+        renderizarConteudo(
+            atividade
+        );
+
+    }
+
+
+    /* =========================================================
+       CONTEÚDO DA ATIVIDADE
+    ========================================================= */
+
+    function renderizarConteudo(
+        atividade
+    ) {
+
+        const area =
+            document.getElementById(
+                "activityContent"
+            );
+
+        if (
+            atividade.tipo === "choice"
+        ) {
+
+            area.innerHTML = `
+
+                <div class="question">
+                    ${atividade.pergunta}
+                </div>
+
+                ${
+                    atividade.fala
+                    ? `
+                        <button
+                            class="speak-button"
+                            onclick="falar(
+                                ${JSON.stringify(
+                                    atividade.fala
+                                )}
+                            )"
+                        >
+                            🔊 Ouvir
+                        </button>
+                    `
+                    : ""
+                }
+
+                <div class="answers">
+
+                    ${atividade.opcoes
+                        .map(
+                            (opcao, index) => `
+                                <button
+                                    class="answer-button"
+                                    onclick="responder(${index})"
+                                >
+                                    ${opcao}
+                                </button>
+                            `
+                        )
+                        .join("")
+                    }
+
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        if (
+            atividade.tipo === "builder"
+        ) {
+
+            renderizarConstrutor(
+                atividade
+            );
+
+        }
+
+    }
+
+
+    /* =========================================================
+       CHOICE
+    ========================================================= */
+
+    function responder(index) {
+
+        if (!atividadeAtual) {
+            return;
+        }
+
+        if (
+            estaConcluida(
+                atividadeAtual.id
+            )
+        ) {
+            return;
+        }
+
+        const botoes =
+            document.querySelectorAll(
+                ".answer-button"
+            );
+
+        botoes.forEach(
+            botao =>
+                botao.disabled = true
+        );
+
+        const correto =
+            index ===
+            atividadeAtual.resposta;
+
+        botoes[index].classList.add(
+            correto
+                ? "correct"
+                : "wrong"
+        );
+
+        if (!correto) {
+
+            botoes[
+                atividadeAtual.resposta
+            ].classList.add(
+                "correct"
+            );
+
+        }
+
+        if (correto) {
+
+            finalizarAtividade();
+
+        } else {
+
+            mostrarFeedback(
+                false,
+                "Quase! Observe a resposta destacada e tente lembrar dela para a próxima."
+            );
+
+            document
+                .getElementById(
+                    "nextButton"
+                )
+                .classList.add(
+                    "show"
+                );
+
+        }
+
+    }
+
+
+    /* =========================================================
+       BUILDER
+    ========================================================= */
+
+    let fraseSelecionada = [];
+
+
+    function renderizarConstrutor(
+        atividade
+    ) {
+
+        fraseSelecionada = [];
+
+        const area =
+            document.getElementById(
+                "activityContent"
+            );
+
+        area.innerHTML = `
+
+            <div class="question">
+                ${atividade.pergunta}
+            </div>
+
+            <div
+                class="selected-words"
+                id="selectedWords"
+            >
+                Clique nas palavras na ordem correta.
+            </div>
+
+            <div class="sentence-builder">
+
+                ${atividade.palavras
+                    .map(
+                        palavra => `
+                            <button
+                                class="word-chip"
+                                onclick="adicionarPalavra(
+                                    ${JSON.stringify(
+                                        palavra
+                                    )}
+                                )"
+                            >
+                                ${palavra}
+                            </button>
+                        `
+                    )
+                    .join("")
+                }
+
+            </div>
+
+            <button
+                class="primary-button"
+                onclick="verificarFrase()"
+            >
+                Verificar frase
+            </button>
+
+        `;
+
+    }
+
+
+    function adicionarPalavra(
+        palavra
+    ) {
+
+        fraseSelecionada.push(
+            palavra
+        );
+
+        const area =
+            document.getElementById(
+                "selectedWords"
+            );
+
+        area.innerHTML =
+            fraseSelecionada
+                .map(
+                    item =>
+                        `<span class="selected-chip">${item}</span>`
+                )
+                .join("");
+
+    }
+
+
+    function verificarFrase() {
+
+        if (!atividadeAtual) {
+            return;
+        }
+
+        const resposta =
+            fraseSelecionada
+                .join(" ")
+                .toLowerCase();
+
+        const correta =
+            resposta ===
+            atividadeAtual.resposta
+                .toLowerCase();
+
+        if (correta) {
+
+            finalizarAtividade();
+
+        } else {
+
+            mostrarFeedback(
+                false,
+                "A ordem ainda não está certa. Tente novamente!"
+            );
+
+        }
+
+    }
+
+
+    /* =========================================================
+       FINALIZAR
+    ========================================================= */
+
+    function finalizarAtividade() {
+
+        if (!atividadeAtual) {
+            return;
+        }
+
+        if (
+            estaConcluida(
+                atividadeAtual.id
+            )
+        ) {
+            return;
+        }
+
+        concluidas.push(
+            atividadeAtual.id
+        );
+
+        salvarConcluidas();
+
+        const ganho =
+            atividadeAtual.id >= 40
+                ? 15
+                : 10;
+
+        xp += ganho;
+
+        salvarXP();
+
+        sincronizarProgressoGlobal();
+
+        mostrarFeedback(
+            true,
+            `🎉 Muito bem! Você acertou e ganhou +${ganho} XP.`
+        );
+
+        document
+            .getElementById(
+                "nextButton"
+            )
+            .classList.add(
+                "show"
+            );
+
+        renderizarCurso();
+
+    }
+
+
+    function mostrarFeedback(
+        sucesso,
+        texto
+    ) {
+
+        const feedback =
+            document.getElementById(
+                "activityFeedback"
+            );
+
+        feedback.className =
+            `feedback show ${
+                sucesso
+                    ? "success"
+                    : "error"
+            }`;
+
+        feedback.innerHTML =
+            texto;
+
+    }
+
+
+    /* =========================================================
+       PRÓXIMA
+    ========================================================= */
+
+    function proximaAtividade() {
+
+        if (!atividadeAtual) {
+            return null;
+        }
+
+        const index =
+            atividades.findIndex(
+                item =>
+                    item.id ===
+                    atividadeAtual.id
+            );
+
+        for (
+            let i = index + 1;
+            i < atividades.length;
+            i++
+        ) {
+
+            if (
+                atividadeDesbloqueada(
+                    atividades[i].id
+                ) &&
+                !estaConcluida(
+                    atividades[i].id
+                )
+            ) {
+
+                return atividades[i];
+
+            }
+
+        }
+
+        return null;
+
+    }
+
+
+    function mostrarProxima() {
+
+        const proxima =
+            proximaAtividade();
+
+        if (proxima) {
+
+            abrirAtividade(
+                proxima.id
+            );
+
+        } else {
+
+            document.getElementById(
+                "activityContent"
+            ).innerHTML = `
+
+                <div class="completion show">
+
+                    <div class="completion-icon">
+                        🏆
+                    </div>
+
+                    <h3>
+                        Parabéns!
+                    </h3>
+
+                    <p>
+                        Você completou todas as atividades
+                        disponíveis desta aventura.
+                    </p>
+
+                </div>
+
+            `;
+
+            document.getElementById(
+                "nextButton"
+            ).classList.remove(
+                "show"
+            );
+
+        }
+
+    }
+
+
+    /* =========================================================
+       BIBLE KIDS RENDER
+    ========================================================= */
+
+    function renderizarBible() {
+
+        const grid =
+            document.getElementById(
+                "bibleGrid"
+            );
+
+        grid.innerHTML = "";
+
+        bibleKids.forEach(
+            (versiculo, index) => {
+
+                const card =
+                    document.createElement(
+                        "button"
+                    );
+
+                const concluido =
+                    bibleConcluido(
+                        versiculo.id
+                    );
+
+                const desbloqueado =
+                    index === 0 ||
+                    bibleConcluido(
+                        bibleKids[index - 1].id
+                    );
+
+                card.className =
+                    "verse-card";
+
+                if (concluido) {
+                    card.classList.add(
+                        "completed"
+                    );
+                }
+
+                if (!desbloqueado) {
+                    card.classList.add(
+                        "locked"
+                    );
+                }
+
+                card.innerHTML = `
+
+                    <div class="verse-icon">
+                        ${versiculo.emoji}
+                    </div>
+
+                    <div class="verse-ref">
+                        ${versiculo.reference}
+                    </div>
+
+                    <div class="verse-title">
+                        ${versiculo.title}
+                    </div>
+
+                    <div class="verse-description">
+                        Ouça, entenda e explique
+                        em português.
+                    </div>
+
+                    ${
+                        concluido
+                        ? `<div class="check">✓</div>`
+                        : !desbloqueado
+                        ? `<div class="lock">🔒</div>`
+                        : ""
+                    }
+
+                `;
+
+                if (desbloqueado) {
+
+                    card.addEventListener(
+                        "click",
+                        () =>
+                            abrirBible(
+                                versiculo.id
+                            )
+                    );
+
+                }
+
+                grid.appendChild(card);
+
+            }
+        );
+
+        atualizarBibleProgresso();
+
+    }
+
+
+    function atualizarBibleProgresso() {
+
+        const total =
+            bibleKids.length;
+
+        const feitos =
+            bibleKids.filter(
+                item =>
+                    bibleConcluido(
+                        item.id
+                    )
+            ).length;
+
+        const porcentagem =
+            total === 0
+                ? 0
+                : (
+                    feitos /
+                    total
+                ) * 100;
+
+        document.getElementById(
+            "bibleCount"
+        ).textContent =
+            `${feitos} / ${total}`;
+
+        document.getElementById(
+            "bibleProgressFill"
+        ).style.width =
+            `${porcentagem}%`;
+
+    }
+
+
+    /* =========================================================
+       ABRIR BIBLE
+    ========================================================= */
+
+    function abrirBible(id) {
+
+        const versiculo =
+            bibleKids.find(
+                item =>
+                    item.id === id
+            );
+
+        if (!versiculo) {
+            return;
+        }
+
+        bibleAtual =
+            versiculo;
+
+        document.getElementById(
+            "bibleModal"
+        ).classList.add(
+            "open"
+        );
+
+        document.getElementById(
+            "bibleReference"
+        ).textContent =
+            versiculo.reference;
+
+        document.getElementById(
+            "bibleModalTitle"
+        ).textContent =
+            versiculo.title;
+
+        document.getElementById(
+            "bibleVerse"
+        ).textContent =
+            versiculo.verse;
+
+        document.getElementById(
+            "bibleAnswer"
+        ).value = "";
+
+        document.getElementById(
+            "helpBox"
+        ).classList.remove(
+            "show"
+        );
+
+        document.getElementById(
+            "bibleResult"
+        ).className =
+            "bible-result";
+
+        document.getElementById(
+            "bibleResult"
+        ).innerHTML = "";
+
+        document.getElementById(
+            "helpButton"
+        ).textContent =
+            "💡 Preciso de ajuda";
+
+    }
+
+
+    /* =========================================================
+       BIBLE HELP
+    ========================================================= */
+
+    function mostrarAjudaBible() {
+
+        if (!bibleAtual) {
+            return;
+        }
+
+        const box =
+            document.getElementById(
+                "helpBox"
+            );
+
+        const words =
+            document.getElementById(
+                "helpWords"
+            );
+
+        const aberto =
+            box.classList.contains(
+                "show"
+            );
+
+        if (aberto) {
+
+            box.classList.remove(
+                "show"
+            );
+
+            document.getElementById(
+                "helpButton"
+            ).textContent =
+                "💡 Preciso de ajuda";
+
+            return;
+        }
+
+        words.innerHTML =
+            bibleAtual.help
+                .map(
+                    item => `
+                        <span class="help-word">
+                            <strong>${item[0]}</strong>
+                            = ${item[1]}
+                        </span>
+                    `
+                )
+                .join("");
+
+        box.classList.add(
+            "show"
+        );
+
+        document.getElementById(
+            "helpButton"
+        ).textContent =
+            "💡 Esconder ajuda";
+
+    }
+
+
+    /* =========================================================
+       VERIFICAR BIBLE
+    ========================================================= */
+
+    function normalizarTexto(texto) {
+
+        return texto
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(
+                /[\u0300-\u036f]/g,
+                ""
+            )
+            .replace(
+                /[^\p{L}\p{N}\s]/gu,
+                " "
+            )
+            .replace(
+                /\s+/g,
+                " "
+            )
+            .trim();
+
+    }
+
+
+    function verificarBible() {
+
+        if (!bibleAtual) {
+            return;
+        }
+
+        if (
+            bibleConcluido(
+                bibleAtual.id
+            )
+        ) {
+            return;
+        }
+
+        const texto =
+            normalizarTexto(
+                document.getElementById(
+                    "bibleAnswer"
+                ).value
+            );
+
+        if (!texto) {
+
+            mostrarResultadoBible(
+                false,
+                "Escreva primeiro o que você entendeu do versículo."
+            );
+
+            return;
+        }
+
+        const palavrasEncontradas =
+            bibleAtual.keywords.filter(
+                grupo =>
+                    grupo.some(
+                        palavra =>
+                            texto.includes(
+                                normalizarTexto(
+                                    palavra
+                                )
+                            )
+                    )
+            );
+
+        const total =
+            bibleAtual.keywords.length;
+
+        const acertos =
+            palavrasEncontradas.length;
+
+        const percentual =
+            total === 0
+                ? 0
+                : acertos / total;
+
+        /*
+            Não exige tradução perfeita.
+            A criança pode explicar com palavras próprias.
+        */
+
+        if (percentual >= .5) {
+
+            bibleConcluidas.push(
+                bibleAtual.id
+            );
+
+            salvarBibleConcluidas();
+
+            /*
+                XP do Bible Kids é separado
+                das 60 atividades principais.
+            */
+
+            const ganho =
+                document.getElementById(
+                    "helpBox"
+                ).classList.contains(
+                    "show"
+                )
+                    ? 8
+                    : 12;
+
+            xp += ganho;
+
+            salvarXP();
+
+            sincronizarProgressoGlobal();
+
+            mostrarResultadoBible(
+                true,
+                `🎉 Muito bem! Você entendeu a ideia principal do versículo e ganhou +${ganho} XP.`
+            );
+
+            renderizarBible();
+            atualizarProgresso();
+
+            return;
+        }
+
+
+        mostrarResultadoBible(
+            false,
+            `Você encontrou ${acertos} de ${total} ideias importantes. Tente ouvir novamente e use as dicas para descobrir mais.`
+        );
+
+    }
+
+
+    function mostrarResultadoBible(
+        sucesso,
+        mensagem
+    ) {
+
+        const result =
+            document.getElementById(
+                "bibleResult"
+            );
+
+        result.className =
+            `bible-result show`;
+
+        if (sucesso) {
+
+            result.innerHTML = `
+
+                <strong>
+                    ${mensagem}
+                </strong>
+
+                <div>
+                    ${bibleAtual.expected}
+                </div>
+
+                <small>
+                    Você não precisava escrever uma tradução perfeita.
+                    O importante era compreender a mensagem.
+                </small>
+
+            `;
+
+        } else {
+
+            result.innerHTML = `
+
+                <strong>
+                    ${mensagem}
+                </strong>
+
+                <small>
+                    Dica: ouça novamente o áudio,
+                    procure palavras conhecidas e tente explicar
+                    a ideia com suas próprias palavras.
+                </small>
+
+            `;
+
+        }
+
+    }
+
+
+    /* =========================================================
+       ÁUDIO
+    ========================================================= */
+
+    function falar(
+        texto
+    ) {
+
+        if (
+            !("speechSynthesis" in window)
+        ) {
+            return;
+        }
+
+        window.speechSynthesis.cancel();
+
+        const fala =
+            new SpeechSynthesisUtterance(
+                texto
+            );
+
+        fala.lang =
+            "en-US";
+
+        fala.rate =
+            .82;
+
+        fala.pitch =
+            1;
+
+        window.speechSynthesis.speak(
+            fala
+        );
+
+    }
+
+
+    function falarBibleAtual() {
+
+        if (!bibleAtual) {
+            return;
+        }
+
+        falar(
+            bibleAtual.audio
+        );
+
+    }
+
+
+    /* =========================================================
+       FECHAR
+    ========================================================= */
+
+    function fecharAtividade() {
+
+        document.getElementById(
+            "activityModal"
+        ).classList.remove(
+            "open"
+        );
+
+        atividadeAtual = null;
+
+    }
+
+
+    function fecharBible() {
+
+        document.getElementById(
+            "bibleModal"
+        ).classList.remove(
+            "open"
+        );
+
+        bibleAtual = null;
+
+        if (
+            "speechSynthesis" in window
+        ) {
+            window.speechSynthesis.cancel();
+        }
+
+    }
+
+
+    /* =========================================================
+       PROGRESSO GLOBAL
+    ========================================================= */
+
+    function sincronizarProgressoGlobal() {
+
+        if (
+            window.PequenosProgresso &&
+            typeof
+                window.PequenosProgresso
+                    .adicionarPontos ===
+                "function"
+        ) {
+
+            /*
+                O progresso global pode
+                receber o XP ganho.
+            */
+
+            window.PequenosProgresso
+                .adicionarPontos(
+                    0
+                );
+
+        }
+
+        /*
+            O progresso principal do inglês
+            continua sendo sincronizado pelo
+            js/progresso.js através do localStorage.
+        */
+
+    }
+
+
+    /* =========================================================
+       EVENTOS
+    ========================================================= */
+
+    document
+        .getElementById(
+            "activityModal"
+        )
+        .addEventListener(
+            "click",
+            evento => {
+
+                if (
+                    evento.target.id ===
+                    "activityModal"
+                ) {
+                    fecharAtividade();
+                }
+
+            }
+        );
+
+
+    document
+        .getElementById(
+            "bibleModal"
+        )
+        .addEventListener(
+            "click",
+            evento => {
+
+                if (
+                    evento.target.id ===
+                    "bibleModal"
+                ) {
+                    fecharBible();
+                }
+
+            }
+        );
+
+
+    document.addEventListener(
+        "keydown",
+        evento => {
+
+            if (
+                evento.key ===
+                "Escape"
+            ) {
+
+                fecharAtividade();
+                fecharBible();
+
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       INICIALIZAÇÃO
+    ========================================================= */
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => {
+
+            renderizarCurso();
+
+            renderizarBible();
+
+            document.getElementById(
+                "xpDisplay"
+            ).textContent =
+                `${xp} XP`;
+
+        }
+    );
+
+</script>
+
+</body>
+</html>

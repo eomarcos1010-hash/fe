@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Painel — Pequenos na Fé</title>
+
+    <meta
+        name="description"
+        content="Painel do Pequenos na Fé — aprenda, brinque e cresça com Deus."
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/personagem.css">
+    <link rel="stylesheet" href="css/painel.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">
+                P
+            </div>
+
+            <div class="brand-name">
+                <strong>Pequenos</strong>
+                <span>na Fé</span>
+            </div>
+
+            <button
+                type="button"
+                class="sidebar-close"
+                id="closeSidebar"
+                aria-label="Fechar menu"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <nav class="sidebar-menu" aria-label="Menu principal">
+
+            <a
+                href="painel.html"
+                class="menu-item active"
+            >
+                <span>🏠</span>
+                <strong>Início</strong>
+            </a>
+
+
+            <a
+                href="historias.html"
+                class="menu-item"
+            >
+                <span>📖</span>
+                <strong>Aventuras da Bíblia</strong>
+            </a>
+
+
+            <a
+                href="jesus.html"
+                class="menu-item"
+            >
+                <span>❤️</span>
+                <strong>Conhecendo Jesus</strong>
+            </a>
+
+
+            <a
+                href="ingles.html"
+                class="menu-item"
+            >
+                <span>🌎</span>
+                <strong>English with Jesus</strong>
+            </a>
+
+
+            <a
+                href="jogos.html"
+                class="menu-item"
+            >
+                <span>🎮</span>
+                <strong>Jogos da Fé</strong>
+            </a>
+
+
+            <a
+                href="atividades.html"
+                class="menu-item"
+            >
+                <span>🎨</span>
+                <strong>Ateliê dos Pequenos</strong>
+            </a>
+
+
+            <a
+                href="momento-deus.html"
+                class="menu-item"
+            >
+                <span>🙏</span>
+                <strong>Momento com Deus</strong>
+            </a>
+
+
+            <a
+                href="conquistas.html"
+                class="menu-item"
+            >
+                <span>🏆</span>
+                <strong>Minhas Conquistas</strong>
+            </a>
+
+
+            <a
+                href="pais.html"
+                class="menu-item"
+            >
+                <span>👨‍👩‍👧</span>
+                <strong>Área dos Pais</strong>
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+        <!-- =================================================
+             TOPBAR
+        ================================================== -->
+
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <button
+                    type="button"
+                    class="mobile-menu"
+                    id="openSidebar"
+                    aria-label="Abrir menu"
+                >
+                    ☰
+                </button>
+
+
+                <div>
+
+                    <span class="topbar-small">
+                        PEQUENOS NA FÉ
+                    </span>
+
+                    <h2 id="topGreeting">
+                        Olá, pequeno! 👋
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="topbar-right">
+
+                <div
+                    class="xp-pill"
+                    aria-label="Experiência conquistada"
+                >
+                    ⭐
+                    <strong id="topXP">
+                        0 XP
+                    </strong>
+                </div>
+
+
+                <a
+                    href="conquistas.html"
+                    class="top-achievement"
+                    aria-label="Ver conquistas"
+                >
+                    🏆
+                </a>
+
+            </div>
+
+        </header>
+
+
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
+
+        <div class="content">
+
+
+            <!-- =================================================
+                 HERO
+            ================================================== -->
+
+            <section class="hero">
+
+                <div class="hero-text">
+
+                    <div class="hero-tag">
+                        ✨ SUA AVENTURA CONTINUA
+                    </div>
+
+
+                    <h1 id="heroTitle">
+                        Olá, pequeno!
+                    </h1>
+
+
+                    <p>
+                        Que tal aprender algo novo hoje?
+                        Explore histórias da Bíblia,
+                        conheça Jesus, aprenda inglês,
+                        jogue e descubra novas aventuras.
+                    </p>
+
+
+                    <div class="hero-actions">
+
+                        <a
+                            href="ingles.html"
+                            class="primary-button"
+                        >
+                            Continuar aventura
+                            <span>→</span>
+                        </a>
+
+
+                        <a
+                            href="conquistas.html"
+                            class="secondary-button"
+                        >
+                            🏆 Conquistas
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PERSONAGEM -->
+
+                <div class="hero-character">
+
+                    <div
+                        class="character-preview"
+                        id="dashboardCharacter"
+                        data-gender="menino"
+                        data-skin="#F6C9A8"
+                        data-hair="#171717"
+                    >
+
+                        <div class="character">
+
+                            <div class="character-hair"></div>
+
+                            <div class="character-head">
+
+                                <div class="character-face">
+
+                                    <span class="eye left"></span>
+                                    <span class="eye right"></span>
+
+                                    <span class="mouth"></span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="character-neck"></div>
+
+                            <div class="character-body"></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-character-shadow"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 VERSÍCULO
+            ================================================== -->
+
+            <section class="verse">
+
+                <div class="verse-icon">
+                    📖
+                </div>
+
+
+                <div class="verse-content">
+
+                    <span>
+                        VERSÍCULO DO DIA
+                    </span>
+
+
+                    <p>
+                        “Ensina a criança no caminho em que deve andar.”
+                    </p>
+
+
+                    <strong>
+                        Provérbios 22:6
+                    </strong>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ESTATÍSTICAS
+            ================================================== -->
+
+            <section class="stats">
+
+
+                <div class="stat">
+
+                    <div class="stat-icon blue">
+                        ⭐
+                    </div>
+
+                    <div>
+
+                        <strong id="statXP">
+                            0
+                        </strong>
+
+                        <span>
+                            XP conquistado
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div class="stat-icon green">
+                        📚
+                    </div>
+
+                    <div>
+
+                        <strong id="statActivities">
+                            0
+                        </strong>
+
+                        <span>
+                            atividades
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div class="stat-icon yellow">
+                        🏆
+                    </div>
+
+                    <div>
+
+                        <strong id="statAchievements">
+                            0
+                        </strong>
+
+                        <span>
+                            conquistas
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat">
+
+                    <div class="stat-icon purple">
+                        🔥
+                    </div>
+
+                    <div>
+
+                        <strong id="statDays">
+                            0
+                        </strong>
+
+                        <span>
+                            dias ativos
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 ÁREA DOS PAIS
+            ================================================== -->
+
+            <section class="section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            PARA A FAMÍLIA
+                        </span>
+
+                        <h2>
+                            Área dos Pais
+                        </h2>
+
+                        <p>
+                            Acompanhe a jornada e o desenvolvimento do pequeno.
+                        </p>
+
+                    </div>
+
+
+                    <a href="pais.html">
+                        Abrir área →
+                    </a>
+
+                </div>
+
+
+                <a
+                    href="pais.html"
+                    class="parents-home-card"
+                >
+
+                    <div class="parents-home-content">
+
+                        <div class="parents-home-icon">
+                            👨‍👩‍👧
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                Acompanhe o pequeno
+                            </h3>
+
+                            <p>
+                                Veja XP, atividades, conquistas,
+                                progresso e momentos da jornada.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="parents-home-arrow">
+                        →
+                    </div>
+
+                </a>
+
+            </section>
+
+
+            <!-- =================================================
+                 ENGLISH WITH JESUS
+            ================================================== -->
+
+            <section class="section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            PRÓXIMA AVENTURA
+                        </span>
+
+                        <h2>
+                            English with Jesus
+                        </h2>
+
+                        <p>
+                            Aprenda inglês brincando.
+                        </p>
+
+                    </div>
+
+
+                    <a href="ingles.html">
+                        Ver curso →
+                    </a>
+
+                </div>
+
+
+                <div class="english">
+
+                    <div class="english-main">
+
+                        <div class="english-icon">
+                            🌎
+                        </div>
+
+
+                        <div>
+
+                            <h3>
+                                English with Jesus
+                            </h3>
+
+                            <p>
+                                60 atividades para aprender
+                                palavras, frases e situações
+                                em inglês.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="english-progress">
+
+                        <div class="progress-info">
+
+                            <span>
+                                Progresso
+                            </span>
+
+                            <strong id="englishPercent">
+                                0%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div
+                                id="englishProgress"
+                                class="progress-value"
+                                style="width:0%"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="english-units">
+
+                        <div>
+
+                            🛶
+
+                            <strong>
+                                Noah's Ark
+                            </strong>
+
+                            <span id="noahProgress">
+                                0 / 40
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            ❤️
+
+                            <strong>
+                                Love
+                            </strong>
+
+                            <span id="loveProgress">
+                                0 / 20
+                            </span>
+
+                        </div>
+
+
+                        <div>
+
+                            ⭐
+
+                            <strong>
+                                XP
+                            </strong>
+
+                            <span id="englishXP">
+                                0 XP
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <a
+                        href="ingles.html"
+                        class="english-button"
+                    >
+                        Continuar aula →
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 CATEGORIAS
+            ================================================== -->
+
+            <section class="section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            EXPLORE
+                        </span>
+
+                        <h2>
+                            O que você quer fazer?
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cards">
+
+
+                    <a
+                        href="historias.html"
+                        class="card"
+                    >
+
+                        <div class="card-icon bible">
+                            📖
+                        </div>
+
+                        <h3>
+                            Aventuras da Bíblia
+                        </h3>
+
+                        <p>
+                            Descubra histórias incríveis
+                            da Palavra de Deus.
+                        </p>
+
+                    </a>
+
+
+                    <a
+                        href="jesus.html"
+                        class="card"
+                    >
+
+                        <div class="card-icon heart">
+                            ❤️
+                        </div>
+
+                        <h3>
+                            Conhecendo Jesus
+                        </h3>
+
+                        <p>
+                            Aprenda sobre o amor
+                            e os ensinamentos de Jesus.
+                        </p>
+
+                    </a>
+
+
+                    <a
+                        href="jogos.html"
+                        class="card"
+                    >
+
+                        <div class="card-icon game">
+                            🎮
+                        </div>
+
+                        <h3>
+                            Jogos da Fé
+                        </h3>
+
+                        <p>
+                            Divirta-se aprendendo
+                            com desafios.
+                        </p>
+
+                    </a>
+
+
+                    <a
+                        href="atividades.html"
+                        class="card"
+                    >
+
+                        <div class="card-icon art">
+                            🎨
+                        </div>
+
+                        <h3>
+                            Ateliê dos Pequenos
+                        </h3>
+
+                        <p>
+                            Crie, desenhe e solte
+                            sua imaginação.
+                        </p>
+
+                    </a>
+
+
+                    <a
+                        href="momento-deus.html"
+                        class="card"
+                    >
+
+                        <div class="card-icon prayer">
+                            🙏
+                        </div>
+
+                        <h3>
+                            Momento com Deus
+                        </h3>
+
+                        <p>
+                            Um momento especial
+                            para conversar com Deus.
+                        </p>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 JORNADA
+            ================================================== -->
+
+            <section class="section">
+
+                <div class="section-heading">
+
+                    <div>
+
+                        <span class="section-label">
+                            SUA JORNADA
+                        </span>
+
+                        <h2>
+                            Continue crescendo
+                        </h2>
+
+                    </div>
+
+
+                    <a href="conquistas.html">
+                        Ver conquistas →
+                    </a>
+
+                </div>
+
+
+                <div class="journey-grid">
+
+
+                    <div class="journey-card">
+
+                        <div class="journey-top">
+
+                            <div>
+
+                                <span>
+                                    Progresso geral
+                                </span>
+
+                                <strong id="journeyPercent">
+                                    0%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="journey-icon">
+                                🌟
+                            </div>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div
+                                id="journeyProgress"
+                                class="progress-value"
+                                style="width:0%"
+                            ></div>
+
+                        </div>
+
+
+                        <div class="journey-stats">
+
+                            <div>
+
+                                <strong id="journeyStories">
+                                    0
+                                </strong>
+
+                                <span>
+                                    histórias
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong id="journeyGames">
+                                    0
+                                </strong>
+
+                                <span>
+                                    jogos
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong id="journeyEnglish">
+                                    0
+                                </strong>
+
+                                <span>
+                                    inglês
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="streak-card">
+
+                        <div class="streak-fire">
+                            🔥
+                        </div>
+
+                        <span>
+                            SEQUÊNCIA
+                        </span>
+
+                        <strong id="streakNumber">
+                            0
+                        </strong>
+
+                        <p>
+                            dias aprendendo
+                            e crescendo.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 FOOTER
+            ================================================== -->
+
+            <footer>
+                Pequenos na Fé · Aprender, brincar e crescer com Deus ❤️
+            </footer>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     SCRIPTS
+========================================================== -->
+
+<script src="js/dados.js"></script>
+<script src="js/progresso.js"></script>
+<script src="js/personagem.js"></script>
+<script src="js/app.js"></script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    "use strict";
+
+
+    /* =====================================================
+       MENU MOBILE
+    ====================================================== */
+
+    const sidebar =
+        document.getElementById("sidebar");
+
+    const overlay =
+        document.getElementById("sidebarOverlay");
+
+    const openButton =
+        document.getElementById("openSidebar");
+
+    const closeButton =
+        document.getElementById("closeSidebar");
+
+
+    function abrirMenu() {
+
+        sidebar?.classList.add("open");
+        overlay?.classList.add("open");
+
+        document.body.classList.add("menu-open");
+
+    }
+
+
+    function fecharMenu() {
+
+        sidebar?.classList.remove("open");
+        overlay?.classList.remove("open");
+
+        document.body.classList.remove("menu-open");
+
+    }
+
+
+    openButton?.addEventListener(
+        "click",
+        abrirMenu
+    );
+
+
+    closeButton?.addEventListener(
+        "click",
+        fecharMenu
+    );
+
+
+    overlay?.addEventListener(
+        "click",
+        fecharMenu
+    );
+
+
+    document
+        .querySelectorAll(".sidebar .menu-item")
+        .forEach(link => {
+
+            link.addEventListener(
+                "click",
+                fecharMenu
+            );
+
+        });
+
+
+    /* =====================================================
+       PERSONAGEM
+    ====================================================== */
+
+    function carregarPersonagem() {
+
+        try {
+
+            if (
+                window.PeQuenosPersonagem &&
+                typeof window.PeQuenosPersonagem.carregar === "function"
+            ) {
+
+                return (
+                    window.PeQuenosPersonagem.carregar() ||
+                    {}
+                );
+
+            }
+
+        } catch (erro) {
+
+            console.warn(
+                "Não foi possível carregar o personagem:",
+                erro
+            );
+
+        }
+
+
+        return {};
+
+    }
+
+
+    function atualizarPersonagemDashboard() {
+
+        const elemento =
+            document.getElementById(
+                "dashboardCharacter"
+            );
+
+
+        if (!elemento) {
+            return;
+        }
+
+
+        const personagem =
+            carregarPersonagem();
+
+
+        try {
+
+            if (
+                window.PeQuenosPersonagem &&
+                typeof window.PeQuenosPersonagem.atualizar === "function"
+            ) {
+
+                window.PeQuenosPersonagem.atualizar(
+                    elemento,
+                    personagem
+                );
+
+            }
+
+        } catch (erro) {
+
+            console.warn(
+                "Erro ao atualizar personagem:",
+                erro
+            );
+
+        }
+
+    }
+
+
+    /* =====================================================
+       PROGRESSO PRINCIPAL
+    ====================================================== */
+
+    function obterProgresso() {
+
+        try {
+
+            if (
+                window.PequenosProgresso &&
+                typeof window.PequenosProgresso.resumo === "function"
+            ) {
+
+                return (
+                    window.PequenosProgresso.resumo() ||
+                    {}
+                );
+
+            }
+
+
+            if (
+                window.PequenosProgresso &&
+                typeof window.PequenosProgresso.obterResumoProgresso === "function"
+            ) {
+
+                return (
+                    window.PequenosProgresso
+                        .obterResumoProgresso() ||
+                    {}
+                );
+
+            }
+
+        } catch (erro) {
+
+            console.warn(
+                "Erro ao obter progresso:",
+                erro
+            );
+
+        }
+
+
+        return {};
+
+    }
+
+
+    /* =====================================================
+       ENGLISH WITH JESUS
+    ====================================================== */
+
+    function obterIngles() {
+
+        let atividades = [];
+        let xp = 0;
+
+
+        try {
+
+            const salvo =
+                localStorage.getItem(
+                    "pequenosNaFe_ingles_atividades"
+                );
+
+
+            const dados =
+                salvo
+                    ? JSON.parse(salvo)
+                    : [];
+
+
+            if (Array.isArray(dados)) {
+
+                atividades = dados;
+
+            }
+
+        } catch (erro) {
+
+            atividades = [];
+
+        }
+
+
+        try {
+
+            xp =
+                Number(
+                    localStorage.getItem(
+                        "pequenosNaFe_ingles_xp"
+                    )
+                ) || 0;
+
+        } catch (erro) {
+
+            xp = 0;
+
+        }
+
+
+        /*
+         * Garante que os IDs sejam únicos.
+         */
+
+        atividades =
+            [...new Set(
+                atividades
+                    .map(Number)
+                    .filter(
+                        id =>
+                            Number.isFinite(id) &&
+                            id >= 1 &&
+                            id <= 60
+                    )
+            )];
+
+
+        return {
+            atividades,
+            xp
+        };
+
+    }
+
+
+    /* =====================================================
+       VALOR SEGURO
+    ====================================================== */
+
+    function numeroSeguro(valor) {
+
+        const numero =
+            Number(valor);
+
+
+        return Number.isFinite(numero)
+            ? numero
+            : 0;
+
+    }
+
+
+    /* =====================================================
+       ATUALIZAR DASHBOARD
+    ====================================================== */
+
+    function atualizarDashboard() {
+
+        const p =
+            obterProgresso();
+
+
+        const e =
+            obterIngles();
+
+
+        /* =================================================
+           XP
+        ================================================== */
+
+        const xpPrincipal =
+            numeroSeguro(
+                p.xp ??
+                p.pontos ??
+                0
+            );
+
+
+        const xpEnglish =
+            numeroSeguro(
+                e.xp
+            );
+
+
+        /*
+         * O progresso.js é a fonte principal do XP.
+         * Caso ele ainda não esteja contabilizando
+         * o XP dos módulos, usamos também o XP do inglês
+         * somente para exibição do painel.
+         */
+
+        const xp =
+            Math.max(
+                xpPrincipal,
+                xpEnglish
+            );
+
+
+        document
+            .getElementById("topXP")
+            ?.replaceChildren(
+                document.createTextNode(
+                    xp + " XP"
+                )
+            );
+
+
+        document
+            .getElementById("statXP")
+            ?.replaceChildren(
+                document.createTextNode(
+                    xp
+                )
+            );
+
+
+        /* =================================================
+           ATIVIDADES
+        ================================================== */
+
+        const atividades =
+            numeroSeguro(
+                p.atividades ??
+                p.totalAtividades ??
+                p.atividadesConcluidas ??
+                0
+            );
+
+
+        document
+            .getElementById("statActivities")
+            ?.replaceChildren(
+                document.createTextNode(
+                    atividades
+                )
+            );
+
+
+        /* =================================================
+           CONQUISTAS
+        ================================================== */
+
+        const conquistas =
+            numeroSeguro(
+                p.conquistas ??
+                p.conquistasDesbloqueadas ??
+                0
+            );
+
+
+        document
+            .getElementById("statAchievements")
+            ?.replaceChildren(
+                document.createTextNode(
+                    conquistas
+                )
+            );
+
+
+        /* =================================================
+           DIAS ATIVOS
+        ================================================== */
+
+        const dias =
+            numeroSeguro(
+                p.diasAtivos ??
+                0
+            );
+
+
+        document
+            .getElementById("statDays")
+            ?.replaceChildren(
+                document.createTextNode(
+                    dias
+                )
+            );
+
+
+        /* =================================================
+           ENGLISH
+        ================================================== */
+
+        const totalEnglish =
+            Math.min(
+                e.atividades.length,
+                60
+            );
+
+
+        const percentualEnglish =
+            Math.min(
+                Math.round(
+                    (totalEnglish / 60) * 100
+                ),
+                100
+            );
+
+
+        document
+            .getElementById("englishPercent")
+            ?.replaceChildren(
+                document.createTextNode(
+                    percentualEnglish + "%"
+                )
+            );
+
+
+        const englishProgress =
+            document.getElementById(
+                "englishProgress"
+            );
+
+
+        if (englishProgress) {
+
+            englishProgress.style.width =
+                percentualEnglish + "%";
+
+        }
+
+
+        /* =================================================
+           NOAH'S ARK
+           1 — 40
+        ================================================== */
+
+        const noah =
+            e.atividades.filter(
+                id =>
+                    id >= 1 &&
+                    id <= 40
+            ).length;
+
+
+        document
+            .getElementById("noahProgress")
+            ?.replaceChildren(
+                document.createTextNode(
+                    noah + " / 40"
+                )
+            );
+
+
+        /* =================================================
+           LOVE
+           41 — 60
+        ================================================== */
+
+        const love =
+            e.atividades.filter(
+                id =>
+                    id >= 41 &&
+                    id <= 60
+            ).length;
+
+
+        document
+            .getElementById("loveProgress")
+            ?.replaceChildren(
+                document.createTextNode(
+                    love + " / 20"
+                )
+            );
+
+
+        document
+            .getElementById("englishXP")
+            ?.replaceChildren(
+                document.createTextNode(
+                    e.xp + " XP"
+                )
+            );
+
+
+        /* =================================================
+           JORNADA
+        ================================================== */
+
+        let jornada =
+            numeroSeguro(
+                p.percentual ??
+                p.porcentagem ??
+                p.progresso ??
+                0
+            );
+
+
+        /*
+         * Se o progresso principal não possuir
+         * porcentagem, calcula uma visão geral
+         * usando as áreas disponíveis.
+         */
+
+        if (jornada <= 0) {
+
+            const historias =
+                numeroSeguro(
+                    p.historias ??
+                    p.historiasConcluidas ??
+                    0
+                );
+
+
+            const jogos =
+                numeroSeguro(
+                    p.jogos ??
+                    p.jogosConcluidos ??
+                    0
+                );
+
+
+            const jesus =
+                numeroSeguro(
+                    p.jesus ??
+                    p.jesusConcluidos ??
+                    0
+                );
+
+
+            const atividadesAtelie =
+                numeroSeguro(
+                    p.atividadesAtelie ??
+                    p.atividadesConcluidas ??
+                    0
+                );
+
+
+            const momentos =
+                numeroSeguro(
+                    p.momentos ??
+                    p.momentosConcluidos ??
+                    0
+                );
+
+
+            const totalConcluido =
+                historias +
+                jogos +
+                jesus +
+                atividadesAtelie +
+                momentos +
+                totalEnglish;
+
+
+            /*
+             * Meta aproximada das áreas principais.
+             */
+
+            const totalDisponivel =
+                8 +
+                5 +
+                4 +
+                1 +
+                4 +
+                60;
+
+
+            jornada =
+                Math.round(
+                    (
+                        totalConcluido /
+                        totalDisponivel
+                    ) * 100
+                );
+
+        }
+
+
+        jornada =
+            Math.min(
+                Math.max(
+                    jornada,
+                    0
+                ),
+                100
+            );
+
+
+        document
+            .getElementById("journeyPercent")
+            ?.replaceChildren(
+                document.createTextNode(
+                    jornada + "%"
+                )
+            );
+
+
+        const journeyProgress =
+            document.getElementById(
+                "journeyProgress"
+            );
+
+
+        if (journeyProgress) {
+
+            journeyProgress.style.width =
+                jornada + "%";
+
+        }
+
+
+        /* =================================================
+           HISTÓRIAS
+        ================================================== */
+
+        const historias =
+            numeroSeguro(
+                p.historias ??
+                p.historiasConcluidas ??
+                0
+            );
+
+
+        document
+            .getElementById("journeyStories")
+            ?.replaceChildren(
+                document.createTextNode(
+                    historias
+                )
+            );
+
+
+        /* =================================================
+           JOGOS
+        ================================================== */
+
+        const jogos =
+            numeroSeguro(
+                p.jogos ??
+                p.jogosConcluidos ??
+                0
+            );
+
+
+        document
+            .getElementById("journeyGames")
+            ?.replaceChildren(
+                document.createTextNode(
+                    jogos
+                )
+            );
+
+
+        /* =================================================
+           INGLÊS
+        ================================================== */
+
+        document
+            .getElementById("journeyEnglish")
+            ?.replaceChildren(
+                document.createTextNode(
+                    totalEnglish
+                )
+            );
+
+
+        /* =================================================
+           SEQUÊNCIA
+        ================================================== */
+
+        let streak = 0;
+
+
+        try {
+
+            if (
+                window.PequenosProgresso &&
+                typeof window.PequenosProgresso.obterSequenciaDias === "function"
+            ) {
+
+                streak =
+                    numeroSeguro(
+                        window.PequenosProgresso
+                            .obterSequenciaDias()
+                    );
+
+            }
+
+        } catch (erro) {
+
+            streak = 0;
+
+        }
+
+
+        document
+            .getElementById("streakNumber")
+            ?.replaceChildren(
+                document.createTextNode(
+                    streak
+                )
+            );
+
+    }
+
+
+    /* =====================================================
+       SAUDAÇÃO
+    ====================================================== */
+
+    function atualizarSaudacao() {
+
+        const personagem =
+            carregarPersonagem();
+
+
+        let nome =
+            String(
+                personagem.nome ||
+                personagem.name ||
+                "pequeno"
+            ).trim();
+
+
+        if (!nome) {
+
+            nome = "pequeno";
+
+        }
+
+
+        const hora =
+            new Date().getHours();
+
+
+        let saudacao;
+
+
+        if (
+            hora >= 5 &&
+            hora < 12
+        ) {
+
+            saudacao =
+                "Bom dia";
+
+        } else if (
+            hora >= 12 &&
+            hora < 18
+        ) {
+
+            saudacao =
+                "Boa tarde";
+
+        } else {
+
+            saudacao =
+                "Boa noite";
+
+        }
+
+
+        const texto =
+            saudacao +
+            ", " +
+            nome +
+            "! 👋";
+
+
+        document
+            .getElementById("heroTitle")
+            ?.replaceChildren(
+                document.createTextNode(
+                    texto
+                )
+            );
+
+
+        document
+            .getElementById("topGreeting")
+            ?.replaceChildren(
+                document.createTextNode(
+                    texto
+                )
+            );
+
+    }
+
+
+    /* =====================================================
+       ATUALIZAÇÃO COMPLETA
+    ====================================================== */
+
+    function atualizarTudo() {
+
+        atualizarPersonagemDashboard();
+
+        atualizarSaudacao();
+
+        atualizarDashboard();
+
+    }
+
+
+    /* =====================================================
+       PRIMEIRA EXECUÇÃO
+    ====================================================== */
+
+    atualizarTudo();
+
+
+    /* =====================================================
+       STORAGE
+    ====================================================== */
+
+    window.addEventListener(
+        "storage",
+        () => {
+
+            atualizarTudo();
+
+        }
+    );
+
+
+    /* =====================================================
+       VISIBILIDADE DA PÁGINA
+    ====================================================== */
+
+    document.addEventListener(
+        "visibilitychange",
+        () => {
+
+            if (
+                document.visibilityState === "visible"
+            ) {
+
+                atualizarTudo();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       VOLTAR PARA A ABA
+    ====================================================== */
+
+    window.addEventListener(
+        "pageshow",
+        () => {
+
+            atualizarTudo();
+
+        }
+    );
+
+
+    /* =====================================================
+       ATUALIZAÇÃO PERIÓDICA
+    ====================================================== */
+
+    setInterval(
+        () => {
+
+            atualizarDashboard();
+
+        },
+        5000
+    );
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,2054 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Momento com Deus — Pequenos na Fé</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #f8f7fc;
+    --card: #ffffff;
+    --purple: #8067d9;
+    --purple-dark: #6249b7;
+    --purple-soft: #eee9ff;
+    --blue: #8cc8ee;
+    --yellow: #ffd96d;
+    --green: #91d8b5;
+    --pink: #f3b0cd;
+    --text: #29263a;
+    --muted: #858092;
+    --border: #ebe7f4;
+    --shadow: 0 15px 40px rgba(77, 58, 135, .09);
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 245px;
+    height: 100vh;
+    background: white;
+    border-right: 1px solid var(--border);
+    padding: 25px 16px;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 10px 28px;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #8067d9, #aa95ed);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.logo strong {
+    font-size: 17px;
+}
+
+.logo span {
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    margin-top: 3px;
+}
+
+.menu-title {
+    color: #aaa5b7;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    padding: 10px 12px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #716d7f;
+    padding: 12px 13px;
+    border-radius: 13px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.menu a:hover {
+    background: #f5f1ff;
+    color: var(--purple);
+}
+
+.menu a.active {
+    background: var(--purple-soft);
+    color: var(--purple-dark);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+    margin-left: 245px;
+    padding: 34px;
+    max-width: 1400px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+}
+
+.breadcrumb {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.page-title {
+    font-size: 30px;
+    font-weight: 900;
+    margin-top: 5px;
+}
+
+.xp {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    padding: 11px 17px;
+    box-shadow: var(--shadow);
+    font-weight: 800;
+}
+
+.xp span {
+    color: var(--purple);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(255,255,255,.75),
+            transparent 25%
+        ),
+        linear-gradient(135deg, #eee8ff, #e9f7ff);
+
+    border-radius: 28px;
+    padding: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+}
+
+.hero-content {
+    max-width: 680px;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(255,255,255,.75);
+    color: var(--purple-dark);
+    font-size: 11px;
+    font-weight: 900;
+    padding: 8px 13px;
+    border-radius: 30px;
+    margin-bottom: 13px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    line-height: 1.05;
+    margin-bottom: 13px;
+}
+
+.hero p {
+    color: #6e687d;
+    font-size: 15px;
+    line-height: 1.65;
+}
+
+.hero-art {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.65);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 82px;
+
+    box-shadow:
+        0 20px 40px rgba(77,58,135,.08);
+}
+
+/* =========================
+   PEDIDO DE ORAÇÃO
+========================= */
+
+.prayer-request {
+    background:
+        linear-gradient(
+            135deg,
+            #eee9ff,
+            #edf9ff
+        );
+
+    border: 1px solid #e5def7;
+    border-radius: 26px;
+    padding: 28px;
+
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+
+    box-shadow: var(--shadow);
+
+    margin-bottom: 30px;
+}
+
+.prayer-request-icon {
+    width: 72px;
+    height: 72px;
+
+    flex-shrink: 0;
+
+    border-radius: 22px;
+
+    background: rgba(255,255,255,.85);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 35px;
+
+    box-shadow:
+        0 8px 20px rgba(80,60,120,.06);
+}
+
+.prayer-request-content {
+    flex: 1;
+}
+
+.prayer-label {
+    display: inline-block;
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1px;
+
+    color: var(--purple-dark);
+
+    margin-bottom: 7px;
+}
+
+.prayer-request h2 {
+    font-size: 23px;
+    margin-bottom: 7px;
+}
+
+.prayer-request p {
+    color: #6f697d;
+    font-size: 13px;
+    line-height: 1.55;
+    margin-bottom: 17px;
+}
+
+.prayer-request textarea {
+    width: 100%;
+    min-height: 135px;
+
+    resize: vertical;
+
+    border: 1px solid #ddd7ed;
+
+    background: rgba(255,255,255,.92);
+
+    border-radius: 17px;
+
+    padding: 15px;
+
+    outline: none;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    color: var(--text);
+
+    transition: .2s;
+}
+
+.prayer-request textarea:focus {
+    border-color: var(--purple);
+
+    box-shadow:
+        0 0 0 4px rgba(128,103,217,.10);
+}
+
+.prayer-request textarea::placeholder {
+    color: #aaa5b5;
+}
+
+.prayer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 11px;
+}
+
+#contadorPedido {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.save-prayer {
+    border: none;
+
+    background: var(--purple);
+    color: white;
+
+    padding: 12px 18px;
+
+    border-radius: 13px;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.save-prayer:hover {
+    background: var(--purple-dark);
+    transform: translateY(-2px);
+}
+
+.pedido-salvo {
+    margin-top: 12px;
+
+    background: #e6f8ee;
+    color: #28734b;
+
+    border-radius: 12px;
+
+    padding: 10px 13px;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* =========================
+   MOMENTO DO DIA
+========================= */
+
+.daily {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 25px;
+
+    padding: 25px;
+
+    box-shadow: var(--shadow);
+
+    margin-bottom: 30px;
+}
+
+.daily-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+.daily-header h2 {
+    font-size: 21px;
+}
+
+.daily-header p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.daily-tag {
+    background: #fff6d7;
+    color: #9a7621;
+
+    padding: 8px 12px;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.daily-card {
+    border-radius: 21px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffaf0,
+            #f4efff
+        );
+
+    padding: 25px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 22px;
+}
+
+.daily-icon {
+    width: 92px;
+    height: 92px;
+
+    flex-shrink: 0;
+
+    border-radius: 24px;
+
+    background: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 45px;
+
+    box-shadow:
+        0 10px 25px rgba(80,60,120,.07);
+}
+
+.daily-content {
+    flex: 1;
+}
+
+.daily-content h3 {
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+
+.daily-content p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.start-btn {
+    border: none;
+
+    background: var(--purple);
+    color: white;
+
+    border-radius: 13px;
+
+    padding: 13px 18px;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.start-btn:hover {
+    background: var(--purple-dark);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   MOMENTOS
+========================= */
+
+.section-title {
+    margin: 34px 0 17px;
+}
+
+.section-title h2 {
+    font-size: 22px;
+}
+
+.section-title p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+.moment-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 17px;
+}
+
+.moment-card {
+    background: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 21px;
+
+    padding: 20px;
+
+    box-shadow: var(--shadow);
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.moment-card:hover {
+    transform: translateY(-5px);
+}
+
+.moment-icon {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 29px;
+
+    margin-bottom: 16px;
+}
+
+.moment-card:nth-child(1)
+.moment-icon {
+    background: #fff2c9;
+}
+
+.moment-card:nth-child(2)
+.moment-icon {
+    background: #e4f5ff;
+}
+
+.moment-card:nth-child(3)
+.moment-icon {
+    background: #e5f7ed;
+}
+
+.moment-card:nth-child(4)
+.moment-icon {
+    background: #f7e7ff;
+}
+
+.moment-card h3 {
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.moment-card p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.open-text {
+    display: block;
+
+    margin-top: 15px;
+
+    color: var(--purple);
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(28, 23, 45, .55);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    z-index: 100;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal-box {
+    width: min(680px, 100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.18);
+
+    animation: aparecer .25s ease;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform:
+            translateY(15px)
+            scale(.98);
+    }
+
+    to {
+        opacity: 1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+.modal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.close {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    background: #f3f0f8;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+.modal-illustration {
+    width: 95px;
+    height: 95px;
+
+    margin:
+        0 auto
+        20px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #eee8ff,
+            #e8f7ff
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 45px;
+}
+
+.modal-box h2 {
+    text-align: center;
+
+    font-size: 25px;
+
+    margin-bottom: 12px;
+}
+
+.reading {
+    background: #faf8ff;
+
+    border-radius: 19px;
+
+    padding: 20px;
+
+    margin: 18px 0;
+
+    border: 1px solid var(--border);
+}
+
+.reading-label {
+    color: var(--purple);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+.reading p {
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #5f596e;
+}
+
+.reflection {
+    margin-top: 20px;
+}
+
+.reflection h3 {
+    font-size: 16px;
+
+    margin-bottom: 12px;
+}
+
+.answers {
+    display: grid;
+
+    gap: 9px;
+}
+
+.answer {
+    width: 100%;
+
+    text-align: left;
+
+    border: 1px solid var(--border);
+
+    background: white;
+
+    padding: 13px 15px;
+
+    border-radius: 13px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: var(--text);
+
+    transition: .2s;
+}
+
+.answer:hover {
+    border-color: var(--purple);
+
+    background: #faf8ff;
+}
+
+.answer.correct {
+    background: #e7f8ef;
+
+    border-color: #7ac99f;
+
+    color: #28724a;
+}
+
+.answer.wrong {
+    background: #fff0f0;
+
+    border-color: #e5a1a1;
+
+    color: #9a3e3e;
+}
+
+.prayer {
+    background:
+        linear-gradient(
+            135deg,
+            #f0ebff,
+            #edf9ff
+        );
+
+    border-radius: 20px;
+
+    padding: 21px;
+
+    margin-top: 20px;
+}
+
+.prayer h3 {
+    margin-bottom: 9px;
+
+    font-size: 17px;
+}
+
+.prayer p {
+    color: #686277;
+
+    line-height: 1.65;
+
+    font-size: 14px;
+}
+
+.finish-btn {
+    width: 100%;
+
+    border: none;
+
+    background: var(--purple);
+
+    color: white;
+
+    border-radius: 14px;
+
+    padding: 14px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    margin-top: 20px;
+}
+
+.finish-btn:disabled {
+    opacity: .45;
+
+    cursor: not-allowed;
+}
+
+/* =========================
+   TOAST
+========================= */
+
+.toast {
+    position: fixed;
+
+    right: 25px;
+    bottom: 25px;
+
+    background: #29263a;
+
+    color: white;
+
+    padding: 13px 17px;
+
+    border-radius: 13px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    opacity: 0;
+
+    transform:
+        translateY(15px);
+
+    pointer-events: none;
+
+    transition: .25s;
+
+    z-index: 200;
+}
+
+.toast.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 1100px) {
+
+    .moment-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+@media (max-width: 760px) {
+
+    .sidebar {
+        position: static;
+
+        width: 100%;
+
+        height: auto;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid var(--border);
+    }
+
+    .menu {
+        flex-direction: row;
+
+        overflow-x: auto;
+    }
+
+    .menu a {
+        white-space: nowrap;
+    }
+
+    .main {
+        margin-left: 0;
+
+        padding: 18px;
+    }
+
+    .hero {
+        padding: 27px;
+    }
+
+    .hero h1 {
+        font-size: 29px;
+    }
+
+    .hero-art {
+        display: none;
+    }
+
+    .daily-card {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .daily-card .start-btn {
+        width: 100%;
+    }
+
+    .moment-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .prayer-request {
+        flex-direction: column;
+
+        padding: 22px;
+    }
+
+    .prayer-request-icon {
+        width: 58px;
+        height: 58px;
+
+        font-size: 28px;
+    }
+
+    .prayer-bottom {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+    .save-prayer {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 500px) {
+
+    .topbar {
+        align-items: flex-start;
+
+        gap: 12px;
+    }
+
+    .page-title {
+        font-size: 24px;
+    }
+
+    .xp {
+        font-size: 12px;
+
+        padding:
+            9px 11px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            P
+        </div>
+
+        <div>
+            <strong>
+                Pequenos na Fé
+            </strong>
+
+            <span>
+                Aprender • Brincar • Crescer
+            </span>
+        </div>
+
+    </div>
+
+    <div class="menu-title">
+        MENU
+    </div>
+
+    <nav class="menu">
+
+        <a href="painel.html">
+            🏠 Início
+        </a>
+
+        <a href="historias.html">
+            📖 Aventuras da Bíblia
+        </a>
+
+        <a href="jesus.html">
+            💜 Conhecendo Jesus
+        </a>
+
+        <a href="ingles.html">
+            🌎 English with Jesus
+        </a>
+
+        <a href="jogos.html">
+            🎮 Jogos da Fé
+        </a>
+
+        <a href="atividades.html">
+            🎨 Ateliê dos Pequenos
+        </a>
+
+        </a>
+
+        <a
+            href="momento-deus.html"
+            class="active"
+        >
+            🙏 Momento com Deus
+        </a>
+
+        <a href="conquistas.html">
+            🏆 Minhas Conquistas
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="main">
+
+    <div class="topbar">
+
+        <div>
+
+            <div class="breadcrumb">
+                Pequenos na Fé /
+                Momento com Deus
+            </div>
+
+            <div class="page-title">
+                Momento com Deus 🙏
+            </div>
+
+        </div>
+
+        <div class="xp">
+
+            ⭐
+            <span id="xp">0</span>
+            XP
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                🌙 UM MOMENTO ESPECIAL
+            </div>
+
+            <h1>
+                Vamos ficar um pouquinho com Deus 💜
+            </h1>
+
+            <p>
+                Um espaço tranquilo para aprender,
+                agradecer, conversar com Deus e pensar
+                em pequenas atitudes que podemos colocar
+                em prática todos os dias.
+            </p>
+
+        </div>
+
+        <div class="hero-art">
+            🙏
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PEDIDO DE ORAÇÃO
+    ========================= -->
+
+    <section class="prayer-request">
+
+        <div class="prayer-request-icon">
+            🙏
+        </div>
+
+        <div class="prayer-request-content">
+
+            <span class="prayer-label">
+                MEU MOMENTO DE ORAÇÃO
+            </span>
+
+            <h2>
+                Coloque seu pedido de oração
+            </h2>
+
+            <p>
+                Escreva aqui algo que você gostaria
+                de conversar com Deus ou pedir em oração.
+            </p>
+
+            <textarea
+                id="pedidoOracao"
+                maxlength="500"
+                placeholder="Escreva seu pedido de oração aqui..."
+            ></textarea>
+
+            <div class="prayer-bottom">
+
+                <span id="contadorPedido">
+                    0/500
+                </span>
+
+                <button
+                    class="save-prayer"
+                    onclick="salvarPedidoOracao()"
+                >
+                    💜 Guardar meu pedido
+                </button>
+
+            </div>
+
+            <div
+                id="pedidoSalvo"
+                class="pedido-salvo"
+                style="display:none;"
+            >
+                ✓ Seu pedido foi guardado neste dispositivo.
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MOMENTO DO DIA
+    ========================= -->
+
+    <section class="daily">
+
+        <div class="daily-header">
+
+            <div>
+
+                <h2>
+                    ✨ Momento do dia
+                </h2>
+
+                <p>
+                    Uma pequena reflexão para começar.
+                </p>
+
+            </div>
+
+            <div class="daily-tag">
+                +15 XP
+            </div>
+
+        </div>
+
+
+        <div class="daily-card">
+
+            <div class="daily-icon">
+                💛
+            </div>
+
+            <div class="daily-content">
+
+                <h3>
+                    Um coração agradecido
+                </h3>
+
+                <p>
+                    Hoje vamos lembrar de algumas coisas
+                    boas pelas quais podemos agradecer a Deus.
+                </p>
+
+            </div>
+
+            <button
+                class="start-btn"
+                onclick="abrirMomento('agradecido')"
+            >
+                Começar
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         MOMENTOS
+    ========================= -->
+
+    <div class="section-title">
+
+        <h2>
+            🌱 Escolha um momento
+        </h2>
+
+        <p>
+            Cada momento traz uma pequena mensagem,
+            uma reflexão e uma oração.
+        </p>
+
+    </div>
+
+
+    <section class="moment-grid">
+
+
+        <article
+            class="moment-card"
+            onclick="abrirMomento('agradecido')"
+        >
+
+            <div class="moment-icon">
+                💛
+            </div>
+
+            <h3>
+                Um coração agradecido
+            </h3>
+
+            <p>
+                Pensar nas coisas boas que Deus
+                colocou em nossa vida.
+            </p>
+
+            <span class="open-text">
+                Começar →
+            </span>
+
+        </article>
+
+
+        <article
+            class="moment-card"
+            onclick="abrirMomento('ajudar')"
+        >
+
+            <div class="moment-icon">
+                🤝
+            </div>
+
+            <h3>
+                Hoje eu posso ajudar
+            </h3>
+
+            <p>
+                Descobrir pequenas maneiras de ajudar
+                as pessoas ao nosso redor.
+            </p>
+
+            <span class="open-text">
+                Começar →
+            </span>
+
+        </article>
+
+
+        <article
+            class="moment-card"
+            onclick="abrirMomento('oracao')"
+        >
+
+            <div class="moment-icon">
+                🙏
+            </div>
+
+            <h3>
+                Uma oração especial
+            </h3>
+
+            <p>
+                Aprender que podemos conversar
+                com Deus em qualquer momento.
+            </p>
+
+            <span class="open-text">
+                Começar →
+            </span>
+
+        </article>
+
+
+        <article
+            class="moment-card"
+            onclick="abrirMomento('coragem')"
+        >
+
+            <div class="moment-icon">
+                ⭐
+            </div>
+
+            <h3>
+                Deus está comigo
+            </h3>
+
+            <p>
+                Quando algo parecer difícil, podemos
+                lembrar que não estamos sozinhos.
+            </p>
+
+            <span class="open-text">
+                Começar →
+            </span>
+
+        </article>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="modal"
+    onclick="fecharFora(event)"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <strong>
+                Meu momento
+            </strong>
+
+            <button
+                class="close"
+                onclick="fecharModal()"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div id="conteudoModal"></div>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+
+<div
+    class="toast"
+    id="toast"
+>
+    ⭐ +15 XP!
+</div>
+
+
+<script>
+
+/* =========================
+   STORAGE
+========================= */
+
+const STORAGE_XP =
+    "pequenosNaFe_momento_deus_xp";
+
+const STORAGE_COMPLETOS =
+    "pequenosNaFe_momento_deus_completos";
+
+const STORAGE_PEDIDO_ORACAO =
+    "pequenosNaFe_pedido_oracao";
+
+
+/* =========================
+   ESTADO
+========================= */
+
+let xp =
+    Number(
+        localStorage.getItem(STORAGE_XP) || 0
+    );
+
+let completos;
+
+try {
+
+    completos =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE_COMPLETOS
+            ) || "[]"
+        );
+
+    if (!Array.isArray(completos)) {
+        completos = [];
+    }
+
+} catch {
+
+    completos = [];
+
+}
+
+
+document.getElementById("xp")
+    .textContent = xp;
+
+
+/* =========================
+   MOMENTOS
+========================= */
+
+const momentos = {
+
+    agradecido: {
+
+        emoji: "💛",
+
+        titulo:
+            "Um coração agradecido",
+
+        texto:
+            "Existem muitas coisas boas que fazem parte da nossa vida. Nossa família, nossos amigos, nossa casa, os alimentos e tantos pequenos momentos felizes. Podemos parar um pouquinho e agradecer a Deus por tudo isso.",
+
+        pergunta:
+            "Pelo que você gostaria de agradecer a Deus hoje?",
+
+        respostas: [
+            "Por tudo de bom que tenho",
+            "Por nada",
+            "Somente pelos brinquedos"
+        ],
+
+        correta: 0,
+
+        oracao:
+            "Deus, obrigado por cuidar de mim e por todas as coisas boas que recebo todos os dias. Ajuda-me a ter um coração agradecido. Amém."
+
+    },
+
+
+    ajudar: {
+
+        emoji: "🤝",
+
+        titulo:
+            "Hoje eu posso ajudar",
+
+        texto:
+            "Deus nos ensina a cuidar das pessoas. Às vezes, ajudar não precisa ser algo grande. Podemos guardar nossos brinquedos, ajudar alguém em casa, dividir algo ou simplesmente tratar uma pessoa com carinho.",
+
+        pergunta:
+            "Se alguém precisar de ajuda, o que podemos fazer?",
+
+        respostas: [
+            "Ajudar com carinho",
+            "Ignorar a pessoa",
+            "Ficar bravo"
+        ],
+
+        correta: 0,
+
+        oracao:
+            "Deus, ajuda-me a perceber quando alguém precisa de mim. Quero aprender a ajudar e tratar as pessoas com amor. Amém."
+
+    },
+
+
+    oracao: {
+
+        emoji: "🙏",
+
+        titulo:
+            "Uma oração especial",
+
+        texto:
+            "Orar é conversar com Deus. Podemos falar com Ele quando estamos felizes, tristes, preocupados ou quando simplesmente queremos agradecer. Não precisamos usar palavras difíceis.",
+
+        pergunta:
+            "Quando podemos conversar com Deus?",
+
+        respostas: [
+            "Somente antes de dormir",
+            "Em qualquer momento",
+            "Somente na igreja"
+        ],
+
+        correta: 1,
+
+        oracao:
+            "Deus, obrigado porque posso falar contigo. Cuida de mim, da minha família e de todas as pessoas que amo. Ensina-me a confiar em Ti. Amém."
+
+    },
+
+
+    coragem: {
+
+        emoji: "⭐",
+
+        titulo:
+            "Deus está comigo",
+
+        texto:
+            "Algumas coisas podem parecer difíceis. Uma prova, uma mudança, conhecer alguém novo ou enfrentar algo que nos deixa com medo. Nesses momentos, podemos lembrar que Deus está conosco e podemos pedir ajuda.",
+
+        pergunta:
+            "Quando alguma coisa parecer difícil, o que podemos fazer?",
+
+        respostas: [
+            "Desistir imediatamente",
+            "Guardar tudo sozinho",
+            "Pedir ajuda e confiar em Deus"
+        ],
+
+        correta: 2,
+
+        oracao:
+            "Deus, quando eu sentir medo ou achar algo difícil, lembra-me de que posso confiar em Ti. Dá-me coragem para continuar. Amém."
+
+    }
+
+};
+
+
+/* =========================
+   ABRIR MOMENTO
+========================= */
+
+function abrirMomento(id) {
+
+    const momento =
+        momentos[id];
+
+    if (!momento) {
+        return;
+    }
+
+    const modal =
+        document.getElementById("modal");
+
+    const conteudo =
+        document.getElementById(
+            "conteudoModal"
+        );
+
+    conteudo.innerHTML = `
+
+        <div class="modal-illustration">
+            ${momento.emoji}
+        </div>
+
+        <h2>
+            ${momento.titulo}
+        </h2>
+
+        <div class="reading">
+
+            <div class="reading-label">
+                REFLEXÃO
+            </div>
+
+            <p>
+                ${momento.texto}
+            </p>
+
+        </div>
+
+        <div class="reflection">
+
+            <h3>
+                💭 Pense um pouquinho
+            </h3>
+
+            <div class="reading">
+
+                <p>
+                    ${momento.pergunta}
+                </p>
+
+            </div>
+
+            <div class="answers">
+
+                ${momento.respostas
+                    .map(
+                        (resposta, index) => `
+                            <button
+                                class="answer"
+                                onclick="responder(
+                                    '${id}',
+                                    ${index},
+                                    this
+                                )"
+                            >
+                                ${resposta}
+                            </button>
+                        `
+                    )
+                    .join("")}
+
+            </div>
+
+        </div>
+
+        <div
+            id="oracao-${id}"
+            class="prayer"
+            style="display:none;"
+        >
+
+            <h3>
+                🙏 Vamos orar
+            </h3>
+
+            <p>
+                ${momento.oracao}
+            </p>
+
+        </div>
+
+        <button
+            id="finalizar-${id}"
+            class="finish-btn"
+            disabled
+            onclick="finalizar('${id}')"
+        >
+            Finalizar momento
+        </button>
+    `;
+
+    modal.classList.add("open");
+}
+
+
+/* =========================
+   RESPONDER
+========================= */
+
+function responder(
+    id,
+    index,
+    botao
+) {
+
+    const momento =
+        momentos[id];
+
+    const botoes =
+        document.querySelectorAll(
+            ".answer"
+        );
+
+    if (index === momento.correta) {
+
+        botoes.forEach(
+            (item) => {
+                item.disabled = true;
+            }
+        );
+
+        botao.classList.add(
+            "correct"
+        );
+
+        document
+            .getElementById(
+                `oracao-${id}`
+            )
+            .style.display = "block";
+
+        document
+            .getElementById(
+                `finalizar-${id}`
+            )
+            .disabled = false;
+
+        mostrarToast(
+            "💜 Muito bem! Agora vamos orar."
+        );
+
+    } else {
+
+        botao.classList.add(
+            "wrong"
+        );
+
+        mostrarToast(
+            "💭 Pense mais um pouquinho."
+        );
+
+        setTimeout(() => {
+
+            botao.classList.remove(
+                "wrong"
+            );
+
+        }, 900);
+
+    }
+
+}
+
+
+/* =========================
+   FINALIZAR
+========================= */
+
+function finalizar(id) {
+
+    if (!completos.includes(id)) {
+
+        completos.push(id);
+
+        localStorage.setItem(
+            STORAGE_COMPLETOS,
+            JSON.stringify(
+                completos
+            )
+        );
+
+        xp += 15;
+
+        localStorage.setItem(
+            STORAGE_XP,
+            xp
+        );
+
+        document.getElementById(
+            "xp"
+        ).textContent = xp;
+
+        mostrarToast(
+            "⭐ +15 XP! Momento concluído!"
+        );
+
+    } else {
+
+        mostrarToast(
+            "💜 Você já fez esse momento!"
+        );
+
+    }
+
+    setTimeout(
+        fecharModal,
+        900
+    );
+
+}
+
+
+/* =========================
+   PEDIDO DE ORAÇÃO
+========================= */
+
+const campoPedido =
+    document.getElementById(
+        "pedidoOracao"
+    );
+
+const contadorPedido =
+    document.getElementById(
+        "contadorPedido"
+    );
+
+const pedidoSalvo =
+    document.getElementById(
+        "pedidoSalvo"
+    );
+
+
+function atualizarContador() {
+
+    if (
+        !campoPedido ||
+        !contadorPedido
+    ) {
+        return;
+    }
+
+    contadorPedido.textContent =
+        `${campoPedido.value.length}/500`;
+
+}
+
+
+function salvarPedidoOracao() {
+
+    if (!campoPedido) {
+        return;
+    }
+
+    const pedido =
+        campoPedido.value.trim();
+
+    if (!pedido) {
+
+        mostrarToast(
+            "🙏 Escreva seu pedido primeiro."
+        );
+
+        campoPedido.focus();
+
+        return;
+    }
+
+    localStorage.setItem(
+        STORAGE_PEDIDO_ORACAO,
+        pedido
+    );
+
+    if (pedidoSalvo) {
+
+        pedidoSalvo.style.display =
+            "block";
+
+    }
+
+    mostrarToast(
+        "💜 Seu pedido foi guardado."
+    );
+
+}
+
+
+/* =========================
+   CARREGAR PEDIDO
+========================= */
+
+function carregarPedidoOracao() {
+
+    if (!campoPedido) {
+        return;
+    }
+
+    const pedido =
+        localStorage.getItem(
+            STORAGE_PEDIDO_ORACAO
+        );
+
+    if (pedido) {
+
+        campoPedido.value =
+            pedido;
+
+        if (pedidoSalvo) {
+
+            pedidoSalvo.style.display =
+                "block";
+
+        }
+
+    }
+
+    atualizarContador();
+
+}
+
+
+if (campoPedido) {
+
+    campoPedido.addEventListener(
+        "input",
+        atualizarContador
+    );
+
+    carregarPedidoOracao();
+
+}
+
+
+/* =========================
+   MODAL
+========================= */
+
+function fecharModal() {
+
+    document
+        .getElementById("modal")
+        .classList.remove("open");
+
+}
+
+
+function fecharFora(evento) {
+
+    if (
+        evento.target.id === "modal"
+    ) {
+
+        fecharModal();
+
+    }
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function mostrarToast(texto) {
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+    toast.textContent =
+        texto;
+
+    toast.classList.add(
+        "show"
+    );
+
+    setTimeout(() => {
+
+        toast.classList.remove(
+            "show"
+        );
+
+    }, 2200);
+
+}
+
+
+/* =========================
+   ESC
+========================= */
+
+document.addEventListener(
+    "keydown",
+    (evento) => {
+
+        if (
+            evento.key === "Escape"
+        ) {
+
+            fecharModal();
+
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>

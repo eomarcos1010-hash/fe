@@ -1,0 +1,4239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Jogos da Fé — Pequenos na Fé</title>
+
+    <meta
+        name="description"
+        content="Jogos bíblicos educativos para aprender brincando."
+    >
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #f8f7f2;
+            --card: #ffffff;
+            --text: #243047;
+            --muted: #7b8497;
+
+            --blue: #76b9e8;
+            --blue-dark: #438bc2;
+
+            --yellow: #ffd66b;
+            --yellow-dark: #e5a900;
+
+            --mint: #9ddfc6;
+            --mint-dark: #49a987;
+
+            --purple: #bca8ee;
+            --purple-dark: #8168c9;
+
+            --pink: #f2b5c7;
+            --pink-dark: #d77c9b;
+
+            --green: #8fd29f;
+            --red: #ef9a9a;
+
+            --shadow:
+                0 12px 35px rgba(55, 70, 100, 0.09);
+
+            --radius: 24px;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(118,185,232,.14),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(188,168,238,.14),
+                    transparent 28%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+        }
+
+        button,
+        a {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           LAYOUT
+        ========================= */
+
+        .app {
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 255px;
+            position: fixed;
+            inset: 0 auto 0 0;
+            background: rgba(255,255,255,.9);
+            backdrop-filter: blur(18px);
+            border-right: 1px solid rgba(36,48,71,.07);
+            padding: 24px 16px;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 5px 10px 28px;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 15px;
+            background: linear-gradient(
+                135deg,
+                var(--blue),
+                var(--purple)
+            );
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 22px;
+            box-shadow: 0 8px 20px rgba(118,185,232,.25);
+        }
+
+        .brand strong {
+            display: block;
+            font-size: 16px;
+            letter-spacing: -.3px;
+        }
+
+        .brand span {
+            display: block;
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .nav-title {
+            padding: 8px 12px;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #a1a8b5;
+        }
+
+        .nav {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .nav a {
+            min-height: 45px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 13px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #687387;
+            transition: .2s ease;
+        }
+
+        .nav a:hover {
+            background: #f4f7fa;
+            color: var(--text);
+            transform: translateX(2px);
+        }
+
+        .nav a.active {
+            background: #edf7ff;
+            color: var(--blue-dark);
+        }
+
+        .nav-icon {
+            width: 25px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .sidebar-bottom {
+            margin-top: auto;
+        }
+
+        .mini-profile {
+            background: #f8f9fc;
+            border-radius: 18px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .mini-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 13px;
+            background: linear-gradient(
+                145deg,
+                #ffe2ba,
+                #f5b995
+            );
+            display: grid;
+            place-items: center;
+            font-size: 22px;
+        }
+
+        .mini-profile strong {
+            display: block;
+            font-size: 12px;
+        }
+
+        .mini-profile span {
+            display: block;
+            font-size: 10px;
+            color: var(--muted);
+            margin-top: 2px;
+        }
+
+        .main {
+            width: calc(100% - 255px);
+            margin-left: 255px;
+            padding: 32px;
+        }
+
+        .container {
+            width: min(1200px, 100%);
+            margin: 0 auto;
+        }
+
+        /* =========================
+           TOP
+        ========================= */
+
+        .topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .back {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .back:hover {
+            color: var(--text);
+        }
+
+        .top-stats {
+            display: flex;
+            gap: 9px;
+        }
+
+        .stat-pill {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 13px;
+            border-radius: 999px;
+            background: white;
+            box-shadow: 0 5px 18px rgba(50,65,90,.06);
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .stat-pill span {
+            color: var(--muted);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            border-radius: 30px;
+            padding: 38px;
+            margin-bottom: 24px;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #edf8ff 0%,
+                    #f7f2ff 52%,
+                    #fff9e9 100%
+                );
+
+            border: 1px solid rgba(255,255,255,.8);
+            box-shadow: var(--shadow);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            background: rgba(255,255,255,.45);
+            right: -60px;
+            top: -75px;
+        }
+
+        .hero::after {
+            content: "✦";
+            position: absolute;
+            right: 95px;
+            bottom: 25px;
+            font-size: 65px;
+            color: rgba(129,104,201,.12);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: rgba(255,255,255,.75);
+            padding: 7px 11px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 900;
+            color: var(--purple-dark);
+            margin-bottom: 13px;
+        }
+
+        .hero h1 {
+            font-size: clamp(30px, 4vw, 48px);
+            line-height: 1;
+            letter-spacing: -1.7px;
+            margin-bottom: 13px;
+        }
+
+        .hero p {
+            color: #687387;
+            line-height: 1.6;
+            max-width: 610px;
+            font-size: 14px;
+        }
+
+        /* =========================
+           PROGRESS
+        ========================= */
+
+        .progress-card {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 17px;
+            background: white;
+            border-radius: 21px;
+            padding: 17px 20px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .progress-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 15px;
+            display: grid;
+            place-items: center;
+            background: #fff5d9;
+            font-size: 22px;
+        }
+
+        .progress-info strong {
+            font-size: 13px;
+        }
+
+        .progress-info small {
+            color: var(--muted);
+            display: block;
+            margin-top: 3px;
+            font-size: 11px;
+        }
+
+        .bar {
+            height: 10px;
+            background: #edf0f5;
+            border-radius: 999px;
+            overflow: hidden;
+            margin-top: 9px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(
+                90deg,
+                var(--blue),
+                var(--purple)
+            );
+            border-radius: inherit;
+            transition: width .4s ease;
+        }
+
+        .progress-number {
+            font-weight: 900;
+            font-size: 16px;
+            color: var(--purple-dark);
+        }
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin: 28px 0 14px;
+        }
+
+        .section-heading h2 {
+            font-size: 20px;
+            letter-spacing: -.5px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+        /* =========================
+           GAMES
+        ========================= */
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 17px;
+        }
+
+        .game-card {
+            position: relative;
+            overflow: hidden;
+            background: white;
+            border-radius: 25px;
+            padding: 23px;
+            min-height: 225px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(36,48,71,.04);
+            transition: .25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 18px 45px rgba(55,70,100,.13);
+        }
+
+        .game-card.wide {
+            grid-column: span 2;
+            min-height: 190px;
+        }
+
+        .game-icon {
+            width: 57px;
+            height: 57px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            font-size: 29px;
+            margin-bottom: 16px;
+        }
+
+        .blue {
+            background: #e8f5ff;
+        }
+
+        .yellow {
+            background: #fff5d5;
+        }
+
+        .purple {
+            background: #f0eaff;
+        }
+
+        .mint {
+            background: #e5f8f0;
+        }
+
+        .pink {
+            background: #fff0f4;
+        }
+
+        .game-card h3 {
+            font-size: 18px;
+            letter-spacing: -.4px;
+        }
+
+        .game-card p {
+            color: var(--muted);
+            line-height: 1.5;
+            font-size: 12px;
+            max-width: 470px;
+            margin-top: 5px;
+        }
+
+        .game-meta {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .tag {
+            background: #f5f6f9;
+            color: #7a8393;
+            border-radius: 999px;
+            padding: 5px 9px;
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .game-footer {
+            margin-top: auto;
+            padding-top: 17px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .record {
+            font-size: 10px;
+            color: var(--muted);
+            font-weight: 700;
+        }
+
+        .record strong {
+            color: var(--text);
+        }
+
+        .play-button {
+            border: 0;
+            border-radius: 12px;
+            padding: 10px 15px;
+            color: white;
+            font-weight: 900;
+            font-size: 11px;
+            background: var(--blue-dark);
+            transition: .2s ease;
+        }
+
+        .play-button:hover {
+            transform: translateY(-2px);
+            filter: brightness(.97);
+        }
+
+        .game-card:nth-child(2) .play-button {
+            background: var(--yellow-dark);
+        }
+
+        .game-card:nth-child(3) .play-button {
+            background: var(--purple-dark);
+        }
+
+        .game-card:nth-child(4) .play-button {
+            background: var(--mint-dark);
+        }
+
+        .game-card:nth-child(5) .play-button {
+            background: var(--pink-dark);
+        }
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================= */
+
+        .achievements {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 11px;
+        }
+
+        .achievement {
+            background: white;
+            border-radius: 18px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 7px 22px rgba(50,65,90,.05);
+            opacity: .48;
+            filter: grayscale(.7);
+            transition: .2s ease;
+        }
+
+        .achievement.unlocked {
+            opacity: 1;
+            filter: none;
+        }
+
+        .achievement-icon {
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        .achievement strong {
+            display: block;
+            font-size: 10px;
+        }
+
+        .achievement span {
+            display: block;
+            color: var(--muted);
+            font-size: 9px;
+            margin-top: 3px;
+        }
+
+        /* =========================
+           MODAL
+        ========================= */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(25,32,48,.48);
+            backdrop-filter: blur(8px);
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-box {
+            width: min(700px, 100%);
+            max-height: 90vh;
+            overflow: auto;
+            background: #fff;
+            border-radius: 29px;
+            box-shadow: 0 30px 90px rgba(20,30,50,.2);
+            padding: 27px;
+            animation: modalIn .25s ease;
+        }
+
+        @keyframes modalIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px) scale(.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        .modal-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            display: flex;
+            align-items: center;
+            gap: 11px;
+        }
+
+        .modal-title-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            background: #edf7ff;
+            font-size: 22px;
+        }
+
+        .modal-title h2 {
+            font-size: 19px;
+        }
+
+        .modal-title p {
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 2px;
+        }
+
+        .close {
+            width: 36px;
+            height: 36px;
+            border: 0;
+            border-radius: 12px;
+            background: #f4f5f8;
+            color: #758093;
+            font-size: 20px;
+        }
+
+        .close:hover {
+            background: #eceef3;
+        }
+
+        /* =========================
+           QUIZ
+        ========================= */
+
+        .quiz-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+        }
+
+        .question-counter {
+            font-size: 11px;
+            font-weight: 900;
+            color: var(--muted);
+        }
+
+        .streak {
+            padding: 7px 10px;
+            background: #fff5da;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 900;
+            color: #ae7d00;
+        }
+
+        .question {
+            background: #f8f9fc;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 15px;
+        }
+
+        .question small {
+            color: var(--blue-dark);
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .question h3 {
+            font-size: 21px;
+            line-height: 1.35;
+            margin-top: 8px;
+        }
+
+        .answers {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .answer {
+            border: 2px solid #edf0f5;
+            background: white;
+            border-radius: 15px;
+            padding: 14px;
+            text-align: left;
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--text);
+            transition: .2s;
+        }
+
+        .answer:hover {
+            border-color: #a9d5f2;
+            background: #f7fcff;
+        }
+
+        .answer.correct {
+            border-color: #73c990;
+            background: #eaf9ee;
+            color: #398552;
+        }
+
+        .answer.wrong {
+            border-color: #ee9c9c;
+            background: #fff0f0;
+            color: #c35e5e;
+        }
+
+        .feedback {
+            display: none;
+            margin-top: 14px;
+            padding: 13px;
+            border-radius: 13px;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.good {
+            background: #eaf9ee;
+            color: #398552;
+        }
+
+        .feedback.bad {
+            background: #fff1f1;
+            color: #b95d5d;
+        }
+
+        /* =========================
+           WHO AM I
+        ========================= */
+
+        .character-guess {
+            text-align: center;
+        }
+
+        .clue-number {
+            color: var(--purple-dark);
+            font-weight: 900;
+            font-size: 11px;
+            margin-bottom: 9px;
+        }
+
+        .clue-box {
+            background: #f4efff;
+            border-radius: 20px;
+            padding: 24px;
+            font-size: 17px;
+            font-weight: 800;
+            line-height: 1.5;
+            min-height: 100px;
+            display: grid;
+            place-items: center;
+        }
+
+        .clue-actions {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 13px 0;
+        }
+
+        .secondary-button {
+            border: 0;
+            background: #f1f3f7;
+            color: #626d7f;
+            border-radius: 12px;
+            padding: 10px 13px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .guess-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 9px;
+            margin-top: 15px;
+        }
+
+        .guess {
+            border: 2px solid #edf0f5;
+            background: white;
+            border-radius: 13px;
+            padding: 12px;
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .guess:hover {
+            border-color: #c7b7ef;
+            background: #faf8ff;
+        }
+
+        /* =========================
+           VERSE
+        ========================= */
+
+        .verse-reference {
+            display: inline-block;
+            background: #f0eaff;
+            color: var(--purple-dark);
+            border-radius: 999px;
+            padding: 7px 11px;
+            font-size: 10px;
+            font-weight: 900;
+            margin-bottom: 12px;
+        }
+
+        .verse-text {
+            background: #faf9fd;
+            border: 2px dashed #ded6f4;
+            border-radius: 19px;
+            padding: 25px;
+            font-size: 18px;
+            line-height: 1.6;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .verse-answers {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 9px;
+            margin-top: 15px;
+        }
+
+        /* =========================
+           MEMORY
+        ========================= */
+
+        .memory-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        .memory-info span {
+            font-size: 11px;
+            font-weight: 900;
+            color: var(--muted);
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 9px;
+        }
+
+        .memory-card {
+            aspect-ratio: 1;
+            border: 0;
+            border-radius: 15px;
+            background: linear-gradient(
+                145deg,
+                #a8d8f5,
+                #c5b7ee
+            );
+            color: white;
+            font-size: 25px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: .25s;
+        }
+
+        .memory-card.flipped,
+        .memory-card.matched {
+            background: #fff;
+            color: var(--text);
+            border: 2px solid #e7e9ef;
+        }
+
+        .memory-card.matched {
+            background: #eaf9ee;
+            border-color: #9bd4aa;
+        }
+
+        .memory-card .back {
+            display: block;
+        }
+
+        .memory-card .front {
+            display: none;
+        }
+
+        .memory-card.flipped .back,
+        .memory-card.matched .back {
+            display: none;
+        }
+
+        .memory-card.flipped .front,
+        .memory-card.matched .front {
+            display: block;
+        }
+
+        /* =========================
+           RAPID
+        ========================= */
+
+        .rapid-score {
+            text-align: center;
+            margin-bottom: 17px;
+        }
+
+        .timer {
+            font-size: 42px;
+            font-weight: 950;
+            letter-spacing: -2px;
+        }
+
+        .timer.warning {
+            color: #d56868;
+        }
+
+        .rapid-points {
+            color: var(--muted);
+            font-size: 11px;
+            margin-top: 3px;
+        }
+
+        .rapid-question {
+            background: #fff9e6;
+            border-radius: 18px;
+            padding: 22px;
+            text-align: center;
+            font-size: 17px;
+            font-weight: 900;
+            margin-bottom: 13px;
+        }
+
+        .start-rapid {
+            display: block;
+            margin: 0 auto;
+            border: 0;
+            background: var(--pink-dark);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 13px;
+            font-weight: 900;
+            font-size: 12px;
+        }
+
+        /* =========================
+           RESULT
+        ========================= */
+
+        .result {
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        .result-icon {
+            font-size: 62px;
+            margin-bottom: 10px;
+        }
+
+        .result h2 {
+            font-size: 27px;
+            letter-spacing: -.8px;
+        }
+
+        .result p {
+            color: var(--muted);
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .result-xp {
+            display: inline-block;
+            margin: 18px 0;
+            background: #fff5d7;
+            color: #aa7800;
+            border-radius: 999px;
+            padding: 9px 14px;
+            font-size: 13px;
+            font-weight: 950;
+        }
+
+        .result-button {
+            border: 0;
+            border-radius: 13px;
+            background: var(--blue-dark);
+            color: white;
+            padding: 12px 20px;
+            font-weight: 900;
+            font-size: 12px;
+        }
+
+        /* =========================
+           TOAST
+        ========================= */
+
+        .toast {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translate(-50%, 20px);
+            background: #243047;
+            color: white;
+            padding: 12px 17px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 800;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 300;
+            transition: .3s ease;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .sidebar {
+                width: 78px;
+                padding: 17px 9px;
+            }
+
+            .brand {
+                justify-content: center;
+                padding: 4px 0 24px;
+            }
+
+            .brand-text,
+            .nav-title,
+            .nav a span:not(.nav-icon),
+            .mini-profile > div {
+                display: none;
+            }
+
+            .nav a {
+                justify-content: center;
+                padding: 10px;
+            }
+
+            .mini-profile {
+                justify-content: center;
+            }
+
+            .main {
+                width: calc(100% - 78px);
+                margin-left: 78px;
+                padding: 23px;
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .main {
+                padding: 15px;
+            }
+
+            .topbar {
+                align-items: flex-start;
+                gap: 10px;
+                flex-direction: column;
+            }
+
+            .top-stats {
+                width: 100%;
+            }
+
+            .stat-pill {
+                flex: 1;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 26px 22px;
+                border-radius: 23px;
+            }
+
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            .progress-card {
+                grid-template-columns: auto 1fr;
+            }
+
+            .progress-number {
+                grid-column: 2;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .game-card.wide {
+                grid-column: span 1;
+            }
+
+            .achievements {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .answers,
+            .guess-grid,
+            .verse-answers {
+                grid-template-columns: 1fr;
+            }
+
+            .memory-grid {
+                grid-template-columns: repeat(4,1fr);
+                gap: 6px;
+            }
+
+            .modal {
+                padding: 9px;
+            }
+
+            .modal-box {
+                border-radius: 23px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =========================
+         SIDEBAR
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <a href="painel.html" class="brand">
+            <div class="brand-icon">✦</div>
+
+            <div class="brand-text">
+                <strong>Pequenos na Fé</strong>
+                <span>Aprender • Brincar • Crescer</span>
+            </div>
+        </a>
+
+        <div class="nav-title">Explorar</div>
+
+        <nav class="nav" data-navigation>
+
+            <a href="painel.html">
+                <span class="nav-icon">🏠</span>
+                <span>Início</span>
+            </a>
+
+            <a href="historias.html">
+                <span class="nav-icon">📖</span>
+                <span>Aventuras da Bíblia</span>
+            </a>
+
+            <a href="jesus.html">
+                <span class="nav-icon">💛</span>
+                <span>Conhecendo Jesus</span>
+            </a>
+
+            <a href="ingles.html">
+                <span class="nav-icon">🌎</span>
+                <span>English with Jesus</span>
+            </a>
+
+            <a href="jogos.html" class="active">
+                <span class="nav-icon">🎮</span>
+                <span>Jogos da Fé</span>
+            </a>
+
+            <a href="atividades.html">
+                <span class="nav-icon">🎨</span>
+                <span>Ateliê</span>
+            </a>
+
+        
+            </a>
+
+            <a href="momento-deus.html">
+                <span class="nav-icon">🙏</span>
+                <span>Momento com Deus</span>
+            </a>
+
+            <a href="conquistas.html">
+                <span class="nav-icon">🏆</span>
+                <span>Conquistas</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="mini-profile">
+                <div class="mini-avatar">🧒</div>
+
+                <div>
+                    <strong>Meu personagem</strong>
+                    <span>Continue sua aventura!</span>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main class="main">
+
+        <div class="container">
+
+            <div class="topbar">
+
+                <a href="painel.html" class="back">
+                    ← Voltar para o início
+                </a>
+
+                <div class="top-stats">
+
+                    <div class="stat-pill">
+                        ⭐
+                        <span>XP</span>
+                        <strong id="topXP">0</strong>
+                    </div>
+
+                    <div class="stat-pill">
+                        🎮
+                        <span>Jogos</span>
+                        <strong id="topGames">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- HERO -->
+
+            <section class="hero">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        🎮 HORA DE BRINCAR
+                    </div>
+
+                    <h1>
+                        Jogos da Fé
+                    </h1>
+
+                    <p>
+                        Aprenda histórias, personagens e ensinamentos
+                        da Bíblia enquanto brinca. Escolha um desafio
+                        e veja quantos pontos consegue conquistar!
+                    </p>
+
+                </div>
+
+            </section>
+
+            <!-- PROGRESS -->
+
+            <section class="progress-card">
+
+                <div class="progress-icon">
+                    🏆
+                </div>
+
+                <div class="progress-info">
+
+                    <strong>
+                        Minha jornada nos jogos
+                    </strong>
+
+                    <small id="progressText">
+                        Comece seu primeiro desafio!
+                    </small>
+
+                    <div class="bar">
+                        <div
+                            class="bar-fill"
+                            id="progressBar"
+                        ></div>
+                    </div>
+
+                </div>
+
+                <div
+                    class="progress-number"
+                    id="progressNumber"
+                >
+                    0%
+                </div>
+
+            </section>
+
+            <!-- GAMES -->
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>Escolha um jogo</h2>
+
+                    <p>
+                        Cada desafio ajuda você a aprender mais.
+                    </p>
+                </div>
+
+            </div>
+
+            <section class="games-grid">
+
+                <!-- QUIZ -->
+
+                <article class="game-card">
+
+                    <div class="game-icon blue">
+                        🧠
+                    </div>
+
+                    <h3>
+                        Quiz da Bíblia
+                    </h3>
+
+                    <p>
+                        Teste seus conhecimentos com perguntas
+                        sobre personagens e histórias bíblicas.
+                    </p>
+
+                    <div class="game-meta">
+                        <span class="tag">12 perguntas</span>
+                        <span class="tag">+ XP</span>
+                        <span class="tag">Sequência</span>
+                    </div>
+
+                    <div class="game-footer">
+
+                        <div class="record">
+                            Melhor:
+                            <strong id="quizRecord">0</strong>
+                        </div>
+
+                        <button
+                            class="play-button"
+                            onclick="abrirQuiz()"
+                        >
+                            JOGAR →
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <!-- WHO -->
+
+                <article class="game-card">
+
+                    <div class="game-icon yellow">
+                        🕵️
+                    </div>
+
+                    <h3>
+                        Quem Sou Eu?
+                    </h3>
+
+                    <p>
+                        Leia as pistas e descubra qual personagem
+                        da Bíblia está escondido.
+                    </p>
+
+                    <div class="game-meta">
+                        <span class="tag">3 pistas</span>
+                        <span class="tag">Personagens</span>
+                        <span class="tag">Bônus</span>
+                    </div>
+
+                    <div class="game-footer">
+
+                        <div class="record">
+                            Descobertos:
+                            <strong id="whoRecord">0</strong>
+                        </div>
+
+                        <button
+                            class="play-button"
+                            onclick="abrirQuemSou()"
+                        >
+                            JOGAR →
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <!-- VERSE -->
+
+                <article class="game-card">
+
+                    <div class="game-icon purple">
+                        📖
+                    </div>
+
+                    <h3>
+                        Complete o Versículo
+                    </h3>
+
+                    <p>
+                        Complete pequenos trechos bíblicos escolhendo
+                        a palavra que está faltando.
+                    </p>
+
+                    <div class="game-meta">
+                        <span class="tag">10 desafios</span>
+                        <span class="tag">Palavras</span>
+                        <span class="tag">Bíblia</span>
+                    </div>
+
+                    <div class="game-footer">
+
+                        <div class="record">
+                            Acertos:
+                            <strong id="verseRecord">0</strong>
+                        </div>
+
+                        <button
+                            class="play-button"
+                            onclick="abrirVersiculos()"
+                        >
+                            JOGAR →
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <!-- MEMORY -->
+
+                <article class="game-card">
+
+                    <div class="game-icon mint">
+                        🧩
+                    </div>
+
+                    <h3>
+                        Memória da Fé
+                    </h3>
+
+                    <p>
+                        Encontre os pares escondidos e treine sua
+                        memória com símbolos da Bíblia.
+                    </p>
+
+                    <div class="game-meta">
+                        <span class="tag">8 pares</span>
+                        <span class="tag">Memória</span>
+                        <span class="tag">Movimentos</span>
+                    </div>
+
+                    <div class="game-footer">
+
+                        <div class="record">
+                            Melhor:
+                            <strong id="memoryRecord">—</strong>
+                        </div>
+
+                        <button
+                            class="play-button"
+                            onclick="abrirMemoria()"
+                        >
+                            JOGAR →
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <!-- RAPID -->
+
+                <article class="game-card wide">
+
+                    <div class="game-icon pink">
+                        ⚡
+                    </div>
+
+                    <h3>
+                        Desafio Relâmpago
+                    </h3>
+
+                    <p>
+                        Você tem 30 segundos. Responda o máximo
+                        de perguntas que conseguir e tente bater
+                        seu próprio recorde!
+                    </p>
+
+                    <div class="game-meta">
+                        <span class="tag">30 segundos</span>
+                        <span class="tag">Velocidade</span>
+                        <span class="tag">Recorde pessoal</span>
+                    </div>
+
+                    <div class="game-footer">
+
+                        <div class="record">
+                            Recorde:
+                            <strong id="rapidRecord">0</strong>
+                        </div>
+
+                        <button
+                            class="play-button"
+                            onclick="abrirRapido()"
+                        >
+                            JOGAR →
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+            <!-- ACHIEVEMENTS -->
+
+            <div class="section-heading">
+
+                <div>
+                    <h2>
+                        Medalhas dos jogos
+                    </h2>
+
+                    <p>
+                        Continue brincando para desbloquear todas.
+                    </p>
+                </div>
+
+            </div>
+
+            <section class="achievements">
+
+                <div
+                    class="achievement"
+                    id="ach-first"
+                >
+                    <div class="achievement-icon">
+                        🎮
+                    </div>
+
+                    <strong>
+                        Primeiro Jogo
+                    </strong>
+
+                    <span>
+                        Jogue pela primeira vez
+                    </span>
+                </div>
+
+                <div
+                    class="achievement"
+                    id="ach-five"
+                >
+                    <div class="achievement-icon">
+                        ⭐
+                    </div>
+
+                    <strong>
+                        5 Acertos
+                    </strong>
+
+                    <span>
+                        Acerte 5 perguntas
+                    </span>
+                </div>
+
+                <div
+                    class="achievement"
+                    id="ach-quiz"
+                >
+                    <div class="achievement-icon">
+                        🧠
+                    </div>
+
+                    <strong>
+                        Mestre do Quiz
+                    </strong>
+
+                    <span>
+                        Complete o Quiz
+                    </span>
+                </div>
+
+                <div
+                    class="achievement"
+                    id="ach-detective"
+                >
+                    <div class="achievement-icon">
+                        🔎
+                    </div>
+
+                    <strong>
+                        Detetive da Bíblia
+                    </strong>
+
+                    <span>
+                        Descubra 5 personagens
+                    </span>
+                </div>
+
+                <div
+                    class="achievement"
+                    id="ach-memory"
+                >
+                    <div class="achievement-icon">
+                        🧩
+                    </div>
+
+                    <strong>
+                        Memória de Ouro
+                    </strong>
+
+                    <span>
+                        Complete a memória
+                    </span>
+                </div>
+
+                <div
+                    class="achievement"
+                    id="ach-rapid"
+                >
+                    <div class="achievement-icon">
+                        ⚡
+                    </div>
+
+                    <strong>
+                        Relâmpago
+                    </strong>
+
+                    <span>
+                        Faça 5 pontos rápidos
+                    </span>
+                </div>
+
+                <div
+                    class="achievement"
+                    id="ach-games"
+                >
+                    <div class="achievement-icon">
+                        🏆
+                    </div>
+
+                    <strong>
+                        Mestre dos Jogos
+                    </strong>
+
+                    <span>
+                        Experimente todos
+                    </span>
+                </div>
+
+                <div
+                    class="achievement"
+                    id="ach-xp"
+                >
+                    <div class="achievement-icon">
+                        💎
+                    </div>
+
+                    <strong>
+                        Pequeno Campeão
+                    </strong>
+
+                    <span>
+                        Ganhe 100 XP
+                    </span>
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL — QUIZ
+===================================================== -->
+
+<div
+    class="modal"
+    id="quizModal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <div class="modal-title">
+
+                <div class="modal-title-icon">
+                    🧠
+                </div>
+
+                <div>
+                    <h2>Quiz da Bíblia</h2>
+                    <p>Teste seus conhecimentos!</p>
+                </div>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="fecharModal('quizModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div id="quizContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL — QUEM SOU EU
+===================================================== -->
+
+<div
+    class="modal"
+    id="whoModal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <div class="modal-title">
+
+                <div class="modal-title-icon">
+                    🕵️
+                </div>
+
+                <div>
+                    <h2>Quem Sou Eu?</h2>
+                    <p>Descubra o personagem!</p>
+                </div>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="fecharModal('whoModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div id="whoContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL — VERSÍCULOS
+===================================================== -->
+
+<div
+    class="modal"
+    id="verseModal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <div class="modal-title">
+
+                <div class="modal-title-icon">
+                    📖
+                </div>
+
+                <div>
+                    <h2>Complete o Versículo</h2>
+                    <p>Escolha a palavra que falta!</p>
+                </div>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="fecharModal('verseModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div id="verseContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL — MEMÓRIA
+===================================================== -->
+
+<div
+    class="modal"
+    id="memoryModal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <div class="modal-title">
+
+                <div class="modal-title-icon">
+                    🧩
+                </div>
+
+                <div>
+                    <h2>Memória da Fé</h2>
+                    <p>Encontre todos os pares!</p>
+                </div>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="fecharModal('memoryModal')"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div id="memoryContent"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     MODAL — RÁPIDO
+===================================================== -->
+
+<div
+    class="modal"
+    id="rapidModal"
+>
+
+    <div class="modal-box">
+
+        <div class="modal-top">
+
+            <div class="modal-title">
+
+                <div class="modal-title-icon">
+                    ⚡
+                </div>
+
+                <div>
+                    <h2>Desafio Relâmpago</h2>
+                    <p>Quanto você consegue acertar?</p>
+                </div>
+
+            </div>
+
+            <button
+                class="close"
+                onclick="fecharRapido()"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div id="rapidContent"></div>
+
+    </div>
+
+</div>
+
+
+<div
+    class="toast"
+    id="toast"
+></div>
+
+
+<script>
+
+/* =====================================================
+   STORAGE
+===================================================== */
+
+const STORAGE = {
+    xp: "pequenosNaFe_jogos_xp",
+    quiz: "pequenosNaFe_jogos_quiz",
+    who: "pequenosNaFe_jogos_quem",
+    verse: "pequenosNaFe_jogos_versiculos",
+    memory: "pequenosNaFe_jogos_memoria",
+    rapid: "pequenosNaFe_jogos_rapido"
+};
+
+
+/* =====================================================
+   ESTADO
+===================================================== */
+
+let xp = Number(
+    localStorage.getItem(STORAGE.xp) || 0
+);
+
+let quizData = null;
+let whoData = null;
+let verseData = null;
+
+let memoryCards = [];
+let memoryFirst = null;
+let memorySecond = null;
+let memoryLock = false;
+let memoryMoves = 0;
+
+let rapidTimer = null;
+let rapidTime = 30;
+let rapidScore = 0;
+let rapidRunning = false;
+
+
+/* =====================================================
+   DADOS — QUIZ
+===================================================== */
+
+const QUIZ = [
+
+    {
+        q: "Quem construiu uma grande arca?",
+        a: [
+            "Noé",
+            "Davi",
+            "Moisés",
+            "Daniel"
+        ],
+        correct: 0,
+        explanation:
+            "Noé construiu a arca seguindo a orientação de Deus."
+    },
+
+    {
+        q: "Quem derrotou Golias?",
+        a: [
+            "Samuel",
+            "Davi",
+            "José",
+            "Jonas"
+        ],
+        correct: 1,
+        explanation:
+            "Davi enfrentou Golias e venceu."
+    },
+
+    {
+        q: "Quem foi colocado na cova dos leões?",
+        a: [
+            "Daniel",
+            "Abraão",
+            "Pedro",
+            "Salomão"
+        ],
+        correct: 0,
+        explanation:
+            "Daniel foi lançado na cova dos leões, mas Deus cuidou dele."
+    },
+
+    {
+        q: "Quem recebeu os Dez Mandamentos?",
+        a: [
+            "Noé",
+            "Moisés",
+            "Davi",
+            "Jonas"
+        ],
+        correct: 1,
+        explanation:
+            "Moisés recebeu os Dez Mandamentos."
+    },
+
+    {
+        q: "Onde Jesus nasceu?",
+        a: [
+            "Jerusalém",
+            "Nazaré",
+            "Belém",
+            "Roma"
+        ],
+        correct: 2,
+        explanation:
+            "Jesus nasceu em Belém."
+    },
+
+    {
+        q: "Quem batizou Jesus?",
+        a: [
+            "João Batista",
+            "Pedro",
+            "Tiago",
+            "Paulo"
+        ],
+        correct: 0,
+        explanation:
+            "João Batista batizou Jesus no rio Jordão."
+    },
+
+    {
+        q: "Quem foi engolido por um grande peixe?",
+        a: [
+            "Jonas",
+            "Daniel",
+            "José",
+            "Samuel"
+        ],
+        correct: 0,
+        explanation:
+            "Jonas foi engolido por um grande peixe depois de fugir da missão que Deus havia dado."
+    },
+
+    {
+        q: "Quem era conhecido por sua grande força?",
+        a: [
+            "Sansão",
+            "Noé",
+            "Lucas",
+            "Timóteo"
+        ],
+        correct: 0,
+        explanation:
+            "Sansão é conhecido na Bíblia por sua grande força."
+    },
+
+    {
+        q: "Quem era a mãe de Jesus?",
+        a: [
+            "Marta",
+            "Maria",
+            "Rute",
+            "Ester"
+        ],
+        correct: 1,
+        explanation:
+            "Maria foi a mãe de Jesus."
+    },
+
+    {
+        q: "Quem era o pai de Isaque?",
+        a: [
+            "Abraão",
+            "Davi",
+            "Moisés",
+            "José"
+        ],
+        correct: 0,
+        explanation:
+            "Abraão era o pai de Isaque."
+    },
+
+    {
+        q: "Quem interpretou sonhos no Egito?",
+        a: [
+            "José",
+            "Jonas",
+            "Daniel",
+            "Noé"
+        ],
+        correct: 0,
+        explanation:
+            "José ficou conhecido por interpretar sonhos e teve uma importante história no Egito."
+    },
+
+    {
+        q: "Qual destes animais apareceu na história de Noé?",
+        a: [
+            "Leão",
+            "Pinguim",
+            "Dinossauro",
+            "Urso polar"
+        ],
+        correct: 0,
+        explanation:
+            "A história da arca apresenta animais entrando na arca."
+    }
+
+];
+
+
+/* =====================================================
+   QUEM SOU EU
+===================================================== */
+
+const WHO = [
+
+    {
+        name: "Noé",
+        clues: [
+            "Construí algo enorme seguindo uma orientação de Deus.",
+            "Levei animais para dentro desse lugar.",
+            "Uma grande chuva aconteceu."
+        ]
+    },
+
+    {
+        name: "Davi",
+        clues: [
+            "Quando era jovem, enfrentei um guerreiro muito grande.",
+            "Eu usava uma funda.",
+            "Meu adversário se chamava Golias."
+        ]
+    },
+
+    {
+        name: "Daniel",
+        clues: [
+            "Eu continuava orando a Deus.",
+            "Fui colocado em um lugar cheio de leões.",
+            "Deus cuidou de mim naquela noite."
+        ]
+    },
+
+    {
+        name: "Moisés",
+        clues: [
+            "Liderei o povo de Israel em uma grande jornada.",
+            "Deus falou comigo através de uma sarça que queimava.",
+            "Recebi os Dez Mandamentos."
+        ]
+    },
+
+    {
+        name: "Jonas",
+        clues: [
+            "Recebi uma missão de Deus.",
+            "Tentei fugir para longe.",
+            "Passei um tempo dentro de um grande peixe."
+        ]
+    },
+
+    {
+        name: "Abraão",
+        clues: [
+            "Deus me chamou para sair da minha terra.",
+            "Recebi uma promessa sobre uma grande descendência.",
+            "Meu filho se chamava Isaque."
+        ]
+    },
+
+    {
+        name: "José",
+        clues: [
+            "Eu tive sonhos importantes.",
+            "Fui para o Egito.",
+            "Mais tarde ajudei muitas pessoas durante um período difícil."
+        ]
+    },
+
+    {
+        name: "Ester",
+        clues: [
+            "Eu era uma rainha.",
+            "Tive coragem diante de uma situação perigosa.",
+            "Ajudei a proteger meu povo."
+        ]
+    },
+
+    {
+        name: "Maria",
+        clues: [
+            "Recebi uma notícia muito especial de um anjo.",
+            "Fui mãe de Jesus.",
+            "Meu filho nasceu em Belém."
+        ]
+    },
+
+    {
+        name: "Samuel",
+        clues: [
+            "Desde criança servi a Deus.",
+            "Ouvi alguém me chamando durante a noite.",
+            "Mais tarde fui um importante profeta."
+        ]
+    }
+
+];
+
+
+/* =====================================================
+   VERSÍCULOS
+===================================================== */
+
+const VERSES = [
+
+    {
+        reference: "Salmo 23:1",
+        text: "O Senhor é meu ____.",
+        options: [
+            "pastor",
+            "rei",
+            "amigo",
+            "professor"
+        ],
+        correct: 0
+    },
+
+    {
+        reference: "Salmo 119:105",
+        text: "A tua palavra é lâmpada para os meus ____.",
+        options: [
+            "olhos",
+            "pés",
+            "braços",
+            "cabelos"
+        ],
+        correct: 1
+    },
+
+    {
+        reference: "Salmo 27:1",
+        text: "O Senhor é a minha ____ e a minha salvação.",
+        options: [
+            "luz",
+            "casa",
+            "comida",
+            "escola"
+        ],
+        correct: 0
+    },
+
+    {
+        reference: "Filipenses 4:13",
+        text: "Tudo posso naquele que me ____.",
+        options: [
+            "fortalece",
+            "ensina",
+            "chama",
+            "espera"
+        ],
+        correct: 0
+    },
+
+    {
+        reference: "1 João 4:8",
+        text: "Deus é ____.",
+        options: [
+            "amor",
+            "música",
+            "água",
+            "vento"
+        ],
+        correct: 0
+    },
+
+    {
+        reference: "Provérbios 3:5",
+        text: "Confia no Senhor de todo o teu ____.",
+        options: [
+            "coração",
+            "corpo",
+            "quarto",
+            "caderno"
+        ],
+        correct: 0
+    },
+
+    {
+        reference: "Mateus 5:14",
+        text: "Vós sois a ____ do mundo.",
+        options: [
+            "luz",
+            "chuva",
+            "porta",
+            "árvore"
+        ],
+        correct: 0
+    },
+
+    {
+        reference: "Salmo 56:3",
+        text: "Em me vindo o temor, hei de ____ em ti.",
+        options: [
+            "confiar",
+            "correr",
+            "dormir",
+            "brincar"
+        ],
+        correct: 0
+    },
+
+    {
+        reference: "Salmo 100:2",
+        text: "Servi ao Senhor com ____.",
+        options: [
+            "alegria",
+            "medo",
+            "pressa",
+            "sono"
+        ],
+        correct: 0
+    },
+
+    {
+        reference: "Efésios 4:32",
+        text: "Sede bondosos e ____ uns para com os outros.",
+        options: [
+            "compassivos",
+            "barulhentos",
+            "distantes",
+            "apressados"
+        ],
+        correct: 0
+    }
+
+];
+
+
+/* =====================================================
+   RAPID QUESTIONS
+===================================================== */
+
+const RAPID = [
+
+    {
+        q: "Quem construiu a arca?",
+        a: ["Noé", "Davi", "Pedro"],
+        c: 0
+    },
+
+    {
+        q: "Quem derrotou Golias?",
+        a: ["Moisés", "Davi", "Jonas"],
+        c: 1
+    },
+
+    {
+        q: "Onde Jesus nasceu?",
+        a: ["Belém", "Roma", "Egito"],
+        c: 0
+    },
+
+    {
+        q: "Quem foi colocado na cova dos leões?",
+        a: ["Daniel", "José", "Samuel"],
+        c: 0
+    },
+
+    {
+        q: "Quem recebeu os Dez Mandamentos?",
+        a: ["Moisés", "Noé", "Abraão"],
+        c: 0
+    },
+
+    {
+        q: "Quem era a mãe de Jesus?",
+        a: ["Maria", "Ester", "Rute"],
+        c: 0
+    },
+
+    {
+        q: "Quem foi engolido por um grande peixe?",
+        a: ["Jonas", "Davi", "Daniel"],
+        c: 0
+    },
+
+    {
+        q: "Quem era o pai de Isaque?",
+        a: ["Abraão", "José", "Moisés"],
+        c: 0
+    },
+
+    {
+        q: "Qual é o primeiro livro da Bíblia?",
+        a: ["Gênesis", "Êxodo", "Salmos"],
+        c: 0
+    },
+
+    {
+        q: "Qual destes é um livro da Bíblia?",
+        a: ["Salmos", "Histórias", "Aventuras"],
+        c: 0
+    },
+
+    {
+        q: "Quem batizou Jesus?",
+        a: ["João Batista", "Pedro", "Paulo"],
+        c: 0
+    },
+
+    {
+        q: "Quem cuidou das ovelhas antes de ser rei?",
+        a: ["Davi", "Jonas", "Noé"],
+        c: 0
+    }
+
+];
+
+
+/* =====================================================
+   UTILIDADES
+===================================================== */
+
+function salvarTudo() {
+
+    localStorage.setItem(
+        STORAGE.xp,
+        xp
+    );
+
+    atualizarInterface();
+}
+
+
+function ganharXP(valor) {
+
+    xp += valor;
+
+    salvarTudo();
+
+    mostrarToast(
+        `⭐ +${valor} XP!`
+    );
+
+    atualizarConquistas();
+}
+
+
+function mostrarToast(texto) {
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = texto;
+
+    toast.classList.add("show");
+
+    clearTimeout(
+        window.toastTimer
+    );
+
+    window.toastTimer =
+        setTimeout(() => {
+            toast.classList.remove("show");
+        }, 1800);
+}
+
+
+function fecharModal(id) {
+
+    const modal =
+        document.getElementById(id);
+
+    if (modal) {
+        modal.classList.remove("open");
+    }
+}
+
+
+function atualizarInterface() {
+
+    document.getElementById(
+        "topXP"
+    ).textContent = xp;
+
+    const quiz =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.quiz
+            ) || "{}"
+        );
+
+    const who =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.who
+            ) || "{}"
+        );
+
+    const verse =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.verse
+            ) || "{}"
+        );
+
+    const memory =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.memory
+            ) || "{}"
+        );
+
+    const rapid =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.rapid
+            ) || "{}"
+        );
+
+    document.getElementById(
+        "quizRecord"
+    ).textContent =
+        quiz.best || 0;
+
+    document.getElementById(
+        "whoRecord"
+    ).textContent =
+        who.completed || 0;
+
+    document.getElementById(
+        "verseRecord"
+    ).textContent =
+        verse.correct || 0;
+
+    document.getElementById(
+        "memoryRecord"
+    ).textContent =
+        memory.bestMoves || "—";
+
+    document.getElementById(
+        "rapidRecord"
+    ).textContent =
+        rapid.best || 0;
+
+    const jogos = [
+        quiz.played,
+        who.completed,
+        verse.played,
+        memory.completed,
+        rapid.played
+    ].filter(Boolean).length;
+
+    document.getElementById(
+        "topGames"
+    ).textContent = jogos;
+
+    const percentual =
+        Math.min(
+            100,
+            Math.round(
+                (jogos / 5) * 100
+            )
+        );
+
+    document.getElementById(
+        "progressBar"
+    ).style.width =
+        percentual + "%";
+
+    document.getElementById(
+        "progressNumber"
+    ).textContent =
+        percentual + "%";
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+        jogos === 0
+            ? "Comece seu primeiro desafio!"
+            : `${jogos} de 5 tipos de jogos experimentados.`;
+}
+
+
+/* =====================================================
+   QUIZ
+===================================================== */
+
+function abrirQuiz() {
+
+    quizData = {
+        current: 0,
+        score: 0,
+        streak: 0,
+        answered: false
+    };
+
+    document
+        .getElementById("quizModal")
+        .classList.add("open");
+
+    renderQuiz();
+}
+
+
+function renderQuiz() {
+
+    if (
+        quizData.current >=
+        QUIZ.length
+    ) {
+        finalizarQuiz();
+        return;
+    }
+
+    const item =
+        QUIZ[quizData.current];
+
+    const html = `
+
+        <div class="quiz-top">
+
+            <span class="question-counter">
+                Pergunta ${quizData.current + 1}
+                de ${QUIZ.length}
+            </span>
+
+            <span class="streak">
+                🔥 Sequência: ${quizData.streak}
+            </span>
+
+        </div>
+
+        <div class="question">
+
+            <small>
+                Pergunta bíblica
+            </small>
+
+            <h3>
+                ${item.q}
+            </h3>
+
+        </div>
+
+        <div class="answers">
+
+            ${item.a.map((answer, index) => `
+
+                <button
+                    class="answer"
+                    onclick="responderQuiz(${index})"
+                >
+                    ${answer}
+                </button>
+
+            `).join("")}
+
+        </div>
+
+        <div
+            id="quizFeedback"
+            class="feedback"
+        ></div>
+    `;
+
+    document.getElementById(
+        "quizContent"
+    ).innerHTML = html;
+}
+
+
+function responderQuiz(index) {
+
+    if (quizData.answered) {
+        return;
+    }
+
+    quizData.answered = true;
+
+    const item =
+        QUIZ[quizData.current];
+
+    const botoes =
+        document.querySelectorAll(
+            "#quizContent .answer"
+        );
+
+    botoes.forEach(
+        (button, i) => {
+
+            button.disabled = true;
+
+            if (
+                i === item.correct
+            ) {
+                button.classList.add(
+                    "correct"
+                );
+            }
+
+            if (
+                i === index &&
+                i !== item.correct
+            ) {
+                button.classList.add(
+                    "wrong"
+                );
+            }
+        }
+    );
+
+    const feedback =
+        document.getElementById(
+            "quizFeedback"
+        );
+
+    if (
+        index === item.correct
+    ) {
+
+        quizData.score++;
+
+        quizData.streak++;
+
+        const bonus =
+            quizData.streak >= 3
+                ? 5
+                : 0;
+
+        const total = 10 + bonus;
+
+        ganharXP(total);
+
+        feedback.className =
+            "feedback show good";
+
+        feedback.innerHTML =
+            `🎉 Muito bem! ${item.explanation}
+             ${bonus ? `<br>🔥 Bônus de sequência: +${bonus} XP` : ""}`;
+
+    } else {
+
+        quizData.streak = 0;
+
+        feedback.className =
+            "feedback show bad";
+
+        feedback.innerHTML =
+            `💡 A resposta correta é
+             <strong>${item.a[item.correct]}</strong>.
+             ${item.explanation}`;
+    }
+
+    setTimeout(() => {
+
+        quizData.current++;
+
+        quizData.answered = false;
+
+        renderQuiz();
+
+    }, 1500);
+}
+
+
+function finalizarQuiz() {
+
+    const old =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.quiz
+            ) || "{}"
+        );
+
+    const score =
+        quizData.score;
+
+    const best =
+        Math.max(
+            score,
+            old.best || 0
+        );
+
+    localStorage.setItem(
+        STORAGE.quiz,
+        JSON.stringify({
+            played: true,
+            best,
+            last: score
+        })
+    );
+
+    atualizarInterface();
+
+    document.getElementById(
+        "quizContent"
+    ).innerHTML = `
+
+        <div class="result">
+
+            <div class="result-icon">
+                🏆
+            </div>
+
+            <h2>
+                Quiz concluído!
+            </h2>
+
+            <p>
+                Você acertou
+                <strong>${score}</strong>
+                de
+                <strong>${QUIZ.length}</strong>
+                perguntas.
+            </p>
+
+            <div class="result-xp">
+                ⭐ ${score * 10} XP conquistados
+            </div>
+
+            <br>
+
+            <button
+                class="result-button"
+                onclick="abrirQuiz()"
+            >
+                JOGAR NOVAMENTE
+            </button>
+
+        </div>
+    `;
+
+    ganharXP(5);
+
+    atualizarConquistas();
+}
+
+
+/* =====================================================
+   QUEM SOU EU
+===================================================== */
+
+function abrirQuemSou() {
+
+    whoData = {
+        current: 0,
+        clue: 0,
+        score: 0
+    };
+
+    document
+        .getElementById("whoModal")
+        .classList.add("open");
+
+    renderWho();
+}
+
+
+function renderWho() {
+
+    if (
+        whoData.current >=
+        WHO.length
+    ) {
+        finalizarWho();
+        return;
+    }
+
+    const item =
+        WHO[whoData.current];
+
+    const clue =
+        item.clues[
+            Math.min(
+                whoData.clue,
+                item.clues.length - 1
+            )
+        ];
+
+    const xpPotential =
+        whoData.clue === 0
+            ? 20
+            : whoData.clue === 1
+                ? 15
+                : 10;
+
+    document.getElementById(
+        "whoContent"
+    ).innerHTML = `
+
+        <div class="character-guess">
+
+            <div class="clue-number">
+                PERSONAGEM ${whoData.current + 1}
+                DE ${WHO.length}
+            </div>
+
+            <div class="clue-box">
+                💭 ${clue}
+            </div>
+
+            <div class="clue-actions">
+
+                ${
+                    whoData.clue < 2
+                    ? `
+                        <button
+                            class="secondary-button"
+                            onclick="proximaPista()"
+                        >
+                            🔎 Outra pista
+                        </button>
+                    `
+                    : ""
+                }
+
+                <span
+                    class="secondary-button"
+                    style="pointer-events:none;"
+                >
+                    ⭐ Até ${xpPotential} XP
+                </span>
+
+            </div>
+
+            <div class="guess-grid">
+
+                ${WHO.map(
+                    character => `
+                        <button
+                            class="guess"
+                            onclick="responderWho('${character.name}')"
+                        >
+                            ${character.name}
+                        </button>
+                    `
+                ).join("")}
+
+            </div>
+
+        </div>
+    `;
+}
+
+
+function proximaPista() {
+
+    if (whoData.clue < 2) {
+
+        whoData.clue++;
+
+        renderWho();
+    }
+}
+
+
+function responderWho(nome) {
+
+    const item =
+        WHO[whoData.current];
+
+    if (nome === item.name) {
+
+        const earned =
+            whoData.clue === 0
+                ? 20
+                : whoData.clue === 1
+                    ? 15
+                    : 10;
+
+        whoData.score++;
+
+        ganharXP(earned);
+
+        mostrarToast(
+            `🎉 Você descobriu ${item.name}! +${earned} XP`
+        );
+
+    } else {
+
+        mostrarToast(
+            `💡 Ainda não! Tente outra resposta.`
+        );
+
+        return;
+    }
+
+    whoData.current++;
+    whoData.clue = 0;
+
+    setTimeout(
+        renderWho,
+        600
+    );
+}
+
+
+function finalizarWho() {
+
+    const old =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.who
+            ) || "{}"
+        );
+
+    const completed =
+        (old.completed || 0) +
+        whoData.score;
+
+    localStorage.setItem(
+        STORAGE.who,
+        JSON.stringify({
+            completed
+        })
+    );
+
+    atualizarInterface();
+
+    document.getElementById(
+        "whoContent"
+    ).innerHTML = `
+
+        <div class="result">
+
+            <div class="result-icon">
+                🕵️
+            </div>
+
+            <h2>
+                Detetive da Bíblia!
+            </h2>
+
+            <p>
+                Você descobriu
+                <strong>${whoData.score}</strong>
+                personagens.
+            </p>
+
+            <div class="result-xp">
+                ⭐ Você ganhou XP pelas descobertas!
+            </div>
+
+            <br>
+
+            <button
+                class="result-button"
+                onclick="abrirQuemSou()"
+            >
+                JOGAR NOVAMENTE
+            </button>
+
+        </div>
+    `;
+
+    atualizarConquistas();
+}
+
+
+/* =====================================================
+   VERSÍCULOS
+===================================================== */
+
+function abrirVersiculos() {
+
+    verseData = {
+        current: 0,
+        score: 0,
+        answered: false
+    };
+
+    document
+        .getElementById("verseModal")
+        .classList.add("open");
+
+    renderVerse();
+}
+
+
+function renderVerse() {
+
+    if (
+        verseData.current >=
+        VERSES.length
+    ) {
+        finalizarVerses();
+        return;
+    }
+
+    const item =
+        VERSES[verseData.current];
+
+    document.getElementById(
+        "verseContent"
+    ).innerHTML = `
+
+        <div class="quiz-top">
+
+            <span class="question-counter">
+                Desafio ${verseData.current + 1}
+                de ${VERSES.length}
+            </span>
+
+            <span class="streak">
+                ⭐ ${verseData.score} acertos
+            </span>
+
+        </div>
+
+        <div style="text-align:center;">
+
+            <span class="verse-reference">
+                ${item.reference}
+            </span>
+
+            <div class="verse-text">
+                ${item.text}
+            </div>
+
+        </div>
+
+        <div class="verse-answers">
+
+            ${item.options.map(
+                (option,index) => `
+
+                    <button
+                        class="answer"
+                        onclick="responderVerse(${index})"
+                    >
+                        ${option}
+                    </button>
+
+                `
+            ).join("")}
+
+        </div>
+
+        <div
+            id="verseFeedback"
+            class="feedback"
+        ></div>
+    `;
+}
+
+
+function responderVerse(index) {
+
+    if (verseData.answered) {
+        return;
+    }
+
+    verseData.answered = true;
+
+    const item =
+        VERSES[verseData.current];
+
+    const buttons =
+        document.querySelectorAll(
+            "#verseContent .answer"
+        );
+
+    buttons.forEach(
+        (button, i) => {
+
+            button.disabled = true;
+
+            if (
+                i === item.correct
+            ) {
+                button.classList.add(
+                    "correct"
+                );
+            }
+
+            if (
+                i === index &&
+                i !== item.correct
+            ) {
+                button.classList.add(
+                    "wrong"
+                );
+            }
+        }
+    );
+
+    const feedback =
+        document.getElementById(
+            "verseFeedback"
+        );
+
+    if (
+        index === item.correct
+    ) {
+
+        verseData.score++;
+
+        ganharXP(8);
+
+        feedback.className =
+            "feedback show good";
+
+        feedback.textContent =
+            "🎉 Muito bem! Você completou o versículo.";
+
+    } else {
+
+        feedback.className =
+            "feedback show bad";
+
+        feedback.innerHTML =
+            `💡 A palavra correta é
+             <strong>${item.options[item.correct]}</strong>.`;
+    }
+
+    setTimeout(() => {
+
+        verseData.current++;
+
+        verseData.answered = false;
+
+        renderVerse();
+
+    }, 1300);
+}
+
+
+function finalizarVerses() {
+
+    const old =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.verse
+            ) || "{}"
+        );
+
+    const correct =
+        (old.correct || 0) +
+        verseData.score;
+
+    localStorage.setItem(
+        STORAGE.verse,
+        JSON.stringify({
+            played: true,
+            correct
+        })
+    );
+
+    atualizarInterface();
+
+    document.getElementById(
+        "verseContent"
+    ).innerHTML = `
+
+        <div class="result">
+
+            <div class="result-icon">
+                📖
+            </div>
+
+            <h2>
+                Muito bem!
+            </h2>
+
+            <p>
+                Você acertou
+                <strong>${verseData.score}</strong>
+                de
+                <strong>${VERSES.length}</strong>.
+            </p>
+
+            <div class="result-xp">
+                ⭐ Continue aprendendo a Palavra!
+            </div>
+
+            <br>
+
+            <button
+                class="result-button"
+                onclick="abrirVersiculos()"
+            >
+                JOGAR NOVAMENTE
+            </button>
+
+        </div>
+    `;
+
+    atualizarConquistas();
+}
+
+
+/* =====================================================
+   MEMÓRIA
+===================================================== */
+
+const MEMORY_ITEMS = [
+
+    "🦁",
+    "🐟",
+    "🌈",
+    "🛶",
+    "⭐",
+    "❤️",
+    "🙏",
+    "🕊️"
+];
+
+
+function abrirMemoria() {
+
+    document
+        .getElementById("memoryModal")
+        .classList.add("open");
+
+    iniciarMemoria();
+}
+
+
+function iniciarMemoria() {
+
+    memoryFirst = null;
+    memorySecond = null;
+    memoryLock = false;
+    memoryMoves = 0;
+
+    const pares = [
+        ...MEMORY_ITEMS,
+        ...MEMORY_ITEMS
+    ];
+
+    memoryCards =
+        pares
+            .map(
+                value => ({
+                    value,
+                    id:
+                        Math.random()
+                        .toString(36)
+                        .slice(2)
+                })
+            )
+            .sort(
+                () =>
+                    Math.random() - .5
+            );
+
+    renderMemoria();
+}
+
+
+function renderMemoria() {
+
+    document.getElementById(
+        "memoryContent"
+    ).innerHTML = `
+
+        <div class="memory-info">
+
+            <span>
+                Movimentos:
+                ${memoryMoves}
+            </span>
+
+            <span>
+                Encontre ${MEMORY_ITEMS.length} pares
+            </span>
+
+        </div>
+
+        <div class="memory-grid">
+
+            ${memoryCards.map(
+                (card,index) => `
+
+                    <button
+                        class="memory-card"
+                        id="memory-${index}"
+                        onclick="virarMemoria(${index})"
+                    >
+                        <span class="back">
+                            ✦
+                        </span>
+
+                        <span class="front">
+                            ${card.value}
+                        </span>
+                    </button>
+
+                `
+            ).join("")}
+
+        </div>
+    `;
+}
+
+
+function virarMemoria(index) {
+
+    if (memoryLock) {
+        return;
+    }
+
+    const element =
+        document.getElementById(
+            `memory-${index}`
+        );
+
+    if (
+        !element ||
+        element.classList.contains("flipped") ||
+        element.classList.contains("matched")
+    ) {
+        return;
+    }
+
+    element.classList.add(
+        "flipped"
+    );
+
+    if (memoryFirst === null) {
+
+        memoryFirst = index;
+
+        return;
+    }
+
+    memorySecond = index;
+
+    memoryMoves++;
+
+    memoryLock = true;
+
+    const first =
+        memoryCards[memoryFirst];
+
+    const second =
+        memoryCards[memorySecond];
+
+    if (
+        first.value === second.value
+    ) {
+
+        setTimeout(() => {
+
+            document
+                .getElementById(
+                    `memory-${memoryFirst}`
+                )
+                .classList.add(
+                    "matched"
+                );
+
+            document
+                .getElementById(
+                    `memory-${memorySecond}`
+                )
+                .classList.add(
+                    "matched"
+                );
+
+            memoryFirst = null;
+            memorySecond = null;
+            memoryLock = false;
+
+            verificarMemoria();
+
+        }, 400);
+
+    } else {
+
+        setTimeout(() => {
+
+            document
+                .getElementById(
+                    `memory-${memoryFirst}`
+                )
+                .classList.remove(
+                    "flipped"
+                );
+
+            document
+                .getElementById(
+                    `memory-${memorySecond}`
+                )
+                .classList.remove(
+                    "flipped"
+                );
+
+            memoryFirst = null;
+            memorySecond = null;
+            memoryLock = false;
+
+        }, 750);
+    }
+
+    atualizarMemoriaInfo();
+}
+
+
+function atualizarMemoriaInfo() {
+
+    const info =
+        document.querySelector(
+            "#memoryContent .memory-info span"
+        );
+
+    if (info) {
+        info.textContent =
+            `Movimentos: ${memoryMoves}`;
+    }
+}
+
+
+function verificarMemoria() {
+
+    const encontrados =
+        document.querySelectorAll(
+            "#memoryContent .matched"
+        ).length;
+
+    if (
+        encontrados <
+        MEMORY_ITEMS.length * 2
+    ) {
+        ganharXP(2);
+        return;
+    }
+
+    const old =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.memory
+            ) || "{}"
+        );
+
+    const oldBest =
+        old.bestMoves || Infinity;
+
+    const bestMoves =
+        Math.min(
+            memoryMoves,
+            oldBest
+        );
+
+    localStorage.setItem(
+        STORAGE.memory,
+        JSON.stringify({
+            completed: true,
+            bestMoves
+        })
+    );
+
+    setTimeout(() => {
+
+        document.getElementById(
+            "memoryContent"
+        ).innerHTML = `
+
+            <div class="result">
+
+                <div class="result-icon">
+                    🧩
+                </div>
+
+                <h2>
+                    Memória completa!
+                </h2>
+
+                <p>
+                    Você encontrou todos os pares
+                    em <strong>${memoryMoves}</strong>
+                    movimentos.
+                </p>
+
+                <div class="result-xp">
+                    ⭐ +30 XP
+                </div>
+
+                <br>
+
+                <button
+                    class="result-button"
+                    onclick="abrirMemoria()"
+                >
+                    JOGAR NOVAMENTE
+                </button>
+
+            </div>
+        `;
+
+        ganharXP(30);
+
+        atualizarInterface();
+
+        atualizarConquistas();
+
+    }, 500);
+}
+
+
+/* =====================================================
+   DESAFIO RÁPIDO
+===================================================== */
+
+function abrirRapido() {
+
+    document
+        .getElementById("rapidModal")
+        .classList.add("open");
+
+    rapidRunning = false;
+    rapidTime = 30;
+    rapidScore = 0;
+
+    renderRapidStart();
+}
+
+
+function renderRapidStart() {
+
+    document.getElementById(
+        "rapidContent"
+    ).innerHTML = `
+
+        <div class="result">
+
+            <div class="result-icon">
+                ⚡
+            </div>
+
+            <h2>
+                Preparado?
+            </h2>
+
+            <p>
+                Você terá 30 segundos para
+                responder o máximo de perguntas.
+            </p>
+
+            <div class="result-xp">
+                🎯 Cada acerto vale 1 ponto
+            </div>
+
+            <br>
+
+            <button
+                class="start-rapid"
+                onclick="iniciarRapido()"
+            >
+                COMEÇAR DESAFIO
+            </button>
+
+        </div>
+    `;
+}
+
+
+function iniciarRapido() {
+
+    rapidRunning = true;
+    rapidTime = 30;
+    rapidScore = 0;
+
+    renderRapidQuestion();
+
+    rapidTimer =
+        setInterval(() => {
+
+            rapidTime--;
+
+            const timer =
+                document.getElementById(
+                    "rapidTimer"
+                );
+
+            if (timer) {
+
+                timer.textContent =
+                    rapidTime;
+
+                if (
+                    rapidTime <= 10
+                ) {
+                    timer.classList.add(
+                        "warning"
+                    );
+                }
+            }
+
+            if (
+                rapidTime <= 0
+            ) {
+                finalizarRapido();
+            }
+
+        }, 1000);
+}
+
+
+function perguntaRapidaAleatoria() {
+
+    return RAPID[
+        Math.floor(
+            Math.random() *
+            RAPID.length
+        )
+    ];
+}
+
+
+let rapidCurrent = null;
+
+
+function renderRapidQuestion() {
+
+    if (!rapidRunning) {
+        return;
+    }
+
+    rapidCurrent =
+        perguntaRapidaAleatoria();
+
+    document.getElementById(
+        "rapidContent"
+    ).innerHTML = `
+
+        <div class="rapid-score">
+
+            <div
+                class="timer"
+                id="rapidTimer"
+            >
+                ${rapidTime}
+            </div>
+
+            <div class="rapid-points">
+                ⚡ ${rapidScore} acertos
+            </div>
+
+        </div>
+
+        <div class="rapid-question">
+            ${rapidCurrent.q}
+        </div>
+
+        <div class="answers">
+
+            ${rapidCurrent.a.map(
+                (answer,index) => `
+
+                    <button
+                        class="answer"
+                        onclick="responderRapido(${index})"
+                    >
+                        ${answer}
+                    </button>
+
+                `
+            ).join("")}
+
+        </div>
+    `;
+}
+
+
+function responderRapido(index) {
+
+    if (!rapidRunning) {
+        return;
+    }
+
+    if (
+        index === rapidCurrent.c
+    ) {
+
+        rapidScore++;
+
+        ganharXP(2);
+
+        mostrarToast(
+            "⚡ Acertou!"
+        );
+
+    } else {
+
+        mostrarToast(
+            "💡 Quase!"
+        );
+    }
+
+    renderRapidQuestion();
+}
+
+
+function finalizarRapido() {
+
+    if (!rapidRunning) {
+        return;
+    }
+
+    rapidRunning = false;
+
+    clearInterval(
+        rapidTimer
+    );
+
+    const old =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.rapid
+            ) || "{}"
+        );
+
+    const best =
+        Math.max(
+            rapidScore,
+            old.best || 0
+        );
+
+    localStorage.setItem(
+        STORAGE.rapid,
+        JSON.stringify({
+            played: true,
+            best,
+            last: rapidScore
+        })
+    );
+
+    ganharXP(
+        rapidScore >= 5
+            ? 10
+            : 3
+    );
+
+    atualizarInterface();
+
+    document.getElementById(
+        "rapidContent"
+    ).innerHTML = `
+
+        <div class="result">
+
+            <div class="result-icon">
+                ${
+                    rapidScore >= 5
+                        ? "🏆"
+                        : "⚡"
+                }
+            </div>
+
+            <h2>
+                Tempo!
+            </h2>
+
+            <p>
+                Você fez
+                <strong>${rapidScore}</strong>
+                ponto${rapidScore === 1 ? "" : "s"}.
+            </p>
+
+            <div class="result-xp">
+                ⭐ ${
+                    rapidScore >= 5
+                        ? "+10 XP de bônus!"
+                        : "+3 XP"
+                }
+            </div>
+
+            <br>
+
+            <button
+                class="result-button"
+                onclick="abrirRapido()"
+            >
+                TENTAR NOVAMENTE
+            </button>
+
+        </div>
+    `;
+
+    atualizarConquistas();
+}
+
+
+function fecharRapido() {
+
+    rapidRunning = false;
+
+    clearInterval(
+        rapidTimer
+    );
+
+    fecharModal(
+        "rapidModal"
+    );
+}
+
+
+/* =====================================================
+   CONQUISTAS
+===================================================== */
+
+function marcarConquista(id) {
+
+    const elemento =
+        document.getElementById(id);
+
+    if (elemento) {
+        elemento.classList.add(
+            "unlocked"
+        );
+    }
+}
+
+
+function atualizarConquistas() {
+
+    const quiz =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.quiz
+            ) || "{}"
+        );
+
+    const who =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.who
+            ) || "{}"
+        );
+
+    const verse =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.verse
+            ) || "{}"
+        );
+
+    const memory =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.memory
+            ) || "{}"
+        );
+
+    const rapid =
+        JSON.parse(
+            localStorage.getItem(
+                STORAGE.rapid
+            ) || "{}"
+        );
+
+    const totalAcertos =
+        (quiz.best || 0) +
+        (verse.correct || 0) +
+        (rapid.best || 0);
+
+    if (
+        quiz.played ||
+        who.completed ||
+        verse.played ||
+        memory.completed ||
+        rapid.played
+    ) {
+        marcarConquista(
+            "ach-first"
+        );
+    }
+
+    if (
+        totalAcertos >= 5
+    ) {
+        marcarConquista(
+            "ach-five"
+        );
+    }
+
+    if (
+        quiz.best >= QUIZ.length
+    ) {
+        marcarConquista(
+            "ach-quiz"
+        );
+    }
+
+    if (
+        who.completed >= 5
+    ) {
+        marcarConquista(
+            "ach-detective"
+        );
+    }
+
+    if (
+        memory.completed
+    ) {
+        marcarConquista(
+            "ach-memory"
+        );
+    }
+
+    if (
+        rapid.best >= 5
+    ) {
+        marcarConquista(
+            "ach-rapid"
+        );
+    }
+
+    const jogos = [
+        quiz.played,
+        who.completed,
+        verse.played,
+        memory.completed,
+        rapid.played
+    ].filter(Boolean).length;
+
+    if (
+        jogos >= 5
+    ) {
+        marcarConquista(
+            "ach-games"
+        );
+    }
+
+    if (
+        xp >= 100
+    ) {
+        marcarConquista(
+            "ach-xp"
+        );
+    }
+}
+
+
+/* =====================================================
+   PROGRESSO GLOBAL
+===================================================== */
+
+function sincronizarProgressoGlobal() {
+
+    try {
+
+        if (
+            window.PequenosProgresso &&
+            typeof window.PequenosProgresso.adicionarPontos ===
+            "function"
+        ) {
+
+            /*
+             * O sistema global pode receber
+             * os pontos conquistados pelos jogos.
+             *
+             * A página continua funcionando
+             * normalmente mesmo se esse script
+             * não estiver carregado.
+             */
+
+        }
+
+    } catch (erro) {
+
+        console.warn(
+            "Progresso global indisponível:",
+            erro
+        );
+    }
+}
+
+
+/* =====================================================
+   TECLADO / MODAL
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    evento => {
+
+        if (
+            evento.key === "Escape"
+        ) {
+
+            document
+                .querySelectorAll(".modal.open")
+                .forEach(
+                    modal =>
+                        modal.classList.remove(
+                            "open"
+                        )
+                );
+
+            fecharRapido();
+        }
+    }
+);
+
+
+document
+    .querySelectorAll(".modal")
+    .forEach(modal => {
+
+        modal.addEventListener(
+            "click",
+            evento => {
+
+                if (
+                    evento.target === modal &&
+                    modal.id !== "rapidModal"
+                ) {
+                    modal.classList.remove(
+                        "open"
+                    );
+                }
+            }
+        );
+
+    });
+
+
+/* =====================================================
+   INICIALIZAÇÃO
+===================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        atualizarInterface();
+
+        atualizarConquistas();
+
+    }
+);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1277 @@
+/* =========================================================
+   PEQUENOS NA FÉ
+   INTERFACE PRINCIPAL
+   CRIAÇÃO DE PERSONAGEM
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: #302D46;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   FUNDO
+   ========================================================= */
+
+.onboarding-page {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255, 226, 135, 0.24),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 30%,
+            rgba(181, 224, 255, 0.34),
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #FFFDF8 0%,
+            #F7FAFF 48%,
+            #F8F5FF 100%
+        );
+
+}
+
+
+/* =========================================================
+   DECORAÇÕES
+   ========================================================= */
+
+.background-decoration {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+.cloud {
+    position: absolute;
+
+    color: white;
+
+    font-size: 75px;
+
+    opacity: 0.7;
+
+    filter: blur(0.2px);
+}
+
+.cloud-1 {
+    left: -10px;
+    top: 120px;
+
+    transform: rotate(-5deg);
+}
+
+.cloud-2 {
+    right: 20px;
+    bottom: 90px;
+
+    font-size: 90px;
+
+    opacity: 0.5;
+}
+
+.star {
+    position: absolute;
+
+    color: #F3C95B;
+
+    font-size: 24px;
+
+    animation: starFloat 4s ease-in-out infinite;
+}
+
+.star-1 {
+    left: 7%;
+    top: 30%;
+
+    animation-delay: 0.5s;
+}
+
+.star-2 {
+    right: 8%;
+    top: 18%;
+
+    font-size: 18px;
+
+    animation-delay: 1.5s;
+}
+
+.star-3 {
+    right: 15%;
+    bottom: 20%;
+
+    font-size: 27px;
+
+    animation-delay: 2s;
+}
+
+.blob {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(1px);
+
+    opacity: 0.45;
+}
+
+.blob-1 {
+    width: 300px;
+    height: 300px;
+
+    left: -150px;
+    bottom: -120px;
+
+    background: #DFF5FF;
+}
+
+.blob-2 {
+    width: 250px;
+    height: 250px;
+
+    right: -120px;
+    top: -100px;
+
+    background: #EEE4FF;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.top-header {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: min(
+        1240px,
+        calc(100% - 48px)
+    );
+
+    margin: 0 auto;
+
+    padding: 26px 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    text-decoration: none;
+
+    color: inherit;
+}
+
+.brand-icon {
+
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFE48B,
+            #FFD15C
+        );
+
+    color: #72551A;
+
+    font-size: 23px;
+
+    box-shadow:
+        0 8px 20px rgba(220, 176, 55, 0.18);
+}
+
+.brand-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1px;
+}
+
+.brand-text strong {
+
+    font-size: 15px;
+
+    letter-spacing: 0.5px;
+
+    color: #3B3653;
+}
+
+.brand-text span {
+
+    font-size: 11px;
+
+    color: #8B879B;
+}
+
+
+/* =========================================================
+   PROGRESSO DO TOPO
+   ========================================================= */
+
+.top-progress {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.top-progress span {
+
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #DCD9E7;
+
+    transition: all 0.25s ease;
+}
+
+.top-progress .progress-active {
+
+    width: 30px;
+
+    border-radius: 20px;
+
+    background: #7568D9;
+}
+
+
+/* =========================================================
+   PÁGINA
+   ========================================================= */
+
+.creator-page {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: min(
+        1180px,
+        calc(100% - 48px)
+    );
+
+    margin: 0 auto;
+
+    padding:
+        30px
+        0
+        60px;
+}
+
+
+/* =========================================================
+   TÍTULO
+   ========================================================= */
+
+.creator-heading {
+
+    text-align: center;
+
+    max-width: 650px;
+
+    margin:
+        0 auto
+        38px;
+}
+
+.heading-label {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    padding: 7px 13px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.75);
+
+    border: 1px solid rgba(120,110,180,0.10);
+
+    color: #7568D9;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    margin-bottom: 12px;
+
+    box-shadow:
+        0 5px 20px rgba(50,40,100,0.05);
+}
+
+.creator-heading h1 {
+
+    font-size:
+        clamp(
+            32px,
+            4vw,
+            48px
+        );
+
+    line-height: 1.05;
+
+    letter-spacing: -1.8px;
+
+    color: #302C47;
+
+    margin-bottom: 12px;
+}
+
+.creator-heading p {
+
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    color: #858197;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.creator-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(420px, 1fr)
+        minmax(430px, 500px);
+
+    gap: 48px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   ÁREA DO PERSONAGEM
+   ========================================================= */
+
+.character-stage {
+
+    position: relative;
+
+    min-height: 650px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 30px;
+
+    border-radius: 38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.84),
+            rgba(246,250,255,0.74)
+        );
+
+    border:
+        1px solid rgba(255,255,255,0.9);
+
+    box-shadow:
+        0 30px 80px rgba(67,57,120,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+
+    overflow: hidden;
+}
+
+.stage-glow {
+
+    position: absolute;
+
+    width: 360px;
+    height: 360px;
+
+    left: 50%;
+    top: 52%;
+
+    transform: translate(
+        -50%,
+        -50%
+    );
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,224,132,0.34),
+            rgba(190,224,255,0.14),
+            transparent 70%
+        );
+
+    filter: blur(10px);
+}
+
+.stage-title {
+
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    margin-bottom: -5px;
+}
+
+.stage-title span {
+
+    font-size: 12px;
+
+    color: #9A96AA;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+}
+
+.stage-title strong {
+
+    font-size: 19px;
+
+    color: #514B70;
+}
+
+.stage-cloud {
+
+    position: absolute;
+
+    color: white;
+
+    font-size: 65px;
+
+    opacity: 0.8;
+
+    z-index: 1;
+}
+
+.cloud-stage-1 {
+
+    left: 25px;
+    top: 95px;
+}
+
+.cloud-stage-2 {
+
+    right: 10px;
+    top: 165px;
+
+    font-size: 55px;
+}
+
+.stage-message {
+
+    position: relative;
+
+    z-index: 6;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    margin-top: -5px;
+
+    padding: 12px 17px;
+
+    background: rgba(255,255,255,0.82);
+
+    border:
+        1px solid rgba(120,110,180,0.08);
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 10px 25px rgba(40,30,80,0.06);
+}
+
+.message-icon {
+
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #FFF4C9;
+
+    border-radius: 11px;
+
+    font-size: 17px;
+}
+
+.stage-message div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.stage-message strong {
+
+    font-size: 12px;
+
+    color: #514B70;
+}
+
+.stage-message small {
+
+    font-size: 10px;
+
+    color: #9994A8;
+}
+
+
+/* =========================================================
+   PAINEL
+   ========================================================= */
+
+.customization-panel {
+
+    padding: 27px;
+
+    border-radius: 30px;
+
+    background: rgba(255,255,255,0.88);
+
+    border:
+        1px solid rgba(255,255,255,0.95);
+
+    box-shadow:
+        0 25px 70px rgba(62,50,110,0.10);
+
+    backdrop-filter: blur(15px);
+}
+
+
+/* =========================================================
+   ETAPAS
+   ========================================================= */
+
+.custom-step {
+
+    padding-bottom: 22px;
+
+    margin-bottom: 21px;
+
+    border-bottom:
+        1px solid #F0EEF5;
+}
+
+.custom-step:last-of-type {
+
+    border-bottom: none;
+
+    margin-bottom: 0;
+
+    padding-bottom: 18px;
+}
+
+.step-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 15px;
+}
+
+.step-number {
+
+    width: 34px;
+    height: 34px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background: #F0EDFF;
+
+    color: #7164D4;
+
+    font-size: 13px;
+
+    font-weight: 900;
+}
+
+.step-header div:last-child {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.step-header strong {
+
+    font-size: 13px;
+
+    color: #423D5B;
+}
+
+.step-header span {
+
+    font-size: 10px;
+
+    color: #9B97A8;
+}
+
+
+/* =========================================================
+   MENINO / MENINA
+   ========================================================= */
+
+.gender-options {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+}
+
+.gender-card {
+
+    position: relative;
+
+    min-height: 76px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding: 10px;
+
+    border: 2px solid #F0EEF5;
+
+    border-radius: 17px;
+
+    background: #FCFBFE;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    color: inherit;
+
+    transition:
+        0.2s ease;
+}
+
+.gender-card:hover {
+
+    transform: translateY(-2px);
+
+    border-color: #DDD8F6;
+
+    background: #FFFFFF;
+}
+
+.gender-card.selected {
+
+    border-color: #8275E2;
+
+    background: #F8F6FF;
+
+    box-shadow:
+        0 7px 20px rgba(110,95,210,0.10);
+}
+
+.gender-icon {
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    font-size: 28px;
+
+    flex-shrink: 0;
+}
+
+.gender-icon.boy {
+
+    background: #E7F5FF;
+}
+
+.gender-icon.girl {
+
+    background: #F9E9FF;
+}
+
+.gender-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 3px;
+}
+
+.gender-info strong {
+
+    color: #403B57;
+
+    font-size: 12px;
+}
+
+.gender-info span {
+
+    color: #9B97A8;
+
+    font-size: 9px;
+}
+
+.selection-mark {
+
+    position: absolute;
+
+    right: 8px;
+    top: 8px;
+
+    width: 19px;
+    height: 19px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #8275E2;
+
+    color: white;
+
+    font-size: 10px;
+
+    transform: scale(0);
+
+    transition:
+        transform 0.2s ease;
+}
+
+.gender-card.selected .selection-mark {
+
+    transform: scale(1);
+}
+
+
+/* =========================================================
+   CORES
+   ========================================================= */
+
+.color-options {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.color-choice {
+
+    position: relative;
+
+    width: 39px;
+    height: 39px;
+
+    padding: 0;
+
+    border: 3px solid white;
+
+    border-radius: 50%;
+
+    background: var(--choice-color);
+
+    box-shadow:
+        0 4px 12px rgba(40,30,60,0.10);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.color-choice:hover {
+
+    transform: scale(1.08);
+}
+
+.color-choice.selected {
+
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 0 3px white,
+        0 0 0 5px #8275E2;
+}
+
+
+/* =========================================================
+   CABELO
+   ========================================================= */
+
+.hair-options {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.hair-choice {
+
+    width: 39px;
+    height: 39px;
+
+    padding: 4px;
+
+    border: 3px solid white;
+
+    border-radius: 50%;
+
+    background: white;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 4px 12px rgba(40,30,60,0.10);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.hair-choice span {
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    background: var(--hair-color);
+}
+
+.hair-choice:hover {
+
+    transform: scale(1.08);
+}
+
+.hair-choice.selected {
+
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 0 3px white,
+        0 0 0 5px #8275E2;
+}
+
+
+/* =========================================================
+   BOTÃO
+   ========================================================= */
+
+.continue-area {
+
+    padding-top: 4px;
+
+    text-align: center;
+}
+
+.primary-button {
+
+    width: 100%;
+
+    min-height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 15px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #8174E4,
+            #6D60CF
+        );
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 12px 25px rgba(111,96,207,0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.primary-button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 16px 30px rgba(111,96,207,0.32);
+}
+
+.primary-button:active {
+
+    transform: translateY(0);
+
+}
+
+.button-arrow {
+
+    width: 29px;
+    height: 29px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.17);
+
+    font-size: 18px;
+}
+
+.continue-area small {
+
+    display: block;
+
+    margin-top: 10px;
+
+    color: #A4A0AF;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
+
+@keyframes starFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0.55;
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px)
+            rotate(12deg);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 950px) {
+
+    .creator-layout {
+
+        grid-template-columns: 1fr;
+
+        max-width: 650px;
+
+        margin: 0 auto;
+
+    }
+
+    .character-stage {
+
+        min-height: 570px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .top-header {
+
+        width: calc(100% - 30px);
+
+        padding:
+            18px
+            0;
+    }
+
+    .brand-icon {
+
+        width: 39px;
+        height: 39px;
+
+    }
+
+    .brand-text strong {
+
+        font-size: 12px;
+
+    }
+
+    .brand-text span {
+
+        font-size: 9px;
+
+    }
+
+    .creator-page {
+
+        width: calc(100% - 26px);
+
+        padding-top: 15px;
+
+    }
+
+    .creator-heading {
+
+        margin-bottom: 25px;
+
+    }
+
+    .creator-heading h1 {
+
+        font-size: 31px;
+
+    }
+
+    .creator-heading p {
+
+        font-size: 13px;
+
+    }
+
+    .character-stage {
+
+        min-height: 500px;
+
+        padding: 10px;
+
+        border-radius: 28px;
+
+    }
+
+    .customization-panel {
+
+        padding: 20px;
+
+        border-radius: 24px;
+
+    }
+
+    .gender-options {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .gender-card {
+
+        min-height: 67px;
+
+    }
+
+    .top-progress {
+
+        gap: 5px;
+
+    }
+
+    .top-progress span {
+
+        width: 7px;
+        height: 7px;
+
+    }
+
+    .top-progress .progress-active {
+
+        width: 22px;
+
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR PEQUENO
+   ========================================================= */
+
+@media (max-width: 400px) {
+
+    .creator-heading h1 {
+
+        font-size: 28px;
+
+    }
+
+    .character-stage {
+
+        min-height: 470px;
+
+    }
+
+    .stage-message {
+
+        max-width: 90%;
+
+    }
+
+    .stage-message small {
+
+        display: none;
+
+    }
+
+}
